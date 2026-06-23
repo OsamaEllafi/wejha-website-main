@@ -1,0 +1,236 @@
+.footer-container {
+  margin: 40px auto 20px;
+  padding: 40px 40px 20px;
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: start;
+}
+
+.footer-logo-img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+}
+
+[data-theme="dark"] .footer-logo-img {
+  content: url('/assets/images/logo png/wejha_logo_cropped_dark_mode.png');
+}
+
+.footer-bio-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.footer-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  position: relative;
+  padding-bottom: 8px;
+  margin: 0;
+  font-family: var(--font-arabic-headers);
+}
+
+[data-theme="dark"] .footer-title {
+  color: var(--text-primary);
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+  height: 3px;
+  background: var(--color-orange);
+  border-radius: 2px;
+}
+
+[dir="rtl"] .footer-title::after {
+  left: auto;
+  right: 0;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.footer-link span {
+  font-family: var(--font-arabic-headers);
+}
+
+.link-arrow {
+  opacity: 0;
+  transform: scale(0.8) translate(-2px, 2px);
+  transition: var(--transition-smooth);
+  color: var(--color-orange);
+}
+
+[dir="rtl"] .link-arrow {
+  transform: scale(0.8) translate(2px, 2px) scaleX(-1);
+}
+
+.footer-link:hover {
+  color: var(--color-orange);
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .footer-link:hover {
+  transform: translateX(-4px);
+}
+
+.footer-link:hover .link-arrow {
+  opacity: 1;
+  transform: scale(1) translate(0, 0);
+}
+
+[dir="rtl"] .footer-link:hover .link-arrow {
+  transform: scale(1) translate(0, 0) scaleX(-1);
+}
+
+.contact-sub {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.social-icons-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.social-icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: var(--transition-elastic);
+  text-decoration: none;
+}
+
+[data-theme="light"] .social-icon-btn {
+  background: rgba(0, 31, 143, 0.04);
+  border-color: rgba(0, 31, 143, 0.08);
+  color: var(--color-royal);
+}
+
+.social-icon-btn:hover {
+  color: #fff;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 73, 0, 0.2);
+}
+
+.social-icon-btn.facebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+}
+
+.social-icon-btn.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: #cc2366;
+}
+
+.social-icon-btn.twitter:hover {
+  background: #1da1f2;
+  border-color: #1da1f2;
+}
+
+.social-icon-btn.email:hover {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+.footer-bottom-divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin: 30px 0 20px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .footer-container {
+    padding: 30px 25px 20px;
+    margin-top: 30px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-title::after {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+
+  .footer-links-list {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-link:hover {
+    transform: none;
+  }
+  
+  [dir="rtl"] .footer-link:hover {
+    transform: none;
+  }
+}

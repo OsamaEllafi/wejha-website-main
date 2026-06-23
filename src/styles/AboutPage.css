@@ -1,0 +1,228 @@
+.about-page {
+  padding: 40px 20px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--color-navy);
+  margin-bottom: 10px;
+}
+
+[data-theme="dark"] .page-title {
+  color: var(--text-primary);
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-orange);
+  font-weight: 700;
+}
+
+/* About main story grid layout */
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.main-story-card, .objectives-details-card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 15px;
+}
+
+.story-icon {
+  color: var(--color-orange);
+}
+
+.story-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+[data-theme="dark"] .story-header h2 {
+  color: var(--text-primary);
+}
+
+.story-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.story-additional-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.info-badge {
+  background: rgba(0, 56, 158, 0.08);
+  border: 1px solid rgba(0, 56, 158, 0.15);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .info-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+/* Objectives List styling */
+.objectives-detailed-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.objectives-detailed-list li {
+  position: relative;
+  padding-inline-start: 20px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.objectives-detailed-list li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-orange);
+}
+
+[dir="rtl"] .objectives-detailed-list li::before {
+  left: auto;
+  right: 0;
+}
+
+.objectives-detailed-list li strong {
+  color: var(--color-royal);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .objectives-detailed-list li strong {
+  color: var(--color-orange);
+}
+
+/* Volunteers Section Styling */
+.volunteers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 60px;
+}
+
+.volunteers-intro-panel {
+  padding: 35px;
+  text-align: center;
+}
+
+.volunteers-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.volunteers-icon {
+  color: var(--color-orange);
+}
+
+.volunteers-header h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--color-navy);
+}
+
+[data-theme="dark"] .volunteers-header h2 {
+  color: var(--text-primary);
+}
+
+.volunteers-intro-panel p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.volunteers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.volunteer-badge-card {
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.volunteer-avatar-circle {
+  background: linear-gradient(135deg, var(--color-royal), var(--color-navy));
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 31, 143, 0.2);
+}
+
+.volunteer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.volunteer-info h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.archive-count {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+/* Responsive queries */
+@media (max-width: 900px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+  }
+}

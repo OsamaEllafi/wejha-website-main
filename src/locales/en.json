@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "stats": "2026 Metrics",
+    "quiz": "Majors Quiz",
+    "media": "Gallery & Media",
+    "tracks": "Training Tracks"
+  },
+  "hero": {
+    "title": "Wejha Project 2026",
+    "slogan": "Your good choice is the beginning of your journey",
+    "campaign": "Always have a destination",
+    "hashtag": "#Your_destination_starts_here",
+    "cta": "Discover Your Path",
+    "sponsor": "Under the auspices of the Libyan Red Crescent — Benghazi Branch"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Executive Summary of the Project",
+    "description": "Wejha Project 2026 is a strategic youth guidance and developmental project operating under the auspices of the Libyan Red Crescent — Benghazi Branch. Wejha aims to empower Libyan high school students to make informed academic and career choices, bridge the gap between secondary education and university life, and cultivate critical vocational and personal skills.",
+    "objectives_title": "Strategic Objectives",
+    "obj_academic_title": "Academic Guidance",
+    "obj_academic_desc": "Assisting high school students in identifying their career inclinations and choosing suitable university majors.",
+    "obj_capacity_title": "Capacity Building",
+    "obj_capacity_desc": "Organizing training workshops and developmental seminars based on real field data regarding demanded skills.",
+    "obj_data_title": "Data-Driven Decisions",
+    "obj_data_desc": "Utilizing field surveys to map the mindset, questions, and concerns of high school students.",
+    "obj_digital_title": "Digital Transformation",
+    "obj_digital_desc": "Building a comprehensive digital platform to manage events, register participants, track attendance, and provide interactive guidance."
+  },
+  "stats": {
+    "title": "2026 Student Survey",
+    "subtitle": "Key Analytical Field Indicators",
+    "intro": "During May 2026, the Wejha team conducted a comprehensive field survey targeting high school students in Benghazi. The data from 1,928 students across 27 schools was compiled and archived.",
+    "total_students": "Total Reached Students",
+    "schools": "Covered Schools",
+    "graduates": "3rd Year Students",
+    "english_learners": "Language Skills Demand",
+    "male": "Male Ratio",
+    "colleges_title": "Major Professional Sectors",
+    "colleges_scientific": "Scientific Track Preferences",
+    "colleges_literary": "Literary Track Preferences",
+    "demanded_skills": "Top Demanded Skills",
+    "hobbies": "Top Hobbies for Personal Development",
+    "active_schools": "Target Schools Breakdown & Operational Timeline"
+  },
+  "media": {
+    "title": "Gallery & Media",
+    "subtitle": "Personal Interviews & Project Seasons",
+    "videos_title": "Visual Personal Interviews",
+    "videos_desc": "Watch success stories and guidance from inspiring doctors, engineers, and academics.",
+    "seasons_title": "Wejha Seasons Archive",
+    "seasons_desc": "Visual showcase of previous seasons' activities and preparation for Season 4."
+  },
+  "tracks": {
+    "title": "Training & Capacity Building Tracks",
+    "subtitle": "Specialized Training Programs for High School Students in 2026",
+    "description": "Wejha project focuses on offering three integrated training tracks designed to empower students and develop their personal, academic, and technical skills to prepare them for post-secondary life and the future job market.",
+    "explore_btn": "Explore Track Details & Outcomes",
+    "soft_skills": "Soft Skills",
+    "academic": "Academic Guidance",
+    "digital": "Digital Literacy"
+  },
+  "footer": {
+    "description": "A strategic youth guidance and developmental project empowering Libyan high school students to make informed academic and career choices.",
+    "copyright": "All rights reserved to the Libyan Red Crescent Benghazi Branch © {{year}}.",
+    "quick_links": "Quick Links",
+    "contact_us": "Contact Us"
+  },
+  "volunteers": {
+    "appreciation": "Special appreciation goes to the dedicated Red Crescent volunteers who meticulously archived and verified all 1,928 paper survey forms:"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Wejha Project & training tracks",
+    "q1": "What is Wejha Project 2026?",
+    "a1": "Wejha Project is a strategic youth guidance and developmental initiative operating under the auspices of the Libyan Red Crescent — Benghazi Branch. It aims to empower high school students to select their university majors and build essential life skills.",
+    "q2": "Who is eligible to participate in Wejha?",
+    "a2": "The project is open to all secondary school students (1st, 2nd, and 3rd year students) in both the scientific and literary tracks across public and private schools in Benghazi.",
+    "q3": "Are there any registration or training fees?",
+    "a3": "No, all training tracks, interactive workshops, mentorship sessions, and university field trips are completely free of charge, sponsored fully by the Libyan Red Crescent.",
+    "q4": "How can students register?",
+    "a4": "Students can register online through Wejha's official digital platform when registration phases are announced, or through coordinated registration campaigns at their respective secondary schools.",
+    "q5": "Will I receive a certificate after completing the training?",
+    "a5": "Yes, every student who successfully completes their chosen training tracks will receive an official certificate of participation and completion accredited by the Libyan Red Crescent Benghazi Branch.",
+    "q6": "What makes Wejha different from other guidance initiatives?",
+    "a6": "Wejha is data-driven; it relies on actual field surveys of thousands of students to address real needs, and combines theoretical guidance with hands-on soft skills training, digital literacy, and direct site visits to universities."
+  }
+}

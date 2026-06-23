@@ -1,0 +1,5486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="تقرير تحليل بيانات طلبة المدارس ومشروع وجهة - الهلال الأحمر الليبي فرع بنغازي. تحليل متكامل لرغبات الطلبة والقدوات والمهارات لعام 2026.">
+  <title>تقرير تحليل البيانات 2026 | مشروع وجهة</title>
+  
+  <!-- CSS Stylesheet -->
+  <style>
+/* 🎨 Wejha Project Visual System & Styling */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Arabic:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap');
+
+/* Design Tokens & CSS Variables */
+:root {
+  --primary-blue: #00389E;
+  --action-orange: #FF4900;
+  --dark-navy: #001F8F;
+  --light-blue: #1E50C2;
+  --light-gray: #F1F2F2;
+  --mid-gray: #9099B5;
+  --pure-white: #FFFFFF;
+  --dark-text: #001F8F;
+  --light-text: #F8FAFC;
+  --vibrant-red: #FF3324;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif;
+  background-color: var(--light-gray);
+  color: var(--dark-text);
+  line-height: 1.6;
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--mid-gray);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-blue);
+}
+
+/* Typography Rules */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DIN Next LT Arabic', 'Cairo', sans-serif;
+  font-weight: 700;
+  color: var(--dark-navy);
+}
+
+.font-barlow {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* Animation utilities & Keyframes */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-in-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-orange {
+  0% { box-shadow: 0 0 0 0 rgba(255, 73, 0, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 73, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 73, 0, 0); }
+}
+
+@keyframes slide-diagonal {
+  0% { transform: translate(-50%, -50%) rotate(-45deg) translateY(-20px); }
+  50% { transform: translate(-50%, -50%) rotate(-45deg) translateY(20px); }
+  100% { transform: translate(-50%, -50%) rotate(-45deg) translateY(-20px); }
+}
+
+/* Diagonal stripe motif class */
+.orange-stripe-accent {
+  position: relative;
+  overflow: hidden;
+}
+.orange-stripe-accent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--action-orange);
+}
+
+/* Header & Navigation */
+header {
+  background-color: var(--dark-navy);
+  border-bottom: 3px solid var(--action-orange);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wejha-logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--pure-white);
+}
+
+.brand-info h1 {
+  font-size: 1.25rem;
+  color: var(--pure-white);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.brand-info p {
+  font-size: 0.85rem;
+  color: var(--mid-gray);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--pure-white);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: var(--light-blue);
+  color: var(--pure-white);
+}
+
+/* Hero Section */
+.hero {
+  background-color: var(--dark-navy);
+  color: var(--pure-white);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--action-orange);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--action-orange);
+  filter: blur(150px);
+  opacity: 0.15;
+  top: -100px;
+  right: -50px;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 200px;
+  background-color: var(--action-orange);
+  top: 20%;
+  left: 5%;
+  transform: rotate(30deg);
+  opacity: 0.6;
+  border-radius: 4px;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: var(--action-orange);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--pure-white);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--light-gray);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-weight: 400;
+}
+
+/* KPI Summary Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.kpi-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  text-align: center;
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--action-orange);
+  box-shadow: 0 10px 20px rgba(0, 31, 143, 0.2);
+}
+
+.kpi-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: var(--action-orange);
+}
+
+.kpi-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--pure-white);
+  margin-bottom: 0.5rem;
+}
+
+.kpi-label {
+  font-size: 0.95rem;
+  color: var(--mid-gray);
+  font-weight: 500;
+}
+
+/* Section Styling */
+section {
+  padding: 6rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-bg-white {
+  background-color: var(--pure-white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.section-tag {
+  color: var(--action-orange);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--dark-navy);
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--mid-gray);
+}
+
+/* Custom Grid Layouts */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.col-12 { grid-column: span 12; }
+.col-8 { grid-column: span 8; }
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+
+@media (max-width: 1024px) {
+  .col-8, .col-6, .col-4 {
+    grid-column: span 12;
+  }
+}
+
+/* Card Styling */
+.chart-card {
+  background-color: var(--pure-white);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chart-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 1rem;
+}
+
+.chart-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-navy);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-title i {
+  color: var(--action-orange);
+}
+
+/* Tabs & Controls */
+.chart-controls {
+  display: flex;
+  background-color: var(--light-gray);
+  padding: 0.25rem;
+  border-radius: 6px;
+  gap: 0.25rem;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  color: var(--mid-gray);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.control-btn.active {
+  background-color: var(--pure-white);
+  color: var(--primary-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Demographics Section Elements */
+.gender-split-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  padding: 2rem 0;
+}
+
+.gender-box {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: var(--light-gray);
+  width: 40%;
+  transition: transform var(--transition-fast);
+}
+
+.gender-box:hover {
+  transform: scale(1.05);
+}
+
+.gender-box.female {
+  border-top: 4px solid var(--action-orange);
+}
+
+.gender-box.male {
+  border-top: 4px solid var(--light-blue);
+}
+
+.gender-avatar {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.gender-box.female .gender-avatar { color: var(--action-orange); }
+.gender-box.male .gender-avatar { color: var(--light-blue); }
+
+.gender-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-navy);
+}
+
+.gender-percentage {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  margin-top: 0.25rem;
+}
+
+.gender-count {
+  font-size: 0.9rem;
+  color: var(--mid-gray);
+}
+
+/* Schools List Table Styling */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+.data-table th {
+  background-color: var(--light-gray);
+  color: var(--dark-navy);
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.data-table td {
+  padding: 1rem;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.data-table tr:hover {
+  background-color: rgba(0, 56, 158, 0.02);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: var(--light-gray);
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--primary-blue);
+  border-radius: 10px;
+}
+
+.progress-bar-fill.orange {
+  background-color: var(--action-orange);
+}
+
+/* Influences & Role Models cards */
+.cards-layout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.profile-card {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+  background-color: var(--pure-white);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0, 56, 158, 0.1);
+}
+
+.profile-avatar-circle {
+  width: 55px;
+  height: 55px;
+  background: var(--dark-navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pure-white);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  border: 2px solid var(--action-orange);
+}
+
+.profile-details h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark-navy);
+}
+
+.profile-details p {
+  font-size: 0.85rem;
+  color: var(--mid-gray);
+  margin-top: 0.25rem;
+}
+
+/* Skills & Hobbies Styling */
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-badge {
+  background-color: var(--light-gray);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark-text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.skill-badge:hover {
+  background-color: var(--primary-blue);
+  color: var(--pure-white);
+  border-color: var(--primary-blue);
+}
+
+.skill-badge .badge-count {
+  font-family: 'Barlow Condensed', sans-serif;
+  background-color: var(--action-orange);
+  color: var(--pure-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 0.1rem 0.5rem;
+}
+
+/* Data Entry Team Section */
+.team-member-card {
+  background-color: var(--pure-white);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  transition: transform var(--transition-normal);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.team-member-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--action-orange);
+}
+
+.team-member-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--primary-blue);
+  color: var(--pure-white);
+  font-size: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 800;
+  margin: 0 auto 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 3px solid var(--pure-white);
+  outline: 2px solid var(--action-orange);
+}
+
+.team-member-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-navy);
+  margin-bottom: 0.5rem;
+}
+
+.team-member-role {
+  font-size: 0.85rem;
+  color: var(--action-orange);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.team-member-contrib {
+  font-size: 0.9rem;
+  color: var(--mid-gray);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 1rem;
+}
+
+.team-member-contrib strong {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.4rem;
+  color: var(--dark-text);
+}
+
+/* Comments Slider & Testimonials Section */
+.testimonials-slider-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform var(--transition-slow);
+}
+
+.testimonial-card {
+  min-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.testimonial-inner {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.testimonial-inner::before {
+  content: '“';
+  font-family: 'Cairo', sans-serif;
+  font-size: 8rem;
+  color: rgba(255, 73, 0, 0.1);
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dark-navy);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.testimonial-author {
+  font-size: 0.9rem;
+  color: var(--action-orange);
+  font-weight: 700;
+}
+
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--mid-gray);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), width var(--transition-fast);
+}
+
+.slider-dot.active {
+  background-color: var(--action-orange);
+  width: 25px;
+  border-radius: 5px;
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--dark-navy);
+  color: var(--pure-white);
+  padding: 5rem 2rem 2rem;
+  border-top: 5px solid var(--action-orange);
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-brand h3 {
+  color: var(--pure-white);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  color: var(--mid-gray);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+}
+
+.footer-brand-logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 8px;
+  border: 2px solid var(--pure-white);
+}
+
+.footer-links h4, .footer-contact h4 {
+  color: var(--pure-white);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links h4::after, .footer-contact h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--action-orange);
+}
+
+.footer-link-list {
+  list-style: none;
+}
+
+.footer-link-list li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-link-list a {
+  color: var(--mid-gray);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-link-list a:hover {
+  color: var(--action-orange);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--pure-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  border: 1px solid var(--glass-border);
+}
+
+.social-icon-btn:hover {
+  background-color: var(--action-orange);
+  color: var(--pure-white);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--mid-gray);
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+/* Diagonal stripe overlay grid for backgrounds */
+.diagonal-bg-pattern {
+  position: relative;
+}
+
+.diagonal-bg-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, rgba(255, 73, 0, 0.015) 25%, transparent 25%),
+                    linear-gradient(-45deg, rgba(255, 73, 0, 0.015) 25%, transparent 25%);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================
+   NEW PORTAL ADDITIONS & COMPONENT STYLING 
+   ========================================== */
+
+
+
+/* School Explorer Styling */
+.school-explorer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.school-select-wrapper {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.school-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-text);
+  background-color: var(--light-gray);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+  appearance: none;
+}
+
+
+
+.school-select:focus {
+  border-color: var(--action-orange);
+}
+
+.school-select-wrapper::after {
+  content: '▼';
+  font-size: 0.8rem;
+  color: var(--mid-gray);
+  position: absolute;
+  top: 50%;
+  left: 15px; /* RTL dropdown arrow on left */
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.school-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.school-stat-card {
+  background-color: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+
+
+.school-stat-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--action-orange);
+  margin-top: 0.5rem;
+}
+
+/* College Questions Hub Styling */
+.college-questions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.college-q-card {
+  background-color: var(--light-gray);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+
+.college-q-card:hover, .college-q-card.active {
+  transform: translateY(-3px);
+  border-color: var(--action-orange);
+  background-color: var(--pure-white);
+  box-shadow: var(--shadow-md);
+}
+
+.college-q-card-icon {
+  font-size: 2rem;
+}
+
+.college-q-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-navy);
+}
+
+.questions-display-box {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  margin-top: 2rem;
+  min-height: 250px;
+}
+
+
+
+.q-bubble-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.q-bubble-item {
+  background-color: var(--pure-white);
+  border-right: 4px solid var(--action-orange);
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.q-bubble-item i {
+  color: var(--mid-gray);
+  flex-shrink: 0;
+}
+
+/* Major Recommendation Wizard Styling */
+.wizard-card {
+  background-color: var(--dark-navy);
+  color: var(--pure-white);
+  border-radius: 8px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.wizard-card::before {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: var(--action-orange);
+  filter: blur(120px);
+  opacity: 0.15;
+  top: -80px;
+  left: -80px;
+}
+
+.wizard-slides-container {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.wizard-slide {
+  display: none;
+  animation: fade-in 0.4s ease;
+}
+
+.wizard-slide.active {
+  display: block;
+}
+
+.wizard-question {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--pure-white);
+  line-height: 1.4;
+}
+
+.wizard-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.wizard-option-btn {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
+  color: var(--pure-white);
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wizard-option-btn:hover {
+  background-color: var(--action-orange);
+  border-color: var(--action-orange);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.wizard-nav-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.wizard-btn-prev {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--pure-white);
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: background-color var(--transition-fast);
+}
+
+.wizard-btn-prev:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.wizard-progress-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.wizard-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.wizard-dot.active {
+  background-color: var(--action-orange);
+  transform: scale(1.2);
+}
+
+.wizard-result-box {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.wizard-result-title {
+  font-size: 1.3rem;
+  color: var(--mid-gray);
+  margin-bottom: 0.5rem;
+}
+
+.wizard-result-college {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--pure-white);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wizard-result-desc {
+  font-size: 1.1rem;
+  color: var(--light-gray);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+
+.wizard-btn-reset {
+  background-color: var(--action-orange);
+  border: none;
+  color: var(--pure-white);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wizard-btn-reset:hover {
+  background-color: #f95f2a;
+  transform: scale(1.03);
+}
+
+/* ==========================================
+   RESPONSIVE & MOBILE COMPATIBILITY STYLES 
+   ========================================== */
+
+/* Mobile Navigation Toggle Button */
+.nav-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--pure-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-menu-toggle:hover {
+  color: var(--action-orange);
+}
+
+.nav-menu-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Responsive School Comparison Grid */
+.school-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Center team cards when they collapse, while maintaining stretch widths */
+#team-container > .col-4 {
+  justify-self: center;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Global Adjustments */
+  body {
+    font-size: 0.95rem;
+  }
+  
+  section {
+    padding: 3.5rem 1.25rem;
+  }
+  
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  /* Sticky Header & Hamburger Menu */
+  header {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .nav-menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--dark-navy);
+    flex-direction: column;
+    padding: 1.25rem 2rem;
+    gap: 0.75rem;
+    border-bottom: 4px solid var(--action-orange);
+    box-shadow: var(--shadow-xl);
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+    animation: slide-down 0.3s ease;
+  }
+
+  @keyframes slide-down {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    background-color: var(--light-blue);
+  }
+
+  .wejha-logo {
+    height: 42px;
+    width: 42px;
+  }
+
+  .brand-info h1 {
+    font-size: 1.05rem;
+  }
+
+  .brand-info p {
+    font-size: 0.75rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 3.5rem 1.25rem 4.5rem;
+  }
+
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 2.25rem;
+  }
+
+  /* KPI Grid */
+  .kpi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+  }
+
+  .kpi-card {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .kpi-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .kpi-value {
+    font-size: 2.1rem;
+  }
+
+  .kpi-label {
+    font-size: 0.8rem;
+  }
+
+  /* Dashboard Cards Grid Gap */
+  .dashboard-grid {
+    gap: 1.5rem;
+  }
+
+  /* School Comparison Grid Gap */
+  .school-comparison-grid {
+    gap: 1.25rem;
+  }
+
+  /* Major Recommendation Wizard */
+  .wizard-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .wizard-question {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .wizard-options-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .wizard-option-btn {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.95rem;
+    text-align: right;
+    justify-content: flex-start;
+  }
+
+  .wizard-result-college {
+    font-size: 1.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .wizard-result-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .wizard-nav-controls {
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+
+  /* Testimonials Slider Box */
+  .testimonial-inner {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .testimonial-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-inner::before {
+    font-size: 6rem;
+    top: -15px;
+    right: 15px;
+  }
+
+  /* Footer bottom column adjustment */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  .footer-links h4, .footer-contact h4 {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Gender Split Boxes Stacked */
+  .gender-split-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .gender-box {
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .gender-avatar {
+    font-size: 2.5rem;
+  }
+
+  .gender-percentage {
+    font-size: 2rem;
+  }
+
+  /* Table readability on extra small screens */
+  .data-table th, .data-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* Tags search box width stretching */
+  #explorer-search-input {
+    max-width: 100% !important;
+  }
+
+  /* Team member card sizes */
+  .team-member-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .team-member-avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+}
+
+</style>
+  
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="diagonal-bg-pattern">
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <img src="data:image/jpeg;base64,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" alt="شعار مشروع وجهة" class="wejha-logo">
+        <div class="brand-info">
+          <h1>مشروع وجهة</h1>
+          <p>الهلال الأحمر الليبي — فرع بنغازي</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#overview" class="nav-link active">الملخص</a>
+        <a href="#demographics" class="nav-link">الديموغرافيا</a>
+        <a href="#colleges" class="nav-link">الرغبات الجامعية</a>
+        <a href="#wizard" class="nav-link">مقياس التخصص</a>
+        <a href="#influences" class="nav-link">المؤثرات والقدوات</a>
+        <a href="#skills" class="nav-link">المهارات والهوايات</a>
+        <a href="#feedback" class="nav-link">آراء الطلبة</a>
+      </nav>
+
+      <!-- Mobile menu toggle button -->
+      <button class="nav-menu-toggle" id="nav-menu-toggle" aria-label="القائمة">
+        <i data-lucide="menu"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="overview">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <i data-lucide="award"></i>
+        <span>مشروع وجهة 2026 | وجهتك تبدأ من هنا</span>
+      </div>
+      <h1 class="hero-title">تقرير تحليل بيانات طلبة المدارس</h1>
+      <p class="hero-subtitle">«حسن اختيارك هو بداية مشوارك» — دراسة شاملة ومفصلة لبيانات 1,928 طالب وطالبة من مدارس مدينة بنغازي، تهدف إلى فهم تطلعاتهم الأكاديمية والمهنية وتنمية مهاراتهم.</p>
+      
+      <!-- KPI Grid -->
+      <div class="kpi-grid">
+        <div class="kpi-card orange-stripe-accent">
+          <div class="kpi-icon-wrapper"><i data-lucide="users"></i></div>
+          <div class="kpi-value font-barlow" id="kpi-total-students">1928</div>
+          <div class="kpi-label">إجمالي الطلبة المستهدفين</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon-wrapper"><i data-lucide="school"></i></div>
+          <div class="kpi-value font-barlow" id="kpi-total-schools">27</div>
+          <div class="kpi-label">عدد المدارس المغطاة</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon-wrapper"><i data-lucide="user-check"></i></div>
+          <div class="kpi-value font-barlow" id="kpi-surveyors">6</div>
+          <div class="kpi-label">فريق أرشفة البيانات</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon-wrapper"><i data-lucide="heart"></i></div>
+          <div class="kpi-value font-barlow" id="kpi-female-pct">72%</div>
+          <div class="kpi-label">نسبة الإناث المشاركات</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Demographics -->
+  <section id="demographics" class="fade-in-up">
+    <div class="section-header">
+      <span class="section-tag">الإحصائيات العامة</span>
+      <h2 class="section-title">ديموغرافيا الطلبة والمدارس</h2>
+      <p class="section-desc">نظرة عامة على جنس الطلبة وتوزيع سنواتهم الدراسية وأكثر المدارس تفاعلاً مع استبيانات وجهة.</p>
+    </div>
+    
+    <div class="dashboard-grid">
+      <!-- Gender Split -->
+      <div class="col-4">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="user"></i> توزيع الجنسين</h3>
+          </div>
+          <div class="gender-split-container">
+            <div class="gender-box female">
+              <div class="gender-avatar">👩</div>
+              <div class="gender-label">إناث</div>
+              <div class="gender-percentage font-barlow" id="female-percentage">72%</div>
+              <div class="gender-count font-barlow" id="female-count">1388 طابة</div>
+            </div>
+            <div class="gender-box male">
+              <div class="gender-avatar">👨</div>
+              <div class="gender-label">ذكور</div>
+              <div class="gender-percentage font-barlow" id="male-percentage">28%</div>
+              <div class="gender-count font-barlow" id="male-count">540 طالب</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Academic Years Chart -->
+      <div class="col-8">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="graduation-cap"></i> السنوات الدراسية</h3>
+          </div>
+          <div id="chart-academic-years" style="min-height: 250px;"></div>
+        </div>
+      </div>
+      
+      <!-- Top Schools -->
+      <div class="col-12">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="building-2"></i> المدارس الأكثر تسجيلاً ومشاركة (أعلى 10 مدارس)</h3>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table" id="schools-table">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">#</th>
+                  <th>اسم المدرسة</th>
+                  <th style="width: 150px; text-align: center;">عدد المشاركين</th>
+                  <th style="width: 50%;">نسبة التمثيل في الاستبيان</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Populated dynamically by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Daily Survey Collection Timeline -->
+      <div class="col-12" style="margin-top: 2rem;">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="calendar"></i> خط زمن جمع الاستمارات اليومي (مايو 2026)</h3>
+          </div>
+          <p style="font-size:0.9rem; color:var(--mid-gray); margin-bottom: 1.5rem;">يوضح هذا الرسم البياني وتيرة العمل اليومية لجمع وأرشفة 1,928 استمارة استبيان على مدار الشهر.</p>
+          <div id="chart-timeline" style="min-height: 280px;"></div>
+        </div>
+      </div>
+
+      <!-- School Data Explorer Card (Upgraded to Comparative) -->
+      <div class="col-12" style="margin-top: 2rem;">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="git-compare"></i> مقارنة المدارس التفاعلية (مقارنة جنباً إلى جنب)</h3>
+          </div>
+          <div class="school-explorer-container">
+            <p style="font-size:0.95rem; color:var(--mid-gray); margin-bottom: 1.5rem;">اختر مدرستين لمقارنة أعداد الطلبة، توزيع الجنسين، والتخصصات الأكثر طلباً بينهما:</p>
+            
+            <div class="school-comparison-grid">
+              <!-- School 1 Column -->
+              <div class="comparison-column" style="background: rgba(0, 0, 0, 0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.03);">
+                <h4 style="margin-bottom: 1rem; color: var(--primary-blue); font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="building"></i> المدرسة الأولى</h4>
+                <div class="school-select-wrapper" style="max-width: 100%; margin-bottom: 1.5rem;">
+                  <select id="school-selector-1" class="school-select">
+                    <option value="">-- اختر المدرسة الأولى --</option>
+                  </select>
+                </div>
+                <div id="school-stats-container-1" style="display: none; flex-direction: column; gap: 1rem;">
+                  <div class="school-stat-card">
+                    <h5 style="font-size: 0.85rem; color: var(--mid-gray);">عدد الطلبة المشاركين</h5>
+                    <div class="school-stat-val font-barlow" id="school-stat-total-1" style="font-size: 2rem;">0</div>
+                  </div>
+                  <div class="school-stat-card">
+                    <h5 style="font-size: 0.85rem; color: var(--mid-gray);">توزيع الجنسين</h5>
+                    <div style="margin-top: 0.5rem; display: flex; justify-content: space-around; font-weight: 700; font-size: 0.95rem;">
+                      <span style="color: var(--action-orange);">إناث: <span id="school-stat-female-1">0</span></span>
+                      <span style="color: var(--light-blue);">ذكور: <span id="school-stat-male-1">0</span></span>
+                    </div>
+                  </div>
+                  <div class="school-stat-card">
+                    <h5 style="font-size: 0.85rem; color: var(--mid-gray); margin-bottom: 0.5rem;">الكليات الأكثر طلباً</h5>
+                    <ol id="school-stat-colleges-1" style="text-align: right; padding-right: 1.25rem; font-weight: 600; line-height: 1.6; font-size: 0.9rem;">
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+              <!-- School 2 Column -->
+              <div class="comparison-column" style="background: rgba(0, 0, 0, 0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.03);">
+                <h4 style="margin-bottom: 1rem; color: var(--action-orange); font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="building"></i> المدرسة الثانية</h4>
+                <div class="school-select-wrapper" style="max-width: 100%; margin-bottom: 1.5rem;">
+                  <select id="school-selector-2" class="school-select">
+                    <option value="">-- اختر المدرسة الثانية --</option>
+                  </select>
+                </div>
+                <div id="school-stats-container-2" style="display: none; flex-direction: column; gap: 1rem;">
+                  <div class="school-stat-card">
+                    <h5 style="font-size: 0.85rem; color: var(--mid-gray);">عدد الطلبة المشاركين</h5>
+                    <div class="school-stat-val font-barlow" id="school-stat-total-2" style="font-size: 2rem; color: var(--action-orange);">0</div>
+                  </div>
+                  <div class="school-stat-card">
+                    <h5 style="font-size: 0.85rem; color: var(--mid-gray);">توزيع الجنسين</h5>
+                    <div style="margin-top: 0.5rem; display: flex; justify-content: space-around; font-weight: 700; font-size: 0.95rem;">
+                      <span style="color: var(--action-orange);">إناث: <span id="school-stat-female-2">0</span></span>
+                      <span style="color: var(--light-blue);">ذكور: <span id="school-stat-male-2">0</span></span>
+                    </div>
+                  </div>
+                  <div class="school-stat-card">
+                    <h5 style="font-size: 0.85rem; color: var(--mid-gray); margin-bottom: 0.5rem;">الكليات الأكثر طلباً</h5>
+                    <ol id="school-stat-colleges-2" style="text-align: right; padding-right: 1.25rem; font-weight: 600; line-height: 1.6; font-size: 0.9rem;">
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: College Desires -->
+  <section id="colleges" class="section-bg-white fade-in-up">
+    <div class="section-header">
+      <span class="section-tag">الرغبات الأكاديمية</span>
+      <h2 class="section-title">تحليل الكليات المرغوب دخولها</h2>
+      <p class="section-desc">تحليل دقيق ومقارن لخيارات الطلبة الجامعية، مع إمكانية تصنيف الرغبات بحسب الجنس أو المسار التعليمي.</p>
+    </div>
+    
+    <div class="dashboard-grid">
+      <!-- Main Colleges Chart Card -->
+      <div class="col-12">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="compass"></i> تفضيلات الكليات الجامعية</h3>
+            <div class="chart-controls" id="colleges-tabs">
+              <button class="control-btn active" data-filter="overall">الكل</button>
+              <button class="control-btn" data-filter="gender">حسب الجنس</button>
+              <button class="control-btn" data-filter="track">حسب المسار (علمي/أدبي)</button>
+            </div>
+          </div>
+          <!-- Chart Div -->
+          <div id="chart-colleges" style="min-height: 400px;"></div>
+        </div>
+      </div>
+      
+      <!-- Inside major specifics if available -->
+      <div class="col-6">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="activity"></i> المسارات العلمية المفضلة</h3>
+          </div>
+          <p style="font-size:0.9rem; color:var(--mid-gray); margin-bottom: 1.5rem;">الكليات الأكثر طلباً لطلبة التخصص العلمي (ثالثة وثانية علمي)</p>
+          <div id="chart-scientific-colleges" style="min-height: 250px;"></div>
+        </div>
+      </div>
+      
+      <div class="col-6">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="book-open"></i> المسارات الأدبية المفضلة</h3>
+          </div>
+          <p style="font-size:0.9rem; color:var(--mid-gray); margin-bottom: 1.5rem;">الكليات الأكثر طلباً لطلبة التخصص الأدبي (ثالثة وثانية أدبي)</p>
+          <div id="chart-literary-colleges" style="min-height: 250px;"></div>
+        </div>
+      </div>
+      
+      <!-- Major Questions Hub -->
+      <div class="col-12" style="margin-top: 2rem;">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="help-circle"></i> بنك أسئلة التخصصات الجامعية</h3>
+          </div>
+          <p style="font-size: 0.95rem; color: var(--mid-gray); margin-bottom: 1rem;">اختر تخصصاً جامعياً لتستعرض أكثر الأسئلة الحقيقية التي تدور في أذهان طلبة المدارس حول هذا التخصص:</p>
+          
+          <div class="college-questions-grid" id="college-q-selector-grid">
+            <!-- College Cards will be populated by JS -->
+          </div>
+          
+          <div class="questions-display-box" id="questions-display-box" style="display: none;">
+            <h4 id="selected-college-title" style="border-bottom: 2px solid var(--action-orange); padding-bottom: 0.5rem; display: inline-block;">اسم التخصص</h4>
+            <div class="q-bubble-list" id="q-bubble-list">
+              <!-- Questions Bubbles populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2.5: Interactive Major Recommendation Wizard -->
+  <section id="wizard" class="fade-in-up">
+    <div class="section-header">
+      <span class="section-tag">بوصلة التوجيه</span>
+      <h2 class="section-title">مقياس التخصص الأكاديمي التفاعلي</h2>
+      <p class="section-desc">أجب عن 4 أسئلة سريعة حول اهتماماتك ومهاراتك ودع بوصلة وجهة ترشدك نحو الكليات التي قد تناسب تطلعاتك الشخصية.</p>
+    </div>
+    
+    <div class="wizard-card">
+      <div class="wizard-slides-container" id="wizard-slides-container">
+        <!-- Step 1 -->
+        <div class="wizard-slide active" data-step="1">
+          <h3 class="wizard-question">1. ما هو مسارك الدراسي الحالي في المرحلة الثانوية؟</h3>
+          <div class="wizard-options-grid">
+            <button class="wizard-option-btn" data-value="scientific">🔬 العلمي (العلوم الطبيعية والتطبيقية)</button>
+            <button class="wizard-option-btn" data-value="literary">📚 الأدبي (العلوم الإنسانية واللغات)</button>
+          </div>
+        </div>
+        
+        <!-- Step 2 (Scientific Interest) -->
+        <div class="wizard-slide" data-step="2" data-branch="scientific">
+          <h3 class="wizard-question">2. أي من المجالات التالية تشعر بشغف أكبر تجاهه؟</h3>
+          <div class="wizard-options-grid">
+            <button class="wizard-option-btn" data-value="health">🩺 الرعاية الصحية، الطب وعلاج المرضى</button>
+            <button class="wizard-option-btn" data-value="tech">💻 الحاسوب، البرمجة، والذكاء الاصطناعي</button>
+            <button class="wizard-option-btn" data-value="design">🏗️ البناء، التصميم المعماري، والمشاريع الهندسية</button>
+            <button class="wizard-option-btn" data-value="business">📊 الأرقام، الاقتصاد، وإدارة المشاريع</button>
+          </div>
+        </div>
+        
+        <!-- Step 2 (Literary Interest) -->
+        <div class="wizard-slide" data-step="2" data-branch="literary">
+          <h3 class="wizard-question">2. أي من المجالات التالية تراه الأقرب لاهتماماتك؟</h3>
+          <div class="wizard-options-grid">
+            <button class="wizard-option-btn" data-value="law">⚖️ القانون، الدفاع عن الحقوق والعدالة</button>
+            <button class="wizard-option-btn" data-value="languages">🗣️ اللغات، الترجمة والتواصل الثقافي</button>
+            <button class="wizard-option-btn" data-value="media">📺 الإعلام، الصحافة وصناعة المحتوى المرئي</button>
+            <button class="wizard-option-btn" data-value="business">📈 التجارة، الاقتصاد، والعلوم السياسية</button>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="wizard-slide" data-step="3">
+          <h3 class="wizard-question">3. ما هي المهارة التي تحب ممارستها أو تود تطويرها بقوة؟</h3>
+          <div class="wizard-options-grid">
+            <button class="wizard-option-btn" data-value="talk">🎤 التحدث أمام الجمهور، الإقناع والتواصل</button>
+            <button class="wizard-option-btn" data-value="create">🎨 الرسم، التصميم والأشغال الإبداعية</button>
+            <button class="wizard-option-btn" data-value="analyze">🧩 حل المشكلات الصعبة، التفكير المنطقي والتحليل</button>
+            <button class="wizard-option-btn" data-value="organize">🗓️ تنظيم الوقت، القيادة، والعمل الجماعي</button>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="wizard-slide" data-step="4">
+          <h3 class="wizard-question">4. كيف تفضل أن تكون بيئة عملك المستقبلي؟</h3>
+          <div class="wizard-options-grid">
+            <button class="wizard-option-btn" data-value="field">🏥 بيئة ميدانية نشطة (مستشفى، مواقع إنتاج، حركة مستمرة)</button>
+            <button class="wizard-option-btn" data-value="office">🖥️ بيئة مكتبية أو تقنية (حاسوب، بحوث، تصميم هادئ)</button>
+            <button class="wizard-option-btn" data-value="social">👥 بيئة اجتماعية وتفاعلية (محكمة، تدريس، استشارات، فعاليات)</button>
+          </div>
+        </div>
+        
+        <!-- Step 5 (Result Slide) -->
+        <div class="wizard-slide" data-step="5">
+          <div class="wizard-result-box">
+            <h4 class="wizard-result-title">الكلية المقترحة لك بناءً على خياراتك</h4>
+            <div class="wizard-result-college" id="wizard-result-college">كلية الهندسة</div>
+            <p class="wizard-result-desc" id="wizard-result-desc">لقد أظهرت خياراتك شغفاً كبياً بالبناء والتحليل وتفضيلك للمهارات التقنية والبيئات الإبداعية. قد تكون الهندسة هي وجهتك المثالية لتفجير طاقاتك!</p>
+            
+            <!-- Wizard Stats & Actions -->
+            <div style="background: rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--glass-border); margin: 1.5rem auto 2.5rem; max-width: 500px;">
+              <p style="font-size: 0.95rem; color: var(--light-gray); margin-bottom: 1rem;" id="wizard-result-stats">
+                شعبية التخصص: اختار هذا التخصص 0 طالب بنسبة 0%
+              </p>
+              <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="wizard-btn-reset" id="wizard-btn-view-questions" style="background-color: var(--primary-blue);"><i data-lucide="help-circle"></i> تصفح أسئلة الطلاب</button>
+                <button class="wizard-btn-reset" id="wizard-btn-reset"><i data-lucide="rotate-ccw"></i> إعادة المقياس</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Controls -->
+      <div class="wizard-nav-controls" id="wizard-controls">
+        <button class="wizard-btn-prev" id="wizard-btn-prev" style="visibility: hidden;">السابق</button>
+        <div class="wizard-progress-dots" id="wizard-dots">
+          <span class="wizard-dot active"></span>
+          <span class="wizard-dot"></span>
+          <span class="wizard-dot"></span>
+          <span class="wizard-dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Influences & Role Models -->
+  <section id="influences" class="fade-in-up">
+    <div class="section-header">
+      <span class="section-tag">القدوات والدوافع</span>
+      <h2 class="section-title">المؤثرات والقدوات في اختيار التخصص</h2>
+      <p class="section-desc">دراسة مصادر الإلهام للطلبة؛ من الذين يدفعونهم باتجاه تخصصاتهم ومن يؤثر على قراراتهم الأكاديمية.</p>
+    </div>
+    
+    <div class="dashboard-grid">
+      <!-- Influencers Chart -->
+      <div class="col-6">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="message-circle"></i> هل هناك من أثر على اختيارك للتخصص؟</h3>
+          </div>
+          <div id="chart-influencers" style="min-height: 300px;"></div>
+        </div>
+      </div>
+      
+      <!-- Role Models Chart -->
+      <div class="col-6">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="sparkles"></i> القدوة التي حفزتك لدخول التخصص</h3>
+          </div>
+          <div id="chart-role-models" style="min-height: 300px;"></div>
+        </div>
+      </div>
+      
+      <!-- Top Public Figures Grid -->
+      <div class="col-12">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="users-round"></i> أبرز الشخصيات العامة الملهمة للطلبة</h3>
+          </div>
+          <p style="margin-bottom: 1.5rem; font-size:0.95rem; color:var(--mid-gray)">شخصيات عامة ونماذج يحتذى بها ذكرها الطلبة في إجاباتهم كدافع لاختيار التخصص (مثل الإعلامي عبد الحميد البحباح، د. أحمد زويل، د. مجدي يعقوب، رواد التقنية والرياضة):</p>
+          <div class="cards-layout-grid" id="public-figures-container">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Skills & Hobbies -->
+  <section id="skills" class="section-bg-white fade-in-up">
+    <div class="section-header">
+      <span class="section-tag">القدرات والنمو الشخصي</span>
+      <h2 class="section-title">المهارات والهوايات التي يود الطلبة تعلمها</h2>
+      <p class="section-desc">تحليل المهارات المهنية والهوايات الشخصية التي يبدي الشباب رغبة حقيقية في تعلمها، لمساعدتنا في تخطيط الورش التدريبية القادمة.</p>
+    </div>
+    
+    <div class="dashboard-grid">
+      <!-- Skills Card -->
+      <div class="col-6">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="wrench"></i> المهارات المطلوبة للتعلم</h3>
+          </div>
+          <p style="font-size:0.9rem; color:var(--mid-gray); margin-bottom: 1.5rem;">النسب المئوية لأكثر المهارات طلباً بين الطلبة (باستثناء الإجابات الفارغة/لا يوجد)</p>
+          <div id="chart-skills" style="min-height: 300px;"></div>
+        </div>
+      </div>
+      
+      <!-- Hobbies Card -->
+      <div class="col-6">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="palette"></i> الهوايات المطلوبة للتعلم</h3>
+          </div>
+          <p style="font-size:0.9rem; color:var(--mid-gray); margin-bottom: 1.5rem;">أكثر الهوايات شغفاً لدى الطلاب والتي يرغبون بتطويرها كأنشطة موازية</p>
+          <div id="chart-hobbies" style="min-height: 300px;"></div>
+        </div>
+      </div>
+
+      <!-- Interactive Skills & Hobbies Explorer Card -->
+      <div class="col-12" style="margin-top: 2rem;">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-title"><i data-lucide="search-code"></i> مستكشف المهارات والهوايات التفصيلي</h3>
+            <div class="chart-controls" id="explorer-tabs">
+              <button class="control-btn active" data-type="skills">كل المهارات</button>
+              <button class="control-btn" data-type="hobbies">كل الهوايات</button>
+            </div>
+          </div>
+          <p style="font-size:0.95rem; color:var(--mid-gray); margin-bottom: 1.5rem;">تصفح واكتشف الاهتمامات الفريدة التي عبر عنها الطلبة في الاستبيانات. استخدم شريط البحث للتصفح السريع:</p>
+          
+          <!-- Search input -->
+          <div style="margin-bottom: 1.5rem; position: relative;">
+            <input type="text" id="explorer-search-input" placeholder="ابحث عن مهارة أو هواية..." style="width: 100%; max-width: 400px; padding: 0.75rem 1rem; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-family: inherit; font-size: 0.95rem; outline: none; transition: border-color var(--transition-fast);" />
+          </div>
+
+          <!-- Tags list container -->
+          <div class="explorer-results-container" style="display: flex; flex-direction: column; gap: 2rem; max-height: 450px; overflow-y: auto; padding: 0.5rem; border: 1px solid rgba(0,0,0,0.03); border-radius: 8px; background: rgba(0,0,0,0.01);">
+            <!-- Popular section -->
+            <div id="explorer-section-popular">
+              <h4 style="font-size: 0.95rem; color: var(--dark-navy); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 0.5rem;"><i data-lucide="sparkles" style="color:var(--action-orange); width:18px; height:18px;"></i> طلبات شائعة (5 تكرارات فأكثر)</h4>
+              <div class="badge-list" id="explorer-list-popular">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Niche section -->
+            <div id="explorer-section-niche">
+              <h4 style="font-size: 0.95rem; color: var(--mid-gray); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 0.5rem;"><i data-lucide="compass" style="width:18px; height:18px;"></i> اهتمامات فردية ونادرة</h4>
+              <div class="badge-list" id="explorer-list-niche" style="gap: 0.5rem;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Data Entry Team -->
+  <section id="team" class="fade-in-up">
+    <div class="section-header">
+      <span class="section-tag">فريق العمل</span>
+      <h2 class="section-title">فريق أرشفة وإدخال البيانات</h2>
+      <p class="section-desc">تحية تقدير لمتطوعي مشروع وجهة بالهلال الأحمر الليبي الذين قاموا بجمع وتدقيق وإدخال 1,928 استمارة بكل دقة وإخلاص.</p>
+    </div>
+    
+    <div class="dashboard-grid" id="team-container" style="justify-content: center;">
+      <!-- Populated dynamically by JS -->
+    </div>
+  </section>
+
+  <!-- Section 6: Comments & Feedback Slider -->
+  <section id="feedback" class="section-bg-white fade-in-up">
+    <div class="section-header">
+      <span class="section-tag">نبض الميدان</span>
+      <h2 class="section-title">ملاحظات وآراء الطلبة حول الاستبيان</h2>
+      <p class="section-desc">مقتطفات من تعليقات وملاحظات طلبة المدارس (خلي ديما عندك وجهة) التي توضح طموحاتهم ومقترحاتهم للتطوير الأكاديمي.</p>
+    </div>
+    
+    <div class="testimonials-slider-container">
+      <div class="testimonial-track" id="testimonial-track">
+        <!-- Populated dynamically by JS -->
+      </div>
+      <div class="slider-nav" id="slider-nav">
+        <!-- Dots populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>مشروع وجهة 2026</h3>
+        <p>مشروع إرشادي وتوعوي تحت مظلة الهلال الأحمر الليبي — فرع بنغازي. يهدف لتمكين الشباب وتنمية مهاراتهم واختيار تخصصاتهم الواثقة.</p>
+        <img src="data:image/jpeg;base64,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" alt="شعار وجهة" class="footer-brand-logo">
+      </div>
+      
+      <div class="footer-links">
+        <h4>روابط سريعة</h4>
+        <ul class="footer-link-list">
+          <li><a href="#overview">ملخص البيانات</a></li>
+          <li><a href="#demographics">ديموغرافيا الطلبة</a></li>
+          <li><a href="#colleges">تفضيلات الكليات</a></li>
+          <li><a href="#influences">القدوات والمؤثرات</a></li>
+          <li><a href="#skills">المهارات والهوايات</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-contact">
+        <h4>تواصل معنا</h4>
+        <p style="color:var(--mid-gray); font-size:0.95rem; margin-bottom: 1rem;">تابع نشاطات وجهة وشارك في ورش العمل والإرشاد الأكاديمي القادمة عبر حساباتنا:</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon-btn" aria-label="فيسبوك">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="إنستغرام">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="تويتر">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="البريد الإلكتروني">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+        </div>
+        <p style="color:var(--mid-gray); font-size:0.85rem; margin-top:1.5rem;">الهاشتاق الرسمي: <strong style="color:var(--pure-white);">#وجهتك_تبدأ_من_هنا</strong></p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 مشروع وجهة - الهلال الأحمر الليبي فرع بنغازي. جميع الحقوق محفوظة.</p>
+      <p>صُنع بكل <i data-lucide="heart" style="width: 14px; height: 14px; fill: var(--action-orange); stroke: var(--action-orange); display: inline;"></i> لدعم شباب ليبيا وبنغازي</p>
+    </div>
+  </footer>
+
+  <!-- Scripts CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Data & Logic Scripts -->
+  <script>
+const wejhaData = {
+  "total_records": 1928,
+  "gender_counts": {
+    "أنثى": 1388,
+    "ذكر": 540
+  },
+  "academic_year_counts": {
+    "ثالثة علمي": 1041,
+    "أولى ثانوي": 275,
+    "ثالثة أدبي": 259,
+    "ثانية علمي": 253,
+    "ثانية أدبي": 100
+  },
+  "data_entry_counts": {
+    "فضيلة": 362,
+    "لمياء": 349,
+    "وعد": 344,
+    "مهند": 338,
+    "مروة": 336,
+    "براء": 199
+  },
+  "unique_schools_count": 27,
+  "top_schools": [
+    [
+      "السد العالي (بنات)",
+      153
+    ],
+    [
+      "السيدة حفصة( بنات)",
+      150
+    ],
+    [
+      "السيدة سُمية( بنات)",
+      133
+    ],
+    [
+      "شهداء بوزغيبة( بنات)",
+      128
+    ],
+    [
+      "ألوية الحرية( بنات)",
+      108
+    ],
+    [
+      "المستقبل (بنات)",
+      106
+    ],
+    [
+      "مداد المعارف (بنين)",
+      104
+    ],
+    [
+      "مركز المتفوقين (مختلط)",
+      103
+    ],
+    [
+      "السيدة رُقية( بنات)",
+      103
+    ],
+    [
+      "البيان والتباين( بنات)",
+      93
+    ],
+    [
+      "الأقصى( بنات)",
+      93
+    ],
+    [
+      "شهداء الثورة(بنين)",
+      89
+    ],
+    [
+      "جسر المعرفة(بنين)",
+      67
+    ],
+    [
+      "سماء التفوق(بنات)",
+      65
+    ],
+    [
+      "الخالدات( بنات)",
+      63
+    ]
+  ],
+  "colleges_overall": [
+    [
+      "كلية الهندسة",
+      600
+    ],
+    [
+      "كلية الطب البشري",
+      334
+    ],
+    [
+      "كلية القانون",
+      314
+    ],
+    [
+      "كلية الاقتصاد",
+      278
+    ],
+    [
+      "كلية تقنية المعلومات",
+      195
+    ],
+    [
+      "كلية طب الأسنان",
+      192
+    ],
+    [
+      "كلية اللغات",
+      166
+    ],
+    [
+      "كلية الصيدلة",
+      122
+    ],
+    [
+      "غير محدد",
+      72
+    ],
+    [
+      "كلية الآداب",
+      67
+    ],
+    [
+      "كلية الطيران",
+      60
+    ],
+    [
+      "كليه التقنيه الطبيه",
+      60
+    ],
+    [
+      "الكلية العسكرية",
+      54
+    ],
+    [
+      "كلية الإعلام",
+      50
+    ],
+    [
+      "كلية العلوم",
+      48
+    ],
+    [
+      "كليه الصحه العامه",
+      42
+    ],
+    [
+      "كلية الشريعة الإسلامية",
+      26
+    ],
+    [
+      "كلية التربية",
+      19
+    ],
+    [
+      "كليه الطب الحيوي",
+      14
+    ],
+    [
+      "كلية التمريض",
+      10
+    ],
+    [
+      "كليه الطب البيطري",
+      6
+    ]
+  ],
+  "colleges_female": [
+    [
+      "كلية الهندسة",
+      392
+    ],
+    [
+      "كلية الطب البشري",
+      285
+    ],
+    [
+      "كلية القانون",
+      264
+    ],
+    [
+      "كلية الاقتصاد",
+      195
+    ],
+    [
+      "كلية طب الأسنان",
+      173
+    ],
+    [
+      "كلية اللغات",
+      157
+    ],
+    [
+      "كلية الصيدلة",
+      104
+    ],
+    [
+      "كلية تقنية المعلومات",
+      98
+    ],
+    [
+      "كلية الآداب",
+      64
+    ],
+    [
+      "كليه التقنيه الطبيه",
+      56
+    ],
+    [
+      "كلية الإعلام",
+      44
+    ],
+    [
+      "كلية العلوم",
+      42
+    ],
+    [
+      "كليه الصحه العامه",
+      42
+    ],
+    [
+      "غير محدد",
+      34
+    ],
+    [
+      "كلية الطيران",
+      23
+    ],
+    [
+      "كلية الشريعة الإسلامية",
+      23
+    ],
+    [
+      "كلية التربية",
+      13
+    ],
+    [
+      "كليه الطب الحيوي",
+      13
+    ],
+    [
+      "كلية التمريض",
+      9
+    ],
+    [
+      "كليه الطب البيطري",
+      5
+    ]
+  ],
+  "colleges_male": [
+    [
+      "كلية الهندسة",
+      208
+    ],
+    [
+      "كلية تقنية المعلومات",
+      97
+    ],
+    [
+      "كلية الاقتصاد",
+      83
+    ],
+    [
+      "الكلية العسكرية",
+      54
+    ],
+    [
+      "كلية القانون",
+      50
+    ],
+    [
+      "كلية الطب البشري",
+      49
+    ],
+    [
+      "غير محدد",
+      38
+    ],
+    [
+      "كلية الطيران",
+      37
+    ],
+    [
+      "كلية طب الأسنان",
+      19
+    ],
+    [
+      "كلية الصيدلة",
+      18
+    ],
+    [
+      "كلية اللغات",
+      9
+    ],
+    [
+      "كلية الإعلام",
+      6
+    ],
+    [
+      "كلية العلوم",
+      6
+    ],
+    [
+      "كلية التربية",
+      6
+    ],
+    [
+      "كليه التقنيه الطبيه",
+      4
+    ],
+    [
+      "كلية الشريعة الإسلامية",
+      3
+    ],
+    [
+      "كلية الآداب",
+      3
+    ],
+    [
+      "كليه الطب البيطري",
+      1
+    ],
+    [
+      "كليه الطب الحيوي",
+      1
+    ],
+    [
+      "كلية التمريض",
+      1
+    ]
+  ],
+  "colleges_scientific": [
+    [
+      "كلية الهندسة",
+      520
+    ],
+    [
+      "كلية الطب البشري",
+      279
+    ],
+    [
+      "كلية تقنية المعلومات",
+      172
+    ],
+    [
+      "كلية طب الأسنان",
+      164
+    ],
+    [
+      "كلية الاقتصاد",
+      160
+    ],
+    [
+      "كلية الصيدلة",
+      106
+    ],
+    [
+      "كلية القانون",
+      71
+    ],
+    [
+      "كلية اللغات",
+      65
+    ],
+    [
+      "كليه التقنيه الطبيه",
+      58
+    ],
+    [
+      "غير محدد",
+      51
+    ],
+    [
+      "كلية الطيران",
+      47
+    ],
+    [
+      "كلية العلوم",
+      44
+    ],
+    [
+      "كليه الصحه العامه",
+      39
+    ],
+    [
+      "الكلية العسكرية",
+      33
+    ],
+    [
+      "كلية الآداب",
+      16
+    ],
+    [
+      "كلية الإعلام",
+      16
+    ],
+    [
+      "كلية الشريعة الإسلامية",
+      13
+    ],
+    [
+      "كليه الطب الحيوي",
+      13
+    ],
+    [
+      "كلية التربية",
+      10
+    ],
+    [
+      "كلية التمريض",
+      9
+    ],
+    [
+      "كليه الطب البيطري",
+      3
+    ]
+  ],
+  "colleges_literary": [
+    [
+      "كلية القانون",
+      199
+    ],
+    [
+      "كلية اللغات",
+      80
+    ],
+    [
+      "كلية الاقتصاد",
+      76
+    ],
+    [
+      "كلية الآداب",
+      42
+    ],
+    [
+      "كلية الإعلام",
+      30
+    ],
+    [
+      "الكلية العسكرية",
+      16
+    ],
+    [
+      "كلية الشريعة الإسلامية",
+      12
+    ],
+    [
+      "غير محدد",
+      11
+    ],
+    [
+      "كلية التربية",
+      7
+    ],
+    [
+      "كلية تقنية المعلومات",
+      2
+    ],
+    [
+      "كلية الطيران",
+      2
+    ],
+    [
+      "كلية الهندسة",
+      2
+    ],
+    [
+      "كليه الطب البيطري",
+      1
+    ],
+    [
+      "كلية الصيدلة",
+      1
+    ]
+  ],
+  "colleges_first_year": [
+    [
+      "كلية الهندسة",
+      78
+    ],
+    [
+      "كلية الطب البشري",
+      55
+    ],
+    [
+      "كلية القانون",
+      44
+    ],
+    [
+      "كلية الاقتصاد",
+      42
+    ],
+    [
+      "كلية طب الأسنان",
+      28
+    ],
+    [
+      "كلية اللغات",
+      21
+    ],
+    [
+      "كلية تقنية المعلومات",
+      21
+    ],
+    [
+      "كلية الصيدلة",
+      15
+    ],
+    [
+      "كلية الطيران",
+      11
+    ],
+    [
+      "غير محدد",
+      10
+    ],
+    [
+      "كلية الآداب",
+      9
+    ],
+    [
+      "الكلية العسكرية",
+      5
+    ],
+    [
+      "كلية الإعلام",
+      4
+    ],
+    [
+      "كلية العلوم",
+      4
+    ],
+    [
+      "كليه الصحه العامه",
+      3
+    ],
+    [
+      "كليه الطب البيطري",
+      2
+    ],
+    [
+      "كليه التقنيه الطبيه",
+      2
+    ],
+    [
+      "كلية التربية",
+      2
+    ],
+    [
+      "كلية التمريض",
+      1
+    ],
+    [
+      "كلية الشريعة الإسلامية",
+      1
+    ],
+    [
+      "كليه الطب الحيوي",
+      1
+    ]
+  ],
+  "role_models": [
+    [
+      "لا يوجد",
+      1009
+    ],
+    [
+      "أفراد من العائلة",
+      637
+    ],
+    [
+      "شخصية عامة /مشهورة",
+      162
+    ],
+    [
+      "نعم",
+      73
+    ],
+    [
+      "معلم",
+      43
+    ],
+    [
+      "اصدقاء",
+      38
+    ]
+  ],
+  "public_figures": [
+    [
+      "عبد الحميد البحباح",
+      23
+    ],
+    [
+      "د. مجدي يعقوب",
+      13
+    ],
+    [
+      "زها حديد",
+      4
+    ],
+    [
+      "يوسا",
+      2
+    ],
+    [
+      "عبد الحميد بحباح",
+      2
+    ],
+    [
+      "نيمار",
+      2
+    ],
+    [
+      "الرسول صلى الله عليه وسلم",
+      2
+    ],
+    [
+      "المشير خليفة حفتر",
+      2
+    ],
+    [
+      "الاستاذ سليمان الفيتوري",
+      2
+    ],
+    [
+      "سميحة العلواني",
+      2
+    ],
+    [
+      "قيس الحصادي",
+      2
+    ],
+    [
+      "المفتش التربوي محمود الاسمع",
+      1
+    ],
+    [
+      "عباس بن فرناس",
+      1
+    ],
+    [
+      "الدكتورة شادن المحفوظي",
+      1
+    ],
+    [
+      "على بوصلاح",
+      1
+    ]
+  ],
+  "influencers": [
+    [
+      "لا",
+      1077
+    ],
+    [
+      "أفراد من العائلة",
+      495
+    ],
+    [
+      "نعم",
+      316
+    ],
+    [
+      "اصدقاء",
+      28
+    ],
+    [
+      "شخصية عامة / مشهورة",
+      18
+    ],
+    [
+      "معلم",
+      15
+    ]
+  ],
+  "skills": [
+    [
+      "لا يوجد",
+      880
+    ],
+    [
+      "اللغات الأجنبية (الإنجليزية)",
+      626
+    ],
+    [
+      "الإلقاء والتواصل والخطابة",
+      251
+    ],
+    [
+      "البرمجة والتطوير",
+      92
+    ],
+    [
+      "تنظيم الوقت وإدارة المهام",
+      84
+    ],
+    [
+      "مهارات الحاسوب الأساسية",
+      70
+    ],
+    [
+      "الذكاء الاصطناعي وعلوم البيانات",
+      52
+    ],
+    [
+      "الاسعافات الاولية",
+      48
+    ],
+    [
+      "التصميم الجرافيكي والديكور",
+      33
+    ],
+    [
+      "الرسم والفنون التشكيلية",
+      17
+    ],
+    [
+      "التسويق وتجارة الالكترونية",
+      13
+    ],
+    [
+      "الصيانة والإلكترونيات",
+      10
+    ],
+    [
+      "تخطيط وتنفيذ المشاريع",
+      7
+    ],
+    [
+      "تطوير البرامج والالعاب",
+      7
+    ],
+    [
+      "القيادة والإدارة",
+      7
+    ],
+    [
+      "Microsoft",
+      6
+    ],
+    [
+      "التفكير النقدي",
+      6
+    ]
+  ],
+  "hobbies": [
+    [
+      "الرسم والتلوين",
+      215
+    ],
+    [
+      "الأنشطة الرياضية والألعاب البدنية",
+      89
+    ],
+    [
+      "ركوب الخيل",
+      55
+    ],
+    [
+      "التصوير الفوتوغرافي",
+      42
+    ],
+    [
+      "الطبخ وصنع المأكولات",
+      31
+    ],
+    [
+      "الموسيقى والعزف",
+      31
+    ],
+    [
+      "الكتابة والتأليف",
+      26
+    ],
+    [
+      "التجارة",
+      25
+    ],
+    [
+      "الخياطة والأعمال اليدوية",
+      20
+    ],
+    [
+      "تعلم اللغات",
+      16
+    ],
+    [
+      "القراءة والمطالعة",
+      13
+    ],
+    [
+      "التصميم والديكور",
+      11
+    ],
+    [
+      "السفر",
+      10
+    ],
+    [
+      "التداول",
+      7
+    ],
+    [
+      "حفظ القران",
+      5
+    ],
+    [
+      "الزراعة",
+      4
+    ],
+    [
+      "النحت",
+      4
+    ],
+    [
+      "الحياكة",
+      4
+    ],
+    [
+      "قفز بالمظلات",
+      4
+    ],
+    [
+      "القيادة",
+      4
+    ],
+    [
+      "الاقناع",
+      3
+    ],
+    [
+      "الادارة",
+      3
+    ],
+    [
+      "شطرنج",
+      3
+    ],
+    [
+      "الرماية",
+      3
+    ],
+    [
+      "الصيد",
+      3
+    ],
+    [
+      "قيادة السيارة",
+      3
+    ],
+    [
+      "صناعة الروبوتات",
+      2
+    ],
+    [
+      "التمثيل",
+      2
+    ],
+    [
+      "التواصل الفعال",
+      2
+    ],
+    [
+      "التطوع",
+      2
+    ],
+    [
+      "البحث العلمي",
+      2
+    ],
+    [
+      "الكهرباء",
+      2
+    ],
+    [
+      "الشطرنج",
+      2
+    ],
+    [
+      "حفظ القران الكريم",
+      2
+    ],
+    [
+      "الكثير",
+      2
+    ],
+    [
+      "الهكر",
+      2
+    ],
+    [
+      "صناعة الفخار",
+      2
+    ],
+    [
+      "جراحة",
+      2
+    ],
+    [
+      "باريستا",
+      2
+    ],
+    [
+      "الخط العربي",
+      2
+    ],
+    [
+      "الخط",
+      2
+    ],
+    [
+      "الحلاقة",
+      2
+    ],
+    [
+      "بزنس",
+      1
+    ],
+    [
+      "كوافير",
+      1
+    ],
+    [
+      "الرماية، التنس",
+      1
+    ],
+    [
+      "اشغال يدوية",
+      1
+    ],
+    [
+      "Social skills",
+      1
+    ],
+    [
+      "برامج هندسية",
+      1
+    ],
+    [
+      "تركيب الادوية",
+      1
+    ],
+    [
+      "العمل تحت ضغط",
+      1
+    ],
+    [
+      "الروبوتات",
+      1
+    ],
+    [
+      "كورسات في التجميل",
+      1
+    ],
+    [
+      "التفكير خارج الصندوق",
+      1
+    ],
+    [
+      "تطوير CV",
+      1
+    ],
+    [
+      "ادارة",
+      1
+    ],
+    [
+      "مهارات القيادة",
+      1
+    ],
+    [
+      "القيادة، الادارة",
+      1
+    ],
+    [
+      "المونتاج",
+      1
+    ],
+    [
+      "تنس",
+      1
+    ],
+    [
+      "الحفظ والتركيز",
+      1
+    ],
+    [
+      "ادارة الازمات/ سرعة ايجاد الحلول في وقت ضيق/ سرعة بديهة",
+      1
+    ],
+    [
+      "تجويد القران",
+      1
+    ],
+    [
+      "كرة التنس",
+      1
+    ],
+    [
+      "المونتاج والتسويق",
+      1
+    ],
+    [
+      "التطريز",
+      1
+    ],
+    [
+      "السواقة/ التطوع",
+      1
+    ],
+    [
+      "الاهتمام اكثر بالتعلم",
+      1
+    ],
+    [
+      "كل شيء الصراحة من مهارات وهوايات",
+      1
+    ],
+    [
+      "طريقة الحفظ",
+      1
+    ],
+    [
+      "تحمل الضغوطات",
+      1
+    ],
+    [
+      "طرق الدراسة الصحيحة",
+      1
+    ],
+    [
+      "البحث الفعال",
+      1
+    ],
+    [
+      "كيفية البحث في المصادر",
+      1
+    ],
+    [
+      "الحساب الذهني",
+      1
+    ],
+    [
+      "سرعة التفكير",
+      1
+    ],
+    [
+      "تطوير النفس",
+      1
+    ],
+    [
+      "المهارات الذهنية ( الحساب الذهني السريع ، الحفظ السريع، الفهم و التفكير بقدرات عالية )",
+      1
+    ],
+    [
+      "كيفية البناء",
+      1
+    ],
+    [
+      "العمل الجماعي",
+      1
+    ],
+    [
+      "العمل في فريق",
+      1
+    ],
+    [
+      "ادارة مالية",
+      1
+    ],
+    [
+      "مهارة الاقناع",
+      1
+    ],
+    [
+      "مهارات الجراح",
+      1
+    ],
+    [
+      "الطباعة 3D",
+      1
+    ],
+    [
+      "روبوتات",
+      1
+    ],
+    [
+      "التمريض",
+      1
+    ],
+    [
+      "تحاليل طبية",
+      1
+    ],
+    [
+      "شغل يدوي",
+      1
+    ],
+    [
+      "تقديم مشروع للجامعة",
+      1
+    ],
+    [
+      "دورة طباعة",
+      1
+    ],
+    [
+      "كل شيء",
+      1
+    ],
+    [
+      "soft skills",
+      1
+    ],
+    [
+      "Soft skills",
+      1
+    ],
+    [
+      "تدريب عسكري و رمي السلاح",
+      1
+    ],
+    [
+      "حلاقة",
+      1
+    ],
+    [
+      "الرماية ، التسلق",
+      1
+    ],
+    [
+      "تمريض",
+      1
+    ],
+    [
+      "سيارات",
+      1
+    ],
+    [
+      "الاحياء",
+      1
+    ],
+    [
+      "الشهرة في المجال",
+      1
+    ],
+    [
+      "ميكانيكا",
+      1
+    ],
+    [
+      "قيادة المركبة",
+      1
+    ],
+    [
+      "bython- blender",
+      1
+    ],
+    [
+      "الرمي",
+      1
+    ],
+    [
+      "الرياضيات",
+      1
+    ],
+    [
+      "كهرباء سيارات",
+      1
+    ],
+    [
+      "معرفة كهرباء السيارات وقطع الغيار",
+      1
+    ],
+    [
+      "والاخراج",
+      1
+    ],
+    [
+      "كهرباء",
+      1
+    ],
+    [
+      "اسنان ، تخذير ، علاج طبيعي",
+      1
+    ],
+    [
+      "الجراحة ، صنع الادوية",
+      1
+    ],
+    [
+      "فنون التخطيط",
+      1
+    ],
+    [
+      "التغليف",
+      1
+    ],
+    [
+      "هكر وصناعة الالعاب",
+      1
+    ],
+    [
+      "الاعلام",
+      1
+    ],
+    [
+      "الشريعة الاسلامية",
+      1
+    ],
+    [
+      "هكر ، ضابط جوي",
+      1
+    ],
+    [
+      "تحقيق",
+      1
+    ],
+    [
+      "تصليح السيارات",
+      1
+    ],
+    [
+      "تكنولوجيا",
+      1
+    ],
+    [
+      "مهارات قتالية",
+      1
+    ],
+    [
+      "الاختراع والصناعة",
+      1
+    ],
+    [
+      "المهارات القتالية",
+      1
+    ],
+    [
+      "الخبرة في سوق العملة",
+      1
+    ],
+    [
+      "الشِّعر",
+      1
+    ],
+    [
+      "الاستكشاف",
+      1
+    ],
+    [
+      "التهكير الاخلاقي",
+      1
+    ],
+    [
+      "راعي غنم",
+      1
+    ],
+    [
+      "رمي بالسلاح",
+      1
+    ],
+    [
+      "المفاوضات السياسية",
+      1
+    ],
+    [
+      "النيابة العامة و سلك القضاء",
+      1
+    ],
+    [
+      "مهارات جديدة",
+      1
+    ],
+    [
+      "الاذاعة",
+      1
+    ],
+    [
+      "ميكانيكا السيارات",
+      1
+    ],
+    [
+      "الهلال الاحمر",
+      1
+    ],
+    [
+      "اسس الحوكمة ، مفهوم العدالة عبر الثقافات",
+      1
+    ],
+    [
+      "الكهرباء، الحلاقة",
+      1
+    ],
+    [
+      "العطارة",
+      1
+    ],
+    [
+      "الفنون",
+      1
+    ],
+    [
+      "التثقّف",
+      1
+    ],
+    [
+      "حفظ وتعلم القران",
+      1
+    ],
+    [
+      "الشعر",
+      1
+    ],
+    [
+      "تنمية بشرية",
+      1
+    ],
+    [
+      "تتسيق الاشياء مع بعض",
+      1
+    ],
+    [
+      "كيفية تقديم مشروع",
+      1
+    ],
+    [
+      "الملاكمة",
+      1
+    ],
+    [
+      "النجارة",
+      1
+    ],
+    [
+      "الحدادة",
+      1
+    ],
+    [
+      "لا شي محدد",
+      1
+    ],
+    [
+      "صناعة تلطين بالفخار",
+      1
+    ],
+    [
+      "السفر و الاستكشاف",
+      1
+    ],
+    [
+      "ادراة اعمال",
+      1
+    ],
+    [
+      "تعلم التقنية it",
+      1
+    ],
+    [
+      "تربية الحيوانات والملاكمة",
+      1
+    ],
+    [
+      "تحسين الخط وعلم النفس",
+      1
+    ],
+    [
+      "الموسيقا",
+      1
+    ],
+    [
+      "متمكن في تخصص",
+      1
+    ],
+    [
+      "فنون القتال",
+      1
+    ]
+  ],
+  "timeline": {
+    "2026-05-02": 152,
+    "2026-05-03": 47,
+    "2026-05-04": 84,
+    "2026-05-06": 14,
+    "2026-05-07": 82,
+    "2026-05-08": 135,
+    "2026-05-09": 247,
+    "2026-05-10": 477,
+    "2026-05-11": 230,
+    "2026-05-12": 3,
+    "2026-05-13": 6,
+    "2026-05-14": 27,
+    "2026-05-15": 33,
+    "2026-05-16": 211,
+    "2026-05-17": 93,
+    "2026-05-18": 24,
+    "2026-05-19": 7,
+    "2026-05-20": 56
+  },
+  "feedback_highlights": [
+    "اللغة الإنجليزية",
+    "تريد أن تتعلم مهارات تتعلق بالقانون",
+    "كاتب أنه يبي يسأل و يتعلم مهارة طب الأسنان",
+    "اسعافات اولية",
+    "يبي يتعلم مهارات جراحية",
+    "في الكتابة حددها بأنها كتابة أكاديمية",
+    "الأخت تريد التدرب على قضايا جنائية بعد الثانوي",
+    "من المهارات المكتوبة: التحكم في الذات",
+    "المهارة المكتوبة: تطوير المهارات الاجتماعية",
+    "تطوير البرامج و الألعاب",
+    "\"برمجة\" الشبكات بشكل خاص",
+    "نكون قوية و نرفع راس هلي",
+    "تبي تعلم كيف التعامل مع أطفال دوي الاحتياجات الخاصة",
+    "بالأخصّ، كيفية استخدام الذكاء الاصطناعي في تصميم المباني",
+    "اللغة الانجليزية والاسبانية",
+    "لغة الإنجليزية",
+    "مع التخصصات كاتبة عاوم بحرية وفي المهارات كاتبة اشغال يدوية",
+    "تريد أن تتعلم كيفية التحدث مع المريض نفسيًا",
+    "مهارة صناعة الألعاب",
+    "في مهارات كاتب اي حرفة",
+    "لعة إنجليزية",
+    "الانجليزية والتركية والايطالية",
+    "الأخت تتساءل عن سبب قلة فرص العمل في تخصص الأسنان",
+    "اللغة هي الإنجليزية (تريد أيضًا التحدث بلغات بمختلفة)",
+    "تريد تعلم \"التحقيق الجنائي\""
+  ],
+  "school_breakdown": {
+    "البيان والتباين( بنات)": {
+      "total": 93,
+      "gender": {
+        "أنثى": 93
+      },
+      "top_colleges": [
+        [
+          "كلية القانون",
+          29
+        ],
+        [
+          "كلية الهندسة",
+          28
+        ],
+        [
+          "كلية الاقتصاد",
+          17
+        ]
+      ]
+    },
+    "المستقبل (بنات)": {
+      "total": 106,
+      "gender": {
+        "أنثى": 106
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          46
+        ],
+        [
+          "كلية الطب البشري",
+          31
+        ],
+        [
+          "كلية الاقتصاد",
+          23
+        ]
+      ]
+    },
+    "السيدة حفصة( بنات)": {
+      "total": 150,
+      "gender": {
+        "أنثى": 150
+      },
+      "top_colleges": [
+        [
+          "كلية الطب البشري",
+          42
+        ],
+        [
+          "كلية الهندسة",
+          39
+        ],
+        [
+          "كلية الاقتصاد",
+          23
+        ]
+      ]
+    },
+    "شهداء يناير (بنين)": {
+      "total": 14,
+      "gender": {
+        "ذكر": 14
+      },
+      "top_colleges": [
+        [
+          "كلية الطب البشري",
+          3
+        ],
+        [
+          "كلية القانون",
+          3
+        ],
+        [
+          "كلية الهندسة",
+          3
+        ]
+      ]
+    },
+    "الأقصى( بنات)": {
+      "total": 93,
+      "gender": {
+        "أنثى": 93
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          33
+        ],
+        [
+          "كلية الطب البشري",
+          18
+        ],
+        [
+          "كلية اللغات",
+          12
+        ]
+      ]
+    },
+    "بنغازي(بنين)": {
+      "total": 13,
+      "gender": {
+        "ذكر": 13
+      },
+      "top_colleges": [
+        [
+          "كلية القانون",
+          6
+        ],
+        [
+          "غير محدد",
+          3
+        ],
+        [
+          "الكلية العسكرية",
+          2
+        ]
+      ]
+    },
+    "الخنساء( بنات)": {
+      "total": 56,
+      "gender": {
+        "أنثى": 56
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          32
+        ],
+        [
+          "كلية طب الأسنان",
+          18
+        ],
+        [
+          "كلية الطب البشري",
+          13
+        ]
+      ]
+    },
+    "الخالدات( بنات)": {
+      "total": 63,
+      "gender": {
+        "أنثى": 63
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          11
+        ],
+        [
+          "كلية طب الأسنان",
+          10
+        ],
+        [
+          "كلية الطب البشري",
+          10
+        ]
+      ]
+    },
+    "مركز المتفوقين (مختلط)": {
+      "total": 103,
+      "gender": {
+        "ذكر": 56,
+        "أنثى": 47
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          50
+        ],
+        [
+          "كلية الطب البشري",
+          41
+        ],
+        [
+          "كلية تقنية المعلومات",
+          19
+        ]
+      ]
+    },
+    "ألوية الحرية( بنات)": {
+      "total": 108,
+      "gender": {
+        "أنثى": 108
+      },
+      "top_colleges": [
+        [
+          "كلية القانون",
+          33
+        ],
+        [
+          "كلية الهندسة",
+          29
+        ],
+        [
+          "كلية الاقتصاد",
+          22
+        ]
+      ]
+    },
+    "التدارك (بنات)": {
+      "total": 23,
+      "gender": {
+        "أنثى": 23
+      },
+      "top_colleges": [
+        [
+          "كلية الطب البشري",
+          8
+        ],
+        [
+          "كلية الهندسة",
+          6
+        ],
+        [
+          "كليه التقنيه الطبيه",
+          4
+        ]
+      ]
+    },
+    "المداد( بنات)": {
+      "total": 13,
+      "gender": {
+        "أنثى": 13
+      },
+      "top_colleges": [
+        [
+          "كلية الطب البشري",
+          7
+        ],
+        [
+          "كلية الهندسة",
+          4
+        ],
+        [
+          "كلية التربية",
+          2
+        ]
+      ]
+    },
+    "سماء التفوق(بنات)": {
+      "total": 65,
+      "gender": {
+        "أنثى": 64,
+        "ذكر": 1
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          26
+        ],
+        [
+          "كلية الطب البشري",
+          21
+        ],
+        [
+          "كلية طب الأسنان",
+          11
+        ]
+      ]
+    },
+    "قادة الموهوبين (بنين)": {
+      "total": 27,
+      "gender": {
+        "ذكر": 27
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          13
+        ],
+        [
+          "كلية الاقتصاد",
+          7
+        ],
+        [
+          "كلية تقنية المعلومات",
+          6
+        ]
+      ]
+    },
+    "أبي عبيدة بن جراح(بنين)": {
+      "total": 51,
+      "gender": {
+        "ذكر": 51
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          20
+        ],
+        [
+          "كلية تقنية المعلومات",
+          14
+        ],
+        [
+          "الكلية العسكرية",
+          9
+        ]
+      ]
+    },
+    "شهداء الثورة(بنين)": {
+      "total": 89,
+      "gender": {
+        "ذكر": 88,
+        "أنثى": 1
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          37
+        ],
+        [
+          "الكلية العسكرية",
+          20
+        ],
+        [
+          "كلية تقنية المعلومات",
+          14
+        ]
+      ]
+    },
+    "مداد المعارف (بنين)": {
+      "total": 104,
+      "gender": {
+        "ذكر": 104
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          33
+        ],
+        [
+          "كلية تقنية المعلومات",
+          28
+        ],
+        [
+          "كلية الاقتصاد",
+          17
+        ]
+      ]
+    },
+    "السيدة رُقية( بنات)": {
+      "total": 103,
+      "gender": {
+        "أنثى": 103
+      },
+      "top_colleges": [
+        [
+          "كلية القانون",
+          35
+        ],
+        [
+          "كلية الاقتصاد",
+          22
+        ],
+        [
+          "كلية اللغات",
+          17
+        ]
+      ]
+    },
+    "قورينا(بنين)": {
+      "total": 38,
+      "gender": {
+        "ذكر": 38
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          22
+        ],
+        [
+          "كلية الاقتصاد",
+          9
+        ],
+        [
+          "كلية تقنية المعلومات",
+          6
+        ]
+      ]
+    },
+    "جسر المعرفة(بنين)": {
+      "total": 67,
+      "gender": {
+        "ذكر": 67
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          20
+        ],
+        [
+          "كلية القانون",
+          16
+        ],
+        [
+          "كلية الاقتصاد",
+          15
+        ]
+      ]
+    },
+    "عبدالرازق الشيخي(بنين)": {
+      "total": 36,
+      "gender": {
+        "ذكر": 36
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          16
+        ],
+        [
+          "كلية الاقتصاد",
+          5
+        ],
+        [
+          "الكلية العسكرية",
+          5
+        ]
+      ]
+    },
+    "شهداء بوزغيبة( بنات)": {
+      "total": 128,
+      "gender": {
+        "أنثى": 128
+      },
+      "top_colleges": [
+        [
+          "كلية القانون",
+          36
+        ],
+        [
+          "كلية الهندسة",
+          29
+        ],
+        [
+          "كلية الطب البشري",
+          26
+        ]
+      ]
+    },
+    "أبوبكر الرازي(بنين)": {
+      "total": 25,
+      "gender": {
+        "ذكر": 25
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          12
+        ],
+        [
+          "كلية الاقتصاد",
+          5
+        ],
+        [
+          "كلية تقنية المعلومات",
+          5
+        ]
+      ]
+    },
+    "منارة بنغازي (بنات)": {
+      "total": 27,
+      "gender": {
+        "أنثى": 27
+      },
+      "top_colleges": [
+        [
+          "كلية الطب البشري",
+          7
+        ],
+        [
+          "كلية الهندسة",
+          6
+        ],
+        [
+          "كلية اللغات",
+          4
+        ]
+      ]
+    },
+    "الدولية (مختلط)": {
+      "total": 47,
+      "gender": {
+        "أنثى": 27,
+        "ذكر": 20
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          14
+        ],
+        [
+          "كلية الطب البشري",
+          14
+        ],
+        [
+          "كلية الاقتصاد",
+          11
+        ]
+      ]
+    },
+    "السيدة سُمية( بنات)": {
+      "total": 133,
+      "gender": {
+        "أنثى": 133
+      },
+      "top_colleges": [
+        [
+          "كلية الهندسة",
+          34
+        ],
+        [
+          "كلية القانون",
+          28
+        ],
+        [
+          "كلية طب الأسنان",
+          21
+        ]
+      ]
+    },
+    "السد العالي (بنات)": {
+      "total": 153,
+      "gender": {
+        "أنثى": 153
+      },
+      "top_colleges": [
+        [
+          "كلية القانون",
+          51
+        ],
+        [
+          "كلية الاقتصاد",
+          25
+        ],
+        [
+          "كلية الهندسة",
+          25
+        ]
+      ]
+    }
+  },
+  "college_questions": {
+    "كلية الهندسة": [
+      "يجذب اهتمامي. ؟ نحرز تقدم ؟",
+      "ماذا يدرسون في هذا التخصص؟",
+      "الدخول لاي جامعة أفضل؟",
+      "هل له مستقبل, + هل هو ناجح في ليبيا؟",
+      "مدى صعوبة التخصص, فرص السفر والدراسة بالخارج, هل ممكن يكون شغل IT من المنزل؟",
+      "كاتبة بالحرف \"الجامعة كروسينة\"...؟"
+    ],
+    "كلية تقنية المعلومات": [
+      "مدى صعوبة التخصص, فرص السفر والدراسة بالخارج, هل ممكن يكون شغل IT من المنزل؟",
+      "الدخول لاي جامعة أفضل؟",
+      "فرص التعيين في التخصص, كم مادة في التخصص؟ واي احسن كلية لغات او تقنية معلومات؟",
+      "اكثر تخصص يحتوي عمل ؟",
+      "سؤال عن تخصص آخر، هل صعب النجاح في الطب؟"
+    ],
+    "كلية اللغات": [
+      "هل التخصص مناسب لي وهل أستطيع النجاح فيه, مدى صعوبة التخصص, نقدر نكمل فيه ؟",
+      "يجذب اهتمامي. ؟ نحرز تقدم ؟",
+      "فرص التعيين في التخصص, كم مادة في التخصص؟ واي احسن كلية لغات او تقنية معلومات؟",
+      "اكثر تخصص يحتوي عمل ؟"
+    ],
+    "كلية طب الأسنان": [
+      "ما هي الجامعة المناسبة للتخصص؟",
+      "كم مدة التخصص, عمر الي يتخرج ؟ الاعداد صعب ؟ صعب ؟",
+      "هل التخصص مناسب لي وهل أستطيع النجاح فيه, مدى صعوبة التخصص, نقدر نكمل فيه ؟",
+      "كم مدة التخصص, هل حنقعد دكتورة مشهورة؟"
+    ],
+    "كلية الطب البشري": [
+      "ماذا يدرسون في هذا التخصص؟",
+      "هل من الممكن دراسة اكثر من تخصص معا؟ وماهو عمل مهندس النفط؟"
+    ],
+    "كلية الاقتصاد": [
+      "يجذب اهتمامي. ؟ نحرز تقدم ؟",
+      "كيف استطيع أن اطور وأعزز مهاراتي في التخصص, ماذا سأستفيد من التخصص؟ وماذا سأفعل بعد الحصول على الشهادة؟",
+      "لو حد يحب الفلسفة شنو التخصص اللي يخشله؟ خاطي انه يقعد معلم",
+      "هل من الممكن دراسة اكثر من تخصص معا؟ وماهو عمل مهندس النفط؟",
+      "هل استطيع دراسة ادارة الاعمال وانا تخصصي ادبي؟",
+      "سؤال عن تخصص آخر، لماذا كل الناس يريدون الطب البشري؟"
+    ],
+    "كلية الإعلام": [
+      "كيف استطيع أن اطور وأعزز مهاراتي في التخصص, ماذا سأستفيد من التخصص؟ وماذا سأفعل بعد الحصول على الشهادة؟",
+      "هل استطيع دراسة ادارة الاعمال وانا تخصصي ادبي؟"
+    ],
+    "كلية القانون": [
+      "الدخول لأي جامعة أفضل؟",
+      "هل التخصص مناسب لي وهل أستطيع النجاح فيه, مدى صعوبة التخصص, نقدر نكمل فيه ؟",
+      "هل استطيع دراسة ادارة الاعمال وانا تخصصي ادبي؟"
+    ],
+    "كلية الصيدلة": [
+      "تسأل عن تخصص \"الهندسة المالية\"...؟",
+      "هل التخصص مناسب لي وهل أستطيع النجاح فيه, نقدر نكمل فيه ؟",
+      "اكثر تخصص يحتوي عمل ؟"
+    ],
+    "كلية الطيران": [
+      "سؤال مربوط بالتخصص: كيف يمكن لإنسان أنه يتحكم في هيكل ضخم ألا وهو الطائرة؟",
+      "هل يوجد جامعة لهندسة الطيران؟"
+    ]
+  }
+};
+
+</script>
+  <script>
+/* 🚀 Wejha Project Data Analysis Dashboard & Interactive Portal Logic */
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Initialize Lucide Icons
+  try {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    } else {
+      console.warn("Lucide library is not loaded yet.");
+    }
+  } catch (e) {
+    console.error("Lucide failed to initialize", e);
+  }
+
+  // Mobile menu toggle
+  try {
+    const navMenuToggle = document.getElementById('nav-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (navMenuToggle && navLinks) {
+      navMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('show');
+        const icon = navMenuToggle.querySelector('i');
+        if (icon) {
+          icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+      });
+
+      // Close when clicking a link
+      navLinks.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+          const icon = navMenuToggle.querySelector('i');
+          if (icon) {
+            icon.setAttribute('data-lucide', 'menu');
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+          }
+        });
+      });
+
+      // Close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !navMenuToggle.contains(e.target)) {
+          if (navLinks.classList.contains('show')) {
+            navLinks.classList.remove('show');
+            const icon = navMenuToggle.querySelector('i');
+            if (icon) {
+              icon.setAttribute('data-lucide', 'menu');
+              if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+          }
+        }
+      });
+    }
+  } catch (e) {
+    console.error("Mobile navigation toggle initialization failed", e);
+  }
+
+  const safeRun = (name, fn) => {
+    try {
+      fn();
+    } catch (e) {
+      console.error(`Error executing ${name}:`, e);
+    }
+  };
+
+  // 2. Load General KPI Statistics
+  safeRun("loadKPIs", loadKPIs);
+
+  // 3. Render Demographics (Academic Years & Top Schools)
+  safeRun("renderDemographics", renderDemographics);
+
+  // 4. Render College Desires with Interactive Tabs
+  safeRun("renderCollegeDesires", renderCollegeDesires);
+
+  // 5. Render Influences & Role Models
+  safeRun("renderInfluences", renderInfluences);
+
+  // 6. Render Skills & Hobbies
+  safeRun("renderSkillsAndHobbies", renderSkillsAndHobbies);
+
+  // 7. Render Data Entry Team Contributions
+  safeRun("renderTeam", renderTeam);
+
+  // 8. Render Feedback Testimonials Slider
+  safeRun("renderFeedbackSlider", renderFeedbackSlider);
+
+  // 9. Scroll Animation Trigger (Intersection Observer)
+  safeRun("initScrollAnimations", initScrollAnimations);
+
+  // 11. NEW COMPONENT: Initialize School Data Explorer
+  safeRun("initSchoolExplorer", initSchoolExplorer);
+
+  // 12. NEW COMPONENT: Initialize Major Questions Hub
+  safeRun("initQuestionsHub", initQuestionsHub);
+
+  // 13. NEW COMPONENT: Initialize Interactive Recommendation Wizard
+  safeRun("initRecommendationWizard", initRecommendationWizard);
+
+  // 14. NEW COMPONENT: Initialize Timeline Chart
+  safeRun("initTimelineChart", initTimelineChart);
+
+  // 15. NEW COMPONENT: Initialize Skills & Hobbies Tag Explorer
+  safeRun("initTagExplorer", initTagExplorer);
+});
+
+// Primary Palette (matches Wejha Brand Guidelines v2)
+const colors = {
+  primaryBlue: '#00389E',
+  actionOrange: '#FF4900',
+  darkNavy: '#001F8F',
+  lightBlue: '#1E50C2',
+  midGray: '#9099B5',
+  success: '#10B981',
+  warning: '#F59E0B',
+  info: '#3B82F6',
+  gender: {
+    female: '#FF4900', // Action Orange for Females as per brand guidelines v2
+    male: '#1E50C2'    // Light Blue/Secondary Blue for Males
+  }
+};
+
+// 2. Load General KPI Statistics
+function loadKPIs() {
+  const data = wejhaData;
+  
+  // Total Students
+  document.getElementById('kpi-total-students').textContent = data.total_records.toLocaleString('ar-LY');
+  
+  // Total Schools
+  document.getElementById('kpi-total-schools').textContent = data.unique_schools_count.toLocaleString('ar-LY');
+  
+  // Volunteers Count
+  const volunteersCount = Object.keys(data.data_entry_counts).length;
+  document.getElementById('kpi-surveyors').textContent = volunteersCount.toLocaleString('ar-LY');
+  
+  // Female Percentage
+  const femaleCount = data.gender_counts['أنثى'] || 0;
+  const maleCount = data.gender_counts['ذكر'] || 0;
+  const femalePct = Math.round((femaleCount / data.total_records) * 100);
+  document.getElementById('kpi-female-pct').textContent = `${femalePct.toLocaleString('ar-LY')}%`;
+
+  // Gender box values
+  document.getElementById('female-percentage').textContent = `${femalePct.toLocaleString('ar-LY')}%`;
+  document.getElementById('female-count').textContent = `${femaleCount.toLocaleString('ar-LY')} طالبة`;
+  
+  const malePct = 100 - femalePct;
+  document.getElementById('male-percentage').textContent = `${malePct.toLocaleString('ar-LY')}%`;
+  document.getElementById('male-count').textContent = `${maleCount.toLocaleString('ar-LY')} طالب`;
+}
+
+// 3. Render Demographics (Academic Years & Top Schools)
+function renderDemographics() {
+  const data = wejhaData;
+
+  // -- Academic Years Chart --
+  const yearsKeys = Object.keys(data.academic_year_counts);
+  const yearsValues = Object.values(data.academic_year_counts);
+
+
+  const academicOptions = {
+    series: [{
+      name: 'عدد الطلبة',
+      data: yearsValues
+    }],
+    chart: {
+      type: 'bar',
+      height: 280,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif",
+      toolbar: { show: false }
+    },
+    colors: [colors.primaryBlue, colors.lightBlue, colors.actionOrange, colors.darkNavy, colors.midGray],
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: false,
+        columnWidth: '50%',
+        distributed: true
+      }
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val) {
+        return val.toLocaleString('ar-LY');
+      },
+      style: {
+        colors: ['#fff'],
+        fontSize: '12px'
+      }
+    },
+    legend: { show: false },
+    xaxis: {
+      categories: yearsKeys,
+      labels: {
+        style: {
+          fontSize: '12px',
+          fontWeight: 600
+        }
+      }
+    },
+    yaxis: {
+      labels: {
+        align: 'right',
+        style: {
+          fontSize: '11px'
+        },
+        formatter: function (val) {
+          return val.toLocaleString('ar-LY');
+        }
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return `${val.toLocaleString('ar-LY')} طالب وطالبة`;
+        }
+      }
+    }
+  };
+
+  const academicChart = new ApexCharts(document.querySelector("#chart-academic-years"), academicOptions);
+  academicChart.render();
+
+  // -- Schools Table --
+  const schoolsTableBody = document.querySelector("#schools-table tbody");
+  const maxSchoolCount = data.top_schools[0][1];
+
+  data.top_schools.forEach((school, index) => {
+    const schoolName = school[0];
+    const count = school[1];
+    const percentage = ((count / data.total_records) * 100).toFixed(1);
+    const progressWidth = ((count / maxSchoolCount) * 100).toFixed(1);
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="font-barlow" style="font-weight: 700; color: var(--mid-gray); text-align: center;">${(index + 1).toLocaleString('ar-LY')}</td>
+      <td style="font-weight: 600; color: var(--dark-navy);">${schoolName}</td>
+      <td class="font-barlow" style="text-align: center; font-weight: 700; color: var(--action-orange);">${count.toLocaleString('ar-LY')}</td>
+      <td>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div class="progress-bar-container" style="flex-grow: 1;">
+            <div class="progress-bar-fill" style="width: ${progressWidth}%; background-color: ${index % 2 === 0 ? colors.primaryBlue : colors.lightBlue};"></div>
+          </div>
+          <span class="font-barlow" style="font-size: 0.85rem; font-weight: 700; min-width: 45px; text-align: left;">${percentage.toLocaleString('ar-LY')}%</span>
+        </div>
+      </td>
+    `;
+    schoolsTableBody.appendChild(row);
+  });
+}
+
+// 4. Render College Desires with Interactive Tabs
+function renderCollegeDesires() {
+  const data = wejhaData;
+
+  // Filter top 10 colleges overall
+  const collegesOverall = data.colleges_overall.filter(x => x[0] !== 'غير حدد' && x[0] !== 'غير محدد').slice(0, 10);
+  const categories = collegesOverall.map(x => x[0]);
+  const values = collegesOverall.map(x => x[1]);
+
+  // Main interactive Chart
+  let collegesChart;
+
+  const collegesOptions = {
+    series: [{
+      name: 'عدد الطلبة المهتمين',
+      data: values
+    }],
+    chart: {
+      type: 'bar',
+      height: 400,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif",
+      toolbar: { show: false }
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+        barHeight: '70%',
+      }
+    },
+    colors: [colors.primaryBlue],
+    dataLabels: {
+      enabled: true,
+      textAnchor: 'start',
+      style: {
+        colors: ['#fff'],
+        fontWeight: 'bold'
+      },
+      formatter: function (val) {
+        return val.toLocaleString('ar-LY');
+      },
+      offsetX: 0
+    },
+    xaxis: {
+      categories: categories,
+      labels: {
+        formatter: function (val) {
+          return val.toLocaleString('ar-LY');
+        }
+      }
+    },
+    yaxis: {
+      labels: {
+        style: {
+          fontSize: '12px',
+          fontWeight: 600
+        }
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return `${val.toLocaleString('ar-LY')} طالب/ـة`;
+        }
+      }
+    }
+  };
+
+  collegesChart = new ApexCharts(document.querySelector("#chart-colleges"), collegesOptions);
+  collegesChart.render();
+
+  // Setup tabs interaction
+  const tabs = document.querySelectorAll("#colleges-tabs .control-btn");
+  tabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.getAttribute('data-filter');
+      updateCollegesChart(filter);
+    });
+  });
+
+  function updateCollegesChart(filter) {
+    if (filter === 'overall') {
+      const topColleges = data.colleges_overall.filter(x => x[0] !== 'غير حدد' && x[0] !== 'غير محدد').slice(0, 10);
+      collegesChart.updateOptions({
+        colors: [colors.primaryBlue],
+        plotOptions: { bar: { distributed: false } },
+        xaxis: { categories: topColleges.map(x => x[0]) }
+      });
+      collegesChart.updateSeries([{
+        name: 'عدد الطلبة المهتمين',
+        data: topColleges.map(x => x[1])
+      }]);
+    } 
+    else if (filter === 'gender') {
+      // Show female vs male
+      const topColleges = data.colleges_overall.filter(x => x[0] !== 'غير حدد' && x[0] !== 'غير محدد').slice(0, 8);
+      const cat = topColleges.map(x => x[0]);
+      
+      const femaleCounts = cat.map(c => {
+        const found = data.colleges_female.find(x => x[0] === c);
+        return found ? found[1] : 0;
+      });
+      
+      const maleCounts = cat.map(c => {
+        const found = data.colleges_male.find(x => x[0] === c);
+        return found ? found[1] : 0;
+      });
+
+      collegesChart.updateOptions({
+        colors: [colors.gender.female, colors.gender.male],
+        plotOptions: { bar: { distributed: false } },
+        xaxis: { categories: cat }
+      });
+
+      collegesChart.updateSeries([
+        { name: 'إناث', data: femaleCounts },
+        { name: 'ذكور', data: maleCounts }
+      ]);
+    } 
+    else if (filter === 'track') {
+      // Scientific vs Literary
+      const topColleges = data.colleges_overall.filter(x => x[0] !== 'غير حدد' && x[0] !== 'غير محدد').slice(0, 8);
+      const cat = topColleges.map(x => x[0]);
+      
+      const sciCounts = cat.map(c => {
+        const found = data.colleges_scientific.find(x => x[0] === c);
+        return found ? found[1] : 0;
+      });
+      
+      const litCounts = cat.map(c => {
+        const found = data.colleges_literary.find(x => x[0] === c);
+        return found ? found[1] : 0;
+      });
+
+      collegesChart.updateOptions({
+        colors: [colors.primaryBlue, colors.actionOrange],
+        plotOptions: { bar: { distributed: false } },
+        xaxis: { categories: cat }
+      });
+
+      collegesChart.updateSeries([
+        { name: 'مسار علمي', data: sciCounts },
+        { name: 'مسار أدبي', data: litCounts }
+      ]);
+    }
+  }
+
+  // Secondary charts: Scientific Track
+  const sciColleges = data.colleges_scientific.filter(x => x[0] !== 'غير حدد' && x[0] !== 'غير محدد').slice(0, 5);
+  const sciOptions = {
+    series: [{
+      name: 'عدد الطلبة (علمي)',
+      data: sciColleges.map(x => x[1])
+    }],
+    chart: {
+      type: 'bar',
+      height: 250,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif",
+      toolbar: { show: false }
+    },
+    colors: [colors.lightBlue],
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+        barHeight: '60%'
+      }
+    },
+    xaxis: {
+      categories: sciColleges.map(x => x[0])
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return `${val.toLocaleString('ar-LY')} طالب علمي`;
+        }
+      }
+    }
+  };
+  const sciChart = new ApexCharts(document.querySelector("#chart-scientific-colleges"), sciOptions);
+  sciChart.render();
+
+  // Secondary charts: Literary Track
+  const litColleges = data.colleges_literary.filter(x => x[0] !== 'غير حدد' && x[0] !== 'غير محدد').slice(0, 5);
+  const litOptions = {
+    series: [{
+      name: 'عدد الطلبة (أدبي)',
+      data: litColleges.map(x => x[1])
+    }],
+    chart: {
+      type: 'bar',
+      height: 250,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif",
+      toolbar: { show: false }
+    },
+    colors: [colors.actionOrange],
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+        barHeight: '60%'
+      }
+    },
+    xaxis: {
+      categories: litColleges.map(x => x[0])
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return `${val.toLocaleString('ar-LY')} طالب أدبي`;
+        }
+      }
+    }
+  };
+  const litChart = new ApexCharts(document.querySelector("#chart-literary-colleges"), litOptions);
+  litChart.render();
+}
+
+// 5. Render Influences & Role Models
+function renderInfluences() {
+  const data = wejhaData;
+
+  // -- Influencers Pie Chart --
+  const noInfluenceCount = (data.influencers.find(x => x[0] === 'لا') || [null, 0])[1];
+  
+  const infCategories = ['لا يوجد تأثير خارجي', 'تأثير أفراد العائلة', 'تأثير الأصدقاء', 'تأثير المعلمين', 'تأثير شخصية مشهورة'];
+  const infValues = [
+    noInfluenceCount,
+    (data.influencers.find(x => x[0] === 'أفراد من العائلة') || [null, 0])[1],
+    (data.influencers.find(x => x[0] === 'اصدقاء') || [null, 0])[1],
+    (data.influencers.find(x => x[0] === 'معلم') || [null, 0])[1],
+    (data.influencers.find(x => x[0] === 'شخصية عامة / مشهورة') || [null, 0])[1],
+  ];
+
+  const influencersOptions = {
+    series: infValues,
+    chart: {
+      type: 'donut',
+      height: 320,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif"
+    },
+    labels: infCategories,
+    colors: [colors.darkNavy, colors.primaryBlue, colors.actionOrange, colors.lightBlue, colors.midGray],
+    legend: {
+      position: 'bottom',
+      fontSize: '12px'
+    },
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: { width: 280 }
+      }
+    }]
+  };
+
+  const influencersChart = new ApexCharts(document.querySelector("#chart-influencers"), influencersOptions);
+  influencersChart.render();
+
+  // -- Role Models Bar Chart --
+  const rmFiltered = data.role_models.filter(x => x[0] !== 'لا يوجد' && x[0] !== 'نعم').slice(0, 5);
+  const rmCategories = rmFiltered.map(x => x[0]);
+  const rmValues = rmFiltered.map(x => x[1]);
+  
+  const noRmCount = (data.role_models.find(x => x[0] === 'لا يوجد') || [null, 0])[1];
+  rmCategories.push('لا يوجد قدوة محددة');
+  rmValues.push(noRmCount);
+
+  const roleModelsOptions = {
+    series: [{
+      name: 'عدد الطلبة',
+      data: rmValues
+    }],
+    chart: {
+      type: 'bar',
+      height: 300,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif",
+      toolbar: { show: false }
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        columnWidth: '55%',
+        distributed: true
+      }
+    },
+    colors: [colors.primaryBlue, colors.actionOrange, colors.lightBlue, colors.darkNavy, colors.midGray],
+    legend: { show: false },
+    xaxis: {
+      categories: rmCategories,
+      labels: {
+        style: { fontSize: '11px', fontWeight: 600 }
+      }
+    },
+    yaxis: {
+      labels: {
+        formatter: function (val) {
+          return val.toLocaleString('ar-LY');
+        }
+      }
+    }
+  };
+
+  const roleModelsChart = new ApexCharts(document.querySelector("#chart-role-models"), roleModelsOptions);
+  roleModelsChart.render();
+
+  // -- Public Figures Grid --
+  const figuresContainer = document.querySelector("#public-figures-container");
+  const topFigures = data.public_figures.slice(0, 8);
+  
+  const figureAvatars = {
+    'عبد الحميد البحباح': '📺',
+    'د. مجدي يعقوب': '🩺',
+    'د. أحمد زويل': '🧪',
+    'ستيف جوبز': '💻',
+    'إيلون ماسك': '🚀',
+    'أبو تريكة': '⚽',
+    'كريستيانو رونالدو': '🏃‍♂️',
+    'ليونيل ميسي': '🏆'
+  };
+
+  topFigures.forEach(fig => {
+    const name = fig[0];
+    const count = fig[1];
+    const avatar = figureAvatars[name] || '👤';
+
+    const card = document.createElement("div");
+    card.className = "profile-card";
+    card.innerHTML = `
+      <div class="profile-avatar-circle">${avatar}</div>
+      <div class="profile-details">
+        <h4>${name}</h4>
+        <p>ذُكر كقدوة ملهمة: <strong class="font-barlow" style="color:var(--action-orange); font-size:1.1rem;">${count.toLocaleString('ar-LY')}</strong> مرة</p>
+      </div>
+    `;
+    figuresContainer.appendChild(card);
+  });
+}
+
+// 6. Render Skills & Hobbies
+function renderSkillsAndHobbies() {
+  const data = wejhaData;
+
+  // -- Skills Bar Chart --
+  const skillsList = data.skills.filter(x => x[0] !== 'لا يوجد').slice(0, 7);
+  
+  const skillsOptions = {
+    series: [{
+      name: 'عدد الطلاب الراغبين بالتعلم',
+      data: skillsList.map(x => x[1])
+    }],
+    chart: {
+      type: 'bar',
+      height: 300,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif",
+      toolbar: { show: false }
+    },
+    colors: [colors.primaryBlue],
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+        barHeight: '50%'
+      }
+    },
+    xaxis: {
+      categories: skillsList.map(x => x[0]),
+      labels: {
+        formatter: function (val) {
+          return val.toLocaleString('ar-LY');
+        }
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return `${val.toLocaleString('ar-LY')} طالب وطالبة`;
+        }
+      }
+    }
+  };
+
+  const skillsChart = new ApexCharts(document.querySelector("#chart-skills"), skillsOptions);
+  skillsChart.render();
+
+  // -- Hobbies Bar Chart --
+  const hobbiesList = data.hobbies.filter(x => x[0] !== 'لا يوجد').slice(0, 7);
+
+  const hobbiesOptions = {
+    series: [{
+      name: 'عدد الطلبة المهتمين',
+      data: hobbiesList.map(x => x[1])
+    }],
+    chart: {
+      type: 'bar',
+      height: 300,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif",
+      toolbar: { show: false }
+    },
+    colors: [colors.actionOrange],
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+        barHeight: '50%'
+      }
+    },
+    xaxis: {
+      categories: hobbiesList.map(x => x[0]),
+      labels: {
+        formatter: function (val) {
+          return val.toLocaleString('ar-LY');
+        }
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return `${val.toLocaleString('ar-LY')} طالب وطالبة`;
+        }
+      }
+    }
+  };
+
+  const hobbiesChart = new ApexCharts(document.querySelector("#chart-hobbies"), hobbiesOptions);
+  hobbiesChart.render();
+}
+
+// 7. Render Data Entry Team Contributions
+function renderTeam() {
+  const data = wejhaData;
+  const teamContainer = document.querySelector("#team-container");
+  if (!teamContainer) return;
+  
+  const sortedVolunteers = Object.entries(data.data_entry_counts).sort((a, b) => b[1] - a[1]);
+
+  sortedVolunteers.forEach(v => {
+    const name = v[0];
+    const count = v[1];
+    const initial = name.charAt(0);
+
+    const card = document.createElement("div");
+    card.className = "col-4";
+    card.style.maxWidth = "350px";
+    card.innerHTML = `
+      <div class="team-member-card">
+        <div class="team-member-avatar">${initial}</div>
+        <h3 class="team-member-name">${name}</h3>
+        <p class="team-member-role">متطوع إدخال البيانات</p>
+        <div class="team-member-contrib">
+          قام بأرشفة وتدقيق:<br>
+          <strong class="font-barlow">${count.toLocaleString('ar-LY')}</strong> استمارة استبيان
+        </div>
+      </div>
+    `;
+    teamContainer.appendChild(card);
+  });
+}
+
+// 8. Render Feedback Testimonials Slider
+function renderFeedbackSlider() {
+  const data = wejhaData;
+  const track = document.getElementById("testimonial-track");
+  const nav = document.getElementById("slider-nav");
+  if (!track) return;
+
+  if (!data.feedback_highlights || data.feedback_highlights.length === 0) return;
+
+  data.feedback_highlights.forEach((fb, index) => {
+    // Add Slide
+    const slide = document.createElement("div");
+    slide.className = "testimonial-card";
+    slide.innerHTML = `
+      <div class="testimonial-inner">
+        <p class="testimonial-text">${fb}</p>
+        <div class="testimonial-author">طالبـ/ـة مشاركـ/ـة في استبيان وجهة</div>
+      </div>
+    `;
+    track.appendChild(slide);
+
+    // Add Dot
+    const dot = document.createElement("span");
+    dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+      resetAutoSlide();
+    });
+    nav.appendChild(dot);
+  });
+
+  let currentSlide = 0;
+  let autoSlideInterval;
+
+  function goToSlide(index) {
+    currentSlide = index;
+    // Slide transition (handles RTL slide direction correctly)
+    track.style.transform = `translateX(${currentSlide * 100}%)`;
+    
+    // Update dots
+    const dots = document.querySelectorAll(".slider-dot");
+    dots.forEach((d, idx) => {
+      if (idx === currentSlide) {
+        d.classList.add('active');
+      } else {
+        d.classList.remove('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    let next = currentSlide + 1;
+    if (next >= data.feedback_highlights.length) {
+      next = 0;
+    }
+    goToSlide(next);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 6000);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+
+  startAutoSlide();
+}
+
+// 9. Scroll Animation Trigger (Intersection Observer)
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll('.fade-in-up');
+  
+  if (!('IntersectionObserver' in window)) {
+    animatedElements.forEach(el => el.classList.add('active'));
+    return;
+  }
+  
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.02
+  });
+
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+
+  // Track active menu state based on scroll section
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= (sectionTop - 150)) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+}
+
+
+// 11. NEW COMPONENT: Initialize School Data Explorer (Upgraded to Comparative Side-by-Side)
+function initSchoolExplorer() {
+  const selector1 = document.getElementById("school-selector-1");
+  const selector2 = document.getElementById("school-selector-2");
+  if (!selector1 || !selector2) return;
+
+  const breakdown = wejhaData.school_breakdown;
+  const schoolNames = Object.keys(breakdown).sort();
+
+  // Populate Select Options for both
+  schoolNames.forEach(school => {
+    const opt1 = document.createElement("option");
+    opt1.value = school;
+    opt1.textContent = school;
+    selector1.appendChild(opt1);
+
+    const opt2 = document.createElement("option");
+    opt2.value = school;
+    opt2.textContent = school;
+    selector2.appendChild(opt2);
+  });
+
+  function bindSelector(selector, containerId, totalId, femaleId, maleId, collegesId) {
+    const container = document.getElementById(containerId);
+    selector.addEventListener("change", () => {
+      const schoolVal = selector.value;
+      if (!schoolVal) {
+        container.style.display = "none";
+        return;
+      }
+
+      const schoolData = breakdown[schoolVal];
+      
+      // Total Students
+      document.getElementById(totalId).textContent = schoolData.total.toLocaleString("ar-LY");
+      
+      // Gender Breakdown
+      const femaleCount = schoolData.gender["أنثى"] || 0;
+      const maleCount = schoolData.gender["ذكر"] || 0;
+      const totalCount = femaleCount + maleCount;
+      const fPct = totalCount > 0 ? Math.round((femaleCount / totalCount) * 100) : 0;
+      const mPct = totalCount > 0 ? 100 - fPct : 0;
+
+      document.getElementById(femaleId).textContent = `${femaleCount.toLocaleString("ar-LY")} (${fPct.toLocaleString("ar-LY")}%)`;
+      document.getElementById(maleId).textContent = `${maleCount.toLocaleString("ar-LY")} (${mPct.toLocaleString("ar-LY")}%)`;
+
+      // Top 3 Colleges (Filter out "غير محدد" / "غير حدد")
+      const collegesList = document.getElementById(collegesId);
+      collegesList.innerHTML = "";
+
+      const filteredColleges = schoolData.top_colleges
+        .filter(col => col[0] !== "غير محدد" && col[0] !== "غير حدد")
+        .slice(0, 3);
+
+      filteredColleges.forEach(col => {
+        const colName = col[0];
+        const colCount = col[1];
+        const item = document.createElement("li");
+        item.innerHTML = `${colName} <span class="font-barlow" style="color:var(--action-orange); font-weight:700; margin-right: 0.5rem;">(${colCount.toLocaleString("ar-LY")} طالب/ـة)</span>`;
+        collegesList.appendChild(item);
+      });
+
+      container.style.display = "flex";
+      lucide.createIcons();
+    });
+  }
+
+  bindSelector(selector1, "school-stats-container-1", "school-stat-total-1", "school-stat-female-1", "school-stat-male-1", "school-stat-colleges-1");
+  bindSelector(selector2, "school-stats-container-2", "school-stat-total-2", "school-stat-female-2", "school-stat-male-2", "school-stat-colleges-2");
+}
+
+// 12. NEW COMPONENT: Initialize Major Questions Hub
+function initQuestionsHub() {
+  const grid = document.getElementById("college-q-selector-grid");
+  const displayBox = document.getElementById("questions-display-box");
+  const title = document.getElementById("selected-college-title");
+  const list = document.getElementById("q-bubble-list");
+  if (!grid) return;
+
+  const questionsData = wejhaData.college_questions;
+  const collegesList = Object.keys(questionsData).slice(0, 6); // Take top 6 majors
+
+  const collegeIcons = {
+    "كلية الطب البشري": "🩺",
+    "كلية الهندسة": "🏗️",
+    "كلية القانون": "⚖️",
+    "كلية الاقتصاد": "📊",
+    "كلية تقنية المعلومات": "💻",
+    "كلية طب الأسنان": "🦷",
+    "كلية الصيدلة": "🧪"
+  };
+
+  collegesList.forEach(col => {
+    const card = document.createElement("div");
+    card.className = "college-q-card";
+    const icon = collegeIcons[col] || "🎓";
+    card.innerHTML = `
+      <span class="college-q-card-icon">${icon}</span>
+      <h4>${col}</h4>
+    `;
+
+    card.addEventListener("click", () => {
+      // Toggle Active Cards
+      document.querySelectorAll(".college-q-card").forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+
+      // Update Title & List
+      title.textContent = col;
+      list.innerHTML = "";
+      
+      const qs = questionsData[col];
+      qs.forEach(q => {
+        const bubble = document.createElement("div");
+        bubble.className = "q-bubble-item";
+        bubble.innerHTML = `
+          <i data-lucide="help-circle"></i>
+          <span>${q}</span>
+        `;
+        list.appendChild(bubble);
+      });
+
+      lucide.createIcons(); // Render Lucide icons in bubbles
+      displayBox.style.display = "block";
+    });
+
+    grid.appendChild(card);
+  });
+}
+
+// 13. NEW COMPONENT: Initialize Interactive Recommendation Wizard
+function initRecommendationWizard() {
+  const wizard = document.getElementById("wizard");
+  if (!wizard) return;
+
+  const slides = document.querySelectorAll(".wizard-slide");
+  const dots = document.querySelectorAll(".wizard-dot");
+  const btnPrev = document.getElementById("wizard-btn-prev");
+  const btnReset = document.getElementById("wizard-btn-reset");
+  const controls = document.getElementById("wizard-controls");
+  const resultCollege = document.getElementById("wizard-result-college");
+  const resultDesc = document.getElementById("wizard-result-desc");
+
+  let currentStep = 1;
+  const answers = {
+    track: "",
+    interest: "",
+    skill: "",
+    env: ""
+  };
+
+  // Bind option clicks
+  document.querySelectorAll(".wizard-option-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const step = parseInt(btn.parentElement.parentElement.getAttribute("data-step"));
+      const value = btn.getAttribute("data-value");
+
+      if (step === 1) {
+        answers.track = value;
+        // Go to branch-specific step 2
+        showStep(2);
+      } else if (step === 2) {
+        answers.interest = value;
+        showStep(3);
+      } else if (step === 3) {
+        answers.skill = value;
+        showStep(4);
+      } else if (step === 4) {
+        answers.env = value;
+        // Compute and show result
+        const rec = getWizardRecommendation(answers);
+        resultCollege.textContent = rec.college;
+        resultDesc.textContent = rec.desc;
+        
+        // Calculate and load real statistics for Step 5
+        const overallData = wejhaData.colleges_overall;
+        const found = overallData.find(x => x[0] === rec.college);
+        const count = found ? found[1] : 0;
+        const pct = ((count / wejhaData.total_records) * 100).toFixed(1);
+        
+        const statsEl = document.getElementById("wizard-result-stats");
+        if (statsEl) {
+          statsEl.innerHTML = `<strong>شعبية التخصص:</strong> اختار هذا التخصص <span class="font-barlow" style="color:var(--action-orange); font-size:1.15rem; font-weight:700;">${count.toLocaleString('ar-LY')}</span> طالب وطالبة بنسبة <span class="font-barlow" style="color:var(--action-orange); font-size:1.15rem; font-weight:700;">${pct.toLocaleString('ar-LY')}%</span> من إجمالي الطلبة المشاركين في الاستبيان.`;
+        }
+
+        showStep(5);
+      }
+    });
+  });
+
+  // Prev Button click
+  btnPrev.addEventListener("click", () => {
+    if (currentStep > 1 && currentStep < 5) {
+      showStep(currentStep - 1);
+    }
+  });
+
+  // Reset Button click
+  btnReset.addEventListener("click", resetWizard);
+
+  // Link Wizard result directly to Questions Hub
+  const btnViewQuestions = document.getElementById("wizard-btn-view-questions");
+  if (btnViewQuestions) {
+    btnViewQuestions.addEventListener("click", () => {
+      const collegeName = resultCollege.textContent;
+      const cards = document.querySelectorAll(".college-q-card");
+      let foundCard = null;
+      cards.forEach(card => {
+        const h4 = card.querySelector("h4");
+        if (h4 && h4.textContent === collegeName) {
+          foundCard = card;
+        }
+      });
+
+      if (foundCard) {
+        foundCard.click();
+        const displayBox = document.getElementById("questions-display-box");
+        if (displayBox) {
+          displayBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        const collegesSection = document.getElementById("colleges");
+        if (collegesSection) {
+          collegesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
+
+  function showStep(step) {
+    currentStep = step;
+    
+    // Hide all slides
+    slides.forEach(s => s.classList.remove("active"));
+
+    // Show current slide
+    if (step === 2) {
+      // Show branch specific step 2
+      const activeSlide = document.querySelector(`.wizard-slide[data-step="2"][data-branch="${answers.track}"]`);
+      activeSlide.classList.add("active");
+    } else {
+      const activeSlide = document.querySelector(`.wizard-slide[data-step="${step}"]`);
+      activeSlide.classList.add("active");
+    }
+
+    // Toggle Prev Button Visibility
+    if (step > 1 && step < 5) {
+      btnPrev.style.visibility = "visible";
+    } else {
+      btnPrev.style.visibility = "hidden";
+    }
+
+    // Hide controls on result slide (step 5)
+    if (step === 5) {
+      controls.style.display = "none";
+    } else {
+      controls.style.display = "flex";
+    }
+
+    // Update Dots
+    dots.forEach((dot, idx) => {
+      if (idx < step && idx < 4) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+  }
+
+  function resetWizard() {
+    answers.track = "";
+    answers.interest = "";
+    answers.skill = "";
+    answers.env = "";
+    showStep(1);
+  }
+
+  function getWizardRecommendation(ans) {
+    const track = ans.track;
+    const interest = ans.interest;
+    const skill = ans.skill;
+    const env = ans.env;
+
+    let college = "";
+    let desc = "";
+
+    if (track === "scientific") {
+      if (interest === "health") {
+        if (skill === "create") {
+          college = "كلية طب الأسنان";
+          desc = "شغفك بالرعاية الصحية بالتوازي مع مهاراتك الفنية والدقيقة يجعلك مرشحاً رائعاً لطب الأسنان، حيث يلتقي العلم بالفن لمساعدة المرضى ورسم الابتسامة على وجوههم! 🩺🎨";
+        } else if (skill === "analyze") {
+          college = "كلية الطب البشري";
+          desc = "قدرتك العالية على التحليل ورغبتك في بيئة مستشفيات ميدانية تشير بوضوح نحو الطب البشري. هذا المسار يتطلب شغفاً مستمراً بالتعلم والبحث لإنقاذ الأرواح! 🩺🧬";
+        } else {
+          college = "كلية الصيدلة";
+          desc = "تفضيلك للعلوم الطبية واهتمامك بالتحاليل أو التركيبات الكيميائية في بيئة هادئة ومنظمة يوجهك نحو الصيدلة وعلم الأدوية، حيث الدقة والإنتاج العلمي! 🧪💊";
+        }
+      } else if (interest === "tech") {
+        college = "كلية تقنية المعلومات";
+        desc = "اهتمامك بالتقنية ورغبتك في تطوير مهارات البرمجة والحل المنطقي والعمل خلف الشاشات يوجهك مباشرة نحو تقنية المعلومات، التخصص الأسرع نمواً والمستقبل الرقمي! 💻🚀";
+      } else if (interest === "design") {
+        college = "كلية الهندسة";
+        desc = "مزيجك الرائع بين الشغف بالتصميم والبناء وقدرات التحليل المنطقي يشير بقوة نحو الهندسة (خاصة المعمارية أو المدنية) حيث الإبداع على أرض الواقع! 🏗️📐";
+      } else {
+        college = "كلية الاقتصاد";
+        desc = "اهتمامك بالأرقام والعلوم الإدارية وإدارة الأعمال، مترافقاً مع تفكيرك المنظم وتطلعك للقيادة، يجعلك مناسباً تماماً لإدارة المشاريع والاقتصاد الرياضي! 📊💼";
+      }
+    } else { // Literary Track
+      if (interest === "law") {
+        college = "كلية القانون";
+        desc = "شغفك بالحقوق والدفاع عن العدالة ومهاراتك الحوارية أو التحليلية يوجهك نحو دراسة القانون والاستشارات، لتكون صوتاً للعدالة والعمل الاجتماعي المؤثر! ⚖️🤝";
+      } else if (interest === "languages") {
+        college = "كلية اللغات";
+        desc = "تفضيلك لتعلم اللغات الأجنبية والترجمة ورغبتك في تنمية تواصلك الثقافي يوجهك نحو كلية اللغات، حيث تفتح دراسة اللغات أبواباً للعمل الدبلوماسي والإعلام والترجمة العالمية! 🗣️🌍";
+      } else if (interest === "media") {
+        college = "كلية الإعلام";
+        desc = "تطلعك للتعبير والتفاعل ورغبتك في التصوير والخطابة وصناعة المحتوى المرئي يوجهك نحو الإعلام والصحافة، لتكون صانع رسالة ومؤثراً إيجابياً في مجتمعك! 📺🎙️";
+      } else {
+        college = "كلية الاقتصاد";
+        desc = "رغبتك في فهم التجارة والتسويق والإدارة والعلوم السياسية بالتوازي مع تطلعاتك القيادية يجعل كلية الاقتصاد (تخصصات العلوم السياسية والإدارة) وجهتك الأنسب! 📈💼";
+      }
+    }
+    return { college, desc };
+  }
+}
+
+// 14. NEW COMPONENT: Initialize Timeline Chart
+function initTimelineChart() {
+  const timelineData = wejhaData.timeline;
+  if (!timelineData) return;
+
+  const dates = Object.keys(timelineData);
+  const counts = Object.values(timelineData);
+
+  const timelineOptions = {
+    series: [{
+      name: 'الاستمارات المجمعة اليوم',
+      data: counts
+    }],
+    chart: {
+      type: 'area',
+      height: 280,
+      fontFamily: "'DIN Next LT Arabic', 'IBM Plex Arabic', sans-serif",
+      toolbar: { show: false },
+      zoom: { enabled: false }
+    },
+    colors: [colors.actionOrange],
+    dataLabels: { enabled: false },
+    stroke: { curve: 'smooth', width: 3 },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.4,
+        opacityTo: 0.05,
+        stops: [0, 100]
+      }
+    },
+    xaxis: {
+      categories: dates.map(d => {
+        const p = d.split('-');
+        return `${parseInt(p[2]).toLocaleString('ar-LY')} مايو`;
+      }),
+      labels: {
+        style: { fontSize: '11px', fontWeight: 600 }
+      }
+    },
+    yaxis: {
+      labels: {
+        align: 'right',
+        style: { fontSize: '11px' },
+        formatter: function (val) {
+          return val.toLocaleString('ar-LY');
+        }
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return `${val.toLocaleString('ar-LY')} استمارة`;
+        }
+      }
+    }
+  };
+
+  const timelineChart = new ApexCharts(document.querySelector("#chart-timeline"), timelineOptions);
+  timelineChart.render();
+}
+
+// 15. NEW COMPONENT: Initialize Skills & Hobbies Tag Explorer
+function initTagExplorer() {
+  const tabs = document.querySelectorAll("#explorer-tabs .control-btn");
+  const searchInput = document.getElementById("explorer-search-input");
+  const listPopular = document.getElementById("explorer-list-popular");
+  const listNiche = document.getElementById("explorer-list-niche");
+  const sectionPopular = document.getElementById("explorer-section-popular");
+  const sectionNiche = document.getElementById("explorer-section-niche");
+  if (!listPopular || !listNiche) return;
+
+  let currentType = "skills";
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      currentType = tab.getAttribute("data-type");
+      renderExplorerTags();
+    });
+  });
+
+  searchInput.addEventListener("input", renderExplorerTags);
+
+  function renderExplorerTags() {
+    const query = searchInput.value.trim().toLowerCase();
+    const dataList = currentType === "skills" ? wejhaData.skills : wejhaData.hobbies;
+    
+    listPopular.innerHTML = "";
+    listNiche.innerHTML = "";
+    
+    // Filter and sort the entire dataset descending by count
+    const filteredList = dataList
+      .filter(item => {
+        const name = item[0];
+        if (name === "لا يوجد" || name === "لا يوجد قدوة محددة") return false;
+        if (query) {
+          return name.toLowerCase().includes(query);
+        }
+        return true;
+      })
+      .sort((a, b) => b[1] - a[1]);
+
+    if (filteredList.length === 0) {
+      sectionPopular.style.display = "none";
+      sectionNiche.style.display = "block";
+      listNiche.innerHTML = `<div style="padding: 2rem; text-align: center; color: var(--mid-gray); width: 100%;">لا توجد نتائج مطابقة لبحثك.</div>`;
+      return;
+    }
+
+    let popularCount = 0;
+    let nicheCount = 0;
+
+    filteredList.forEach(item => {
+      const name = item[0];
+      const count = item[1];
+      
+      const badge = document.createElement("div");
+      
+      if (count >= 5) {
+        popularCount++;
+        badge.className = "skill-badge";
+        badge.style.border = "1px solid rgba(26, 47, 181, 0.15)";
+        badge.style.background = "rgba(26, 47, 181, 0.02)";
+        badge.innerHTML = `
+          <span style="font-weight:600; color:var(--dark-navy);">${name}</span>
+          <span class="badge-count font-barlow" style="background-color: var(--action-orange);">${count.toLocaleString('ar-LY')}</span>
+        `;
+        listPopular.appendChild(badge);
+      } else {
+        nicheCount++;
+        badge.className = "skill-badge";
+        // Apply smaller niche styling
+        badge.style.padding = "0.4rem 0.8rem";
+        badge.style.fontSize = "0.8rem";
+        badge.style.backgroundColor = "var(--pure-white)";
+        badge.style.borderColor = "rgba(0, 0, 0, 0.05)";
+        badge.style.color = "var(--dark-text)";
+        badge.innerHTML = `
+          <span>${name}</span>
+          <span class="badge-count font-barlow" style="background-color: var(--mid-gray); font-size: 0.75rem; padding: 0.1rem 0.4rem;">${count.toLocaleString('ar-LY')}</span>
+        `;
+        listNiche.appendChild(badge);
+      }
+    });
+
+    // Toggle Section visibility
+    sectionPopular.style.display = popularCount > 0 ? "block" : "none";
+    sectionNiche.style.display = nicheCount > 0 ? "block" : "none";
+    
+    // Initialize Lucide Icons if any
+    lucide.createIcons();
+  }
+
+  // Initial render
+  renderExplorerTags();
+}
+
+</script>
+</body>
+</html>
