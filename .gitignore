@@ -23,9 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Exclude large video files (>100MB) due to GitHub push limit
+# Exclude large video files (>100MB) — GitHub hard limit is 100MB
+# د. الاء هاني.mp4 = 101MB, د. هنيدة نجيب عبيدة.mp4 = 537MB
 public/assets/personal interview videos/د. الاء هاني.mp4
 public/assets/personal interview videos/د. هنيدة نجيب عبيدة.mp4
-
-# Temporarily ignore seasons images to split pushes
-public/assets/images/Wejha_Seasons/
