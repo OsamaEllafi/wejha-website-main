@@ -28,9 +28,7 @@
   object-fit: contain;
 }
 
-[data-theme="dark"] .footer-logo-img {
-  content: url('/assets/images/logo png/wejha_logo_cropped_dark_mode.png');
-}
+/* Dark mode logo is handled in main.jsx with correct BASE_URL */
 
 .footer-bio-text {
   font-size: 0.95rem;

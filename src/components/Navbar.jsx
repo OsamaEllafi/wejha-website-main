@@ -4,6 +4,7 @@ import '../styles/Navbar.css';
 import { useTranslation } from 'react-i18next';
 import { Sun, Moon, Globe, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { assetUrl } from '../utils/assetUrl';
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -41,8 +42,8 @@ export default function Navbar() {
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
           <img 
             src={theme === 'light' 
-              ? "/assets/images/logo png/wejha_logo_cropped.png" 
-              : "/assets/images/logo png/wejha_logo_cropped_dark_mode.png"} 
+              ? assetUrl("/assets/images/logo png/wejha_logo_cropped.png")
+              : assetUrl("/assets/images/logo png/wejha_logo_cropped_dark_mode.png")} 
             alt="Wejha Logo" 
             className="logo-img"
           />
