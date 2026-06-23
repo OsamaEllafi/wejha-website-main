@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, Compass, Cpu, BookOpen, Users, CheckCircle, UserPlus, GraduationCap, ChevronRight, ChevronLeft } from 'lucide-react';
 import '../styles/TracksPage.css';
-import { assetUrl } from '../utils/assetUrl';
 
 export default function TracksPage() {
   const { t, i18n } = useTranslation();
@@ -71,7 +70,7 @@ export default function TracksPage() {
       beneficiariesEn: 'All High School Students',
       topicsAr: ['الاتصال الفعال ولغة الجسد', 'العمل الجماعي وبناء فرق العمل', 'إدارة الوقت والتخطيط الشخصي', 'حل المشكلات واتخاذ القرار'],
       topicsEn: ['Effective Communication & Body Language', 'Teamwork & Collaboration', 'Time Management & Planning', 'Problem Solving & Decision Making'],
-      image: assetUrl('/assets/images/tracks/track_soft_skills.png')
+      image: '/assets/images/tracks/track_soft_skills.png'
     },
     {
       id: 'academic',
@@ -84,7 +83,7 @@ export default function TracksPage() {
       beneficiariesEn: 'Mainly 3rd-year High School Students',
       topicsAr: ['فهم التخصصات والخيارات الأكاديمية', 'ربط الشغف والميول بالمهنة', 'معايير القبول والتنسيق الجامعي', 'رحلات ميدانية وزيارات علمية للجامعات'],
       topicsEn: ['Understanding Majors & Academic Options', 'Mapping Passion & Inclinations to Careers', 'Admission Standards & College Requirements', 'Field Trips & Scientific Visits to Universities'],
-      image: assetUrl('/assets/images/tracks/track_academic_guidance.png')
+      image: '/assets/images/tracks/track_academic_guidance.png'
     },
     {
       id: 'digital',
@@ -97,7 +96,7 @@ export default function TracksPage() {
       beneficiariesEn: 'All Wejha Project Participants',
       topicsAr: ['أساسيات تكنولوجيا المعلومات والإنترنت', 'الوعي بالأمن السيبراني وحماية البيانات', 'استخدام أدوات الذكاء الاصطناعي في التعليم', 'أسس التعلم الرقمي الذاتي والمنصات التعليمية'],
       topicsEn: ['Information Technology & Internet Basics', 'Cybersecurity Awareness & Data Protection', 'Utilizing AI Tools in Learning', 'Digital Self-Learning Foundations & Platforms'],
-      image: assetUrl('/assets/images/tracks/track_digital_literacy.png')
+      image: '/assets/images/tracks/track_digital_literacy.png'
     }
   ];
 

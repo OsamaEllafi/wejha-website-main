@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Award, BarChart2, BookOpen, Compass, Image, Cpu, Play, Sparkles, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import Counter from '../components/Counter';
 import '../styles/Home.css';
-import { assetUrl } from '../utils/assetUrl';
 
 export default function Home() {
   const { t, i18n } = useTranslation();
@@ -19,28 +18,28 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
-      image: assetUrl('/assets/images/Wejha_Seasons/Season1/20240720_125035.jpg'),
+      image: '/assets/images/Wejha_Seasons/Season1/20240720_125035.jpg',
       titleAr: 'الموسم الأول لوجهة',
       titleEn: 'Wejha Season 1',
       descAr: 'خطوتنا الأولى نحو إرشاد الطلبة واكتشاف شغفهم الأكاديمي والمهني.',
       descEn: 'Our first step towards guiding students and discovering their academic and professional passion.',
     },
     {
-      image: assetUrl('/assets/images/Wejha_Seasons/Season2/IMG-20240723-WA0012.jpg'),
+      image: '/assets/images/Wejha_Seasons/Season2/IMG-20240723-WA0012.jpg',
       titleAr: 'الموسم الثاني لوجهة',
       titleEn: 'Wejha Season 2',
       descAr: 'توسيع التغطية لتشمل المزيد من المدارس وتقديم ورش عمل تدريبية وبناء القدرات.',
       descEn: 'Expanding coverage to include more schools, delivering training workshops, and capacity building.',
     },
     {
-      image: assetUrl('/assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-13.jpg'),
+      image: '/assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-13.jpg',
       titleAr: 'الموسم الثالث لوجهة',
       titleEn: 'Wejha Season 3',
       descAr: 'التحول الرقمي الكامل ورصد خارطة التفكير والمخاوف لدى طلبة الثانوية.',
       descEn: 'Complete digital transformation and mapping high school students\' thoughts and concerns.',
     },
     {
-      image: assetUrl('/assets/images/Wejha_Seasons/Season4 preparation/photo_2026-06-20_21-45-07.jpg'),
+      image: '/assets/images/Wejha_Seasons/Season4 preparation/photo_2026-06-20_21-45-07.jpg',
       titleAr: 'التحضير للموسم الرابع',
       titleEn: 'Season 4 Preparations',
       descAr: 'تطوير مستمر لتقديم تجربة إرشادية وتنموية استثنائية لجيل 2026.',
@@ -387,7 +386,7 @@ export default function Home() {
               {/* Interviews teaser */}
               <motion.div variants={itemVariants} className="glass-panel media-teaser-card">
                 <div className="teaser-image-container">
-                  <img src={assetUrl("/assets/images/interview_video_thumbnail.png")} alt="Personal Interview Video Thumbnail" className="teaser-bg" />
+                  <img src="/assets/images/interview_video_thumbnail.png" alt="Personal Interview Video Thumbnail" className="teaser-bg" />
                   <div className="teaser-overlay">
                     <Play size={48} className="teaser-play-icon" />
                   </div>
@@ -405,7 +404,7 @@ export default function Home() {
               {/* Seasons Teaser */}
               <motion.div variants={itemVariants} className="glass-panel media-teaser-card">
                 <div className="teaser-image-container">
-                  <img src={assetUrl("/assets/images/Wejha_Seasons/Season1/20240720_125035.jpg")} alt="Wejha Seasons Archive" className="teaser-bg" />
+                  <img src="/assets/images/Wejha_Seasons/Season1/20240720_125035.jpg" alt="Wejha Seasons Archive" className="teaser-bg" />
                   <div className="teaser-overlay">
                     <Image size={48} className="teaser-play-icon" />
                   </div>
@@ -468,7 +467,7 @@ export default function Home() {
                       }}
                       transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     >
-                      <img src={assetUrl("/assets/images/tracks/track_soft_skills.svg")} alt="Soft Skills Track" className="deck-card-svg" />
+                      <img src="/assets/images/tracks/track_soft_skills.svg" alt="Soft Skills Track" className="deck-card-svg" />
                       <span className="deck-card-label">{t('tracks.soft_skills')}</span>
                     </motion.div>
 
@@ -481,7 +480,7 @@ export default function Home() {
                       }}
                       transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     >
-                      <img src={assetUrl("/assets/images/tracks/track_digital_literacy.svg")} alt="Digital Literacy Track" className="deck-card-svg" />
+                      <img src="/assets/images/tracks/track_digital_literacy.svg" alt="Digital Literacy Track" className="deck-card-svg" />
                       <span className="deck-card-label">{t('tracks.digital')}</span>
                     </motion.div>
 
@@ -494,7 +493,7 @@ export default function Home() {
                       }}
                       transition={{ type: "spring", stiffness: 200, damping: 20 }}
                     >
-                      <img src={assetUrl("/assets/images/tracks/track_academic_guidance.svg")} alt="Academic Guidance Track" className="deck-card-svg" />
+                      <img src="/assets/images/tracks/track_academic_guidance.svg" alt="Academic Guidance Track" className="deck-card-svg" />
                       <span className="deck-card-label">{t('tracks.academic')}</span>
                     </motion.div>
                   </motion.div>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Mail, ArrowUpRight } from 'lucide-react';
 import '../styles/Footer.css';
-import { assetUrl } from '../utils/assetUrl';
 
 export default function Footer() {
   const { t, i18n } = useTranslation();
@@ -27,7 +26,7 @@ export default function Footer() {
         <div className="footer-col brand-col">
           <div className="footer-logo-wrapper">
             <img 
-              src={assetUrl("/assets/images/logo png/wejha_logo_cropped.png")}
+              src="/assets/images/logo png/wejha_logo_cropped.png" 
               alt="Wejha Logo" 
               className="footer-logo-img"
             />
