@@ -7,7 +7,8 @@ import '../styles/Footer.css';
 export default function Footer() {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.language === 'ar';
-  
+  const base = import.meta.env.BASE_URL;
+  const theme = localStorage.getItem('theme') || 'light';
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -26,7 +27,9 @@ export default function Footer() {
         <div className="footer-col brand-col">
           <div className="footer-logo-wrapper">
             <img 
-              src="/assets/images/logo png/wejha_logo_cropped.png" 
+              src={theme === 'light'
+                ? `${base}assets/images/logo png/wejha_logo_cropped.png`
+                : `${base}assets/images/logo png/wejha_logo_cropped_dark_mode.png`} 
               alt="Wejha Logo" 
               className="footer-logo-img"
             />

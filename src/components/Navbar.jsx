@@ -41,8 +41,8 @@ export default function Navbar() {
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
           <img 
             src={theme === 'light' 
-              ? "/assets/images/logo png/wejha_logo_cropped.png" 
-              : "/assets/images/logo png/wejha_logo_cropped_dark_mode.png"} 
+              ? `${import.meta.env.BASE_URL}assets/images/logo png/wejha_logo_cropped.png` 
+              : `${import.meta.env.BASE_URL}assets/images/logo png/wejha_logo_cropped_dark_mode.png`} 
             alt="Wejha Logo" 
             className="logo-img"
           />
