@@ -642,3 +642,33 @@
     padding-top: 30px;
   }
 }
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .tracks-overview-section, 
+  .journey-stage-card {
+    padding: 20px 15px;
+  }
+
+  .stage-card-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .stage-card-text h3 {
+    font-size: 1.25rem;
+  }
+
+  .stage-card-text p {
+    font-size: 0.95rem;
+  }
+
+  .takeaway-pill {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

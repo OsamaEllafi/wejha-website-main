@@ -261,3 +261,40 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .main-story-card, 
+  .objectives-details-card {
+    padding: 20px;
+  }
+
+  .faq-intro-panel {
+    padding: 20px 15px;
+  }
+
+  .faq-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .faq-question-bar {
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+  }
+
+  .faq-answer-content {
+    padding: 0 20px 16px;
+    padding-top: 16px;
+  }
+
+  .faq-answer-content p {
+    font-size: 0.95rem;
+  }
+}

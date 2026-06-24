@@ -324,3 +324,49 @@
     font-size: 1.6rem;
   }
 }
+
+@media (max-width: 600px) {
+  .quiz-question-card,
+  .recommendation-panel,
+  .results-chart-card,
+  .dominant-trait-card {
+    padding: 20px 15px;
+  }
+
+  .statement-text {
+    font-size: 1.1rem;
+  }
+
+  .question-statement-box {
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  .choice-btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .rec-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 15px;
+  }
+
+  .rec-title {
+    font-size: 1.4rem;
+  }
+
+  .rec-description {
+    font-size: 1rem;
+  }
+
+  .dominant-badge {
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 10px;
+  }
+}

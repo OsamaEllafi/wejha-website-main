@@ -369,3 +369,45 @@
     font-size: 0.85rem;
   }
 }
+
+@media (max-width: 600px) {
+  .academic-years-card, 
+  .colleges-overall-card, 
+  .skills-full-card, 
+  .hobbies-card, 
+  .schools-active-card,
+  .track-card {
+    padding: 20px 15px;
+  }
+
+  .academic-years-card h2, 
+  .colleges-overall-card h2, 
+  .skills-full-card h2, 
+  .hobbies-card h2, 
+  .schools-active-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+
+  .metric-card {
+    padding: 20px 15px;
+  }
+
+  .metric-card-value {
+    font-size: 2.2rem;
+  }
+
+  .school-leaderboard-item {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .school-name {
+    font-size: 0.85rem;
+  }
+
+  .school-participation {
+    font-size: 0.8rem;
+  }
+}
