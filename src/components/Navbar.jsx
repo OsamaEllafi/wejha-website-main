@@ -198,28 +198,12 @@ export default function Navbar() {
                 <div className="illustration-ring ring-1"></div>
                 <div className="illustration-ring ring-2"></div>
                 <div className="illustration-center">
-                  <Hammer size={32} className="modal-hammer-icon" />
+                  <Hammer size={24} className="modal-hammer-icon" />
                 </div>
               </div>
               
               <h3>{t('contact.dev_title')}</h3>
               <p className="modal-dev-subtitle">{t('contact.dev_subtitle')}</p>
-              
-              {/* Development Progress Tracker */}
-              <div className="dev-progress-container">
-                <div className="dev-progress-header">
-                  <span>{t('contact.dev_progress')}</span>
-                  <span className="progress-percent">{t('contact.dev_progress_val')}</span>
-                </div>
-                <div className="dev-progress-track">
-                  <motion.div 
-                    className="dev-progress-fill"
-                    initial={{ width: 0 }}
-                    animate={{ width: '85%' }}
-                    transition={{ delay: 0.4, duration: 1.5, ease: "easeOut" }}
-                  />
-                </div>
-              </div>
               
               {/* Features List using Staggered Cascade Cards */}
               <div className="upcoming-features-wrapper">
