@@ -46,10 +46,10 @@ export default function MediaPage() {
     },
     {
       id: 'video-4',
-      titleAr: 'مقتطفات لقاءات وجهة',
-      titleEn: 'Wejha Interview Snippets',
-      roleAr: 'ملخص التوجيه والإرشاد للطلبة',
-      roleEn: 'Summary of Student Guidance & Mentorship',
+      titleAr: 'العربي نجيب الورفلي',
+      titleEn: 'Al-Arabi Najeeb Al-Warfali',
+      roleAr: 'كلية الإعلام',
+      roleEn: 'College of Media',
       src: `${base}assets/personal interview videos/IMG_3292.MP4`,
     }
   ];
