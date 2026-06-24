@@ -867,23 +867,66 @@
 
 @media (max-width: 900px) {
   .hero-slideshow-section {
-    height: 90vh;
+    height: auto;
+    min-height: calc(100vh - 80px);
+    padding: 100px 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .hero-slideshow-title {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
+    line-height: 1.35;
   }
 
   .hero-slideshow-desc {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
   .hero-content-glass-card {
-    padding: 25px;
+    padding: 24px;
+    gap: 16px;
   }
 
-  .scroll-indicator-flow {
-    display: none;
+  .scroll-indicator {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slideshow-section {
+    padding: 90px 15px 30px;
+  }
+
+  .hero-slideshow-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-slideshow-desc {
+    font-size: 0.9rem;
+  }
+
+  .hero-content-glass-card {
+    padding: 20px 15px;
+    gap: 12px;
+    border-radius: 20px;
+  }
+
+  .hero-sponsor-badge-top {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  .hero-slogan-badge {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .slide-badge {
+    font-size: 0.75rem;
+    padding: 4px 12px;
   }
 }
 
