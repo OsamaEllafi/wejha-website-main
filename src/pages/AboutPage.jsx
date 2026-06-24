@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { ShieldAlert, Users, Target, BookOpen, UserCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HelpCircle, ChevronDown, Target, BookOpen } from 'lucide-react';
 import '../styles/AboutPage.css';
 
 export default function AboutPage() {
@@ -25,15 +25,20 @@ export default function AboutPage() {
     }
   };
 
-  // Red Crescent volunteers data
-  const volunteersList = [
-    { name: isRtl ? "فضيلة" : "Fadilah", count: 362 },
-    { name: isRtl ? "لمياء" : "Lamia", count: 349 },
-    { name: isRtl ? "وعد" : "Waad", count: 344 },
-    { name: isRtl ? "مهند" : "Mohanned", count: 338 },
-    { name: isRtl ? "مروة" : "Marwa", count: 336 },
-    { name: isRtl ? "براء" : "Baraa", count: 199 }
+  const [expandedId, setExpandedId] = useState(null);
+
+  const faqList = [
+    { id: 1, question: t('faq.q1'), answer: t('faq.a1') },
+    { id: 2, question: t('faq.q2'), answer: t('faq.a2') },
+    { id: 3, question: t('faq.q3'), answer: t('faq.a3') },
+    { id: 4, question: t('faq.q4'), answer: t('faq.a4') },
+    { id: 5, question: t('faq.q5'), answer: t('faq.a5') },
+    { id: 6, question: t('faq.q6'), answer: t('faq.a6') }
   ];
+
+  const toggleFaq = (id) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
 
   return (
     <motion.div 
@@ -98,38 +103,54 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Volunteers Appreciation Section */}
-      <section className="volunteers-section">
-        <motion.div variants={cardVariants} className="glass-panel volunteers-intro-panel">
-          <div className="volunteers-header">
-            <Users className="volunteers-icon" size={32} />
-            <h2>{isRtl ? "فريق أرشفة وتدقيق البيانات" : "Data Archiving Volunteers"}</h2>
+      {/* FAQ Section */}
+      <section className="faq-section">
+        <motion.div variants={cardVariants} className="glass-panel faq-intro-panel">
+          <div className="faq-header">
+            <HelpCircle className="faq-icon" size={32} />
+            <h2>{t('faq.title')}</h2>
           </div>
-          <p>{t('volunteers.appreciation')}</p>
+          <p>{t('faq.subtitle')}</p>
         </motion.div>
 
-        <div className="volunteers-grid">
-          {volunteersList.map((vol, index) => (
-            <motion.div 
-              key={index}
-              variants={cardVariants}
-              className="glass-panel volunteer-badge-card"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="volunteer-avatar-circle">
-                <UserCheck size={28} />
-              </div>
-              <div className="volunteer-info">
-                <h3>{vol.name}</h3>
-                <span className="archive-count">
-                  {isRtl 
-                    ? `أرشف(ت) ${vol.count} استمارة` 
-                    : `Archived ${vol.count} surveys`
-                  }
-                </span>
-              </div>
-            </motion.div>
-          ))}
+        <div className="faq-list">
+          {faqList.map((faq) => {
+            const isExpanded = expandedId === faq.id;
+            return (
+              <motion.div
+                key={faq.id}
+                variants={cardVariants}
+                className={`glass-panel faq-item ${isExpanded ? 'active' : ''}`}
+                onClick={() => toggleFaq(faq.id)}
+              >
+                <div className="faq-question-bar">
+                  <h3 className="faq-question">{faq.question}</h3>
+                  <motion.div
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="faq-chevron"
+                  >
+                    <ChevronDown size={20} />
+                  </motion.div>
+                </div>
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="faq-answer-wrapper"
+                    >
+                      <div className="faq-answer-content">
+                        <p>{faq.answer}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
     </motion.div>
