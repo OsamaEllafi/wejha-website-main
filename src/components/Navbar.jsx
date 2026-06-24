@@ -37,8 +37,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="glass-panel navbar-container">
-      <div className="navbar-content">
+    <>
+      <nav className="glass-panel navbar-container">
+        <div className="navbar-content">
         {/* Brand Logo & Name */}
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
           <img 
@@ -71,7 +72,10 @@ export default function Navbar() {
               </Link>
             );
           })}
-          
+        </div>
+
+        {/* Action Controls (Theme, Language, Mobile Menu Button) */}
+        <div className="navbar-controls">
           {/* Highlighted Portal Button */}
           <button 
             onClick={() => setShowDevModal(true)} 
@@ -79,10 +83,7 @@ export default function Navbar() {
           >
             <span>{t('nav.portal')}</span>
           </button>
-        </div>
 
-        {/* Action Controls (Theme, Language, Mobile Menu Button) */}
-        <div className="navbar-controls">
           {/* Theme Toggle */}
           <button onClick={toggleTheme} className="control-btn" aria-label="Toggle Theme">
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
@@ -138,6 +139,7 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+    </nav>
 
       {/* Portal Development Warning Modal */}
       <AnimatePresence>
@@ -209,6 +211,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
