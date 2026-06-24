@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { useTranslation } from 'react-i18next';
-import { Sun, Moon, Globe, Menu, X, Hammer, QrCode, UserCheck, Bell, ClipboardList } from 'lucide-react';
+import { Sun, Moon, Globe, Menu, X, Hammer, QrCode, UserCheck, Bell, ClipboardList, Home, BookOpen, BarChart2, Compass, Image as ImageIcon, Cpu, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
@@ -27,13 +27,13 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { name: t('nav.home'), path: '/' },
-    { name: t('nav.about'), path: '/about' },
-    { name: t('nav.stats'), path: '/statistics' },
-    { name: t('nav.quiz'), path: '/quiz' },
-    { name: t('nav.media'), path: '/media' },
-    { name: t('nav.tracks'), path: '/tracks' },
-    { name: t('nav.contact'), path: '/contact' }
+    { name: t('nav.home'), path: '/', icon: <Home size={18} /> },
+    { name: t('nav.about'), path: '/about', icon: <BookOpen size={18} /> },
+    { name: t('nav.stats'), path: '/statistics', icon: <BarChart2 size={18} /> },
+    { name: t('nav.quiz'), path: '/quiz', icon: <Compass size={18} /> },
+    { name: t('nav.media'), path: '/media', icon: <ImageIcon size={18} /> },
+    { name: t('nav.tracks'), path: '/tracks', icon: <Cpu size={18} /> },
+    { name: t('nav.contact'), path: '/contact', icon: <Mail size={18} /> }
   ];
 
   return (
@@ -121,7 +121,8 @@ export default function Navbar() {
                   className={`mobile-nav-link ${isActive ? 'active' : ''}`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.name}
+                  <span className="mobile-nav-icon">{link.icon}</span>
+                  <span className="mobile-nav-text">{link.name}</span>
                 </Link>
               );
             })}
