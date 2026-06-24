@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { useTranslation } from 'react-i18next';
 import { Sun, Moon, Globe, Menu, X, Hammer, QrCode, UserCheck, Bell, ClipboardList, Home, BookOpen, BarChart2, Compass, Image as ImageIcon, Cpu, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 const listVariants = {
   hidden: { opacity: 0 },
   visible: {
