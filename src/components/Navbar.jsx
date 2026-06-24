@@ -3,7 +3,25 @@ import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { useTranslation } from 'react-i18next';
 import { Sun, Moon, Globe, Menu, X, Hammer, QrCode, UserCheck, Bell, ClipboardList, Home, BookOpen, BarChart2, Compass, Image as ImageIcon, Cpu, Mail } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+const listVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", stiffness: 120, damping: 14 } 
+  }
+};
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -154,54 +172,95 @@ export default function Navbar() {
           >
             <motion.div 
               className="glass-panel portal-dev-modal"
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
+              initial={{ scale: 0.9, y: 30, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 30, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.5, bounce: 0.25 }}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Backlight Ambient Glow */}
+              <div className="modal-glow-backlight"></div>
+
+              {/* Top Close Button */}
               <button className="close-modal-x" onClick={() => setShowDevModal(false)}>
                 <X size={20} />
               </button>
               
-              <div className="modal-icon-circle-dev">
-                <Hammer size={36} className="modal-hammer-icon" />
+              {/* Active Development Status Badge */}
+              <span className="dev-status-tag">
+                <span className="pulse-dot"></span>
+                {t('contact.dev_badge')}
+              </span>
+              
+              {/* Premium Futuristic Animated Illustration */}
+              <div className="portal-dev-illustration">
+                <div className="illustration-ring ring-1"></div>
+                <div className="illustration-ring ring-2"></div>
+                <div className="illustration-center">
+                  <Hammer size={32} className="modal-hammer-icon" />
+                </div>
               </div>
               
               <h3>{t('contact.dev_title')}</h3>
               <p className="modal-dev-subtitle">{t('contact.dev_subtitle')}</p>
               
-              <div className="upcoming-features-list">
-                <h4>{t('contact.features_title')}</h4>
-                
-                <div className="feature-item-row">
-                  <div className="feat-icon-badge">
-                    <UserCheck size={18} />
-                  </div>
-                  <span>{t('contact.feat_auth')}</span>
+              {/* Development Progress Tracker */}
+              <div className="dev-progress-container">
+                <div className="dev-progress-header">
+                  <span>{t('contact.dev_progress')}</span>
+                  <span className="progress-percent">{t('contact.dev_progress_val')}</span>
                 </div>
-
-                <div className="feature-item-row">
-                  <div className="feat-icon-badge">
-                    <QrCode size={18} />
-                  </div>
-                  <span>{t('contact.feat_qr')}</span>
-                </div>
-
-                <div className="feature-item-row">
-                  <div className="feat-icon-badge">
-                    <ClipboardList size={18} />
-                  </div>
-                  <span>{t('contact.feat_survey')}</span>
-                </div>
-
-                <div className="feature-item-row">
-                  <div className="feat-icon-badge">
-                    <Bell size={18} />
-                  </div>
-                  <span>{t('contact.feat_notif')}</span>
+                <div className="dev-progress-track">
+                  <motion.div 
+                    className="dev-progress-fill"
+                    initial={{ width: 0 }}
+                    animate={{ width: '85%' }}
+                    transition={{ delay: 0.4, duration: 1.5, ease: "easeOut" }}
+                  />
                 </div>
               </div>
               
+              {/* Features List using Staggered Cascade Cards */}
+              <div className="upcoming-features-wrapper">
+                <h4>{t('contact.features_title')}</h4>
+                
+                <motion.div 
+                  className="upcoming-features-list"
+                  variants={listVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <motion.div variants={itemVariants} className="feature-item-card">
+                    <div className="feat-icon-badge">
+                      <UserCheck size={18} />
+                    </div>
+                    <span>{t('contact.feat_auth')}</span>
+                  </motion.div>
+  
+                  <motion.div variants={itemVariants} className="feature-item-card">
+                    <div className="feat-icon-badge">
+                      <QrCode size={18} />
+                    </div>
+                    <span>{t('contact.feat_qr')}</span>
+                  </motion.div>
+  
+                  <motion.div variants={itemVariants} className="feature-item-card">
+                    <div className="feat-icon-badge">
+                      <ClipboardList size={18} />
+                    </div>
+                    <span>{t('contact.feat_survey')}</span>
+                  </motion.div>
+  
+                  <motion.div variants={itemVariants} className="feature-item-card">
+                    <div className="feat-icon-badge">
+                      <Bell size={18} />
+                    </div>
+                    <span>{t('contact.feat_notif')}</span>
+                  </motion.div>
+                </motion.div>
+              </div>
+              
+              {/* Action Button */}
               <button 
                 onClick={() => setShowDevModal(false)}
                 className="close-dev-modal-btn"

@@ -7,7 +7,7 @@
     "media": "Gallery & Media",
     "tracks": "Training Tracks",
     "contact": "Contact Us",
-    "portal": "Student Portal"
+    "portal": "Register Now"
   },
   "hero": {
     "title": "Wejha Project 2026",
@@ -119,6 +119,9 @@
     "phone_val": "+218 61 909 3000",
     "email_val": "info@wejha.edu.ly",
     "social_title": "Follow Us on Social Media",
+    "dev_badge": "UNDER ACTIVE DEVELOPMENT",
+    "dev_progress": "Platform Readiness",
+    "dev_progress_val": "85% Completed",
     "dev_title": "Wejha Digital Portal Coming Soon!",
     "dev_subtitle": "We are currently developing the digital participant portal to simplify registration and attendance check-ins for Season 4 activities.",
     "features_title": "Upcoming Portal Features:",
