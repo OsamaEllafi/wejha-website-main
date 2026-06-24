@@ -893,6 +893,23 @@
   .scroll-indicator {
     display: none !important;
   }
+
+  .slideshow-nav-dots {
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 20px;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .slideshow-nav-dots .nav-dot.active {
+    width: 30px;
+    height: 12px;
+    border-radius: 6px;
+  }
 }
 
 @media (max-width: 480px) {
