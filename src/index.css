@@ -258,6 +258,7 @@ html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3, html[lang="en"] h4 {
 .statistics-page,
 .quiz-page,
 .media-page,
-.tracks-page {
+.tracks-page,
+.contact-page {
   padding-top: 130px !important;
 }
