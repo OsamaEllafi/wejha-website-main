@@ -47,7 +47,7 @@
 /* Desktop navigation links */
 .desktop-nav {
   display: flex;
-  gap: 25px;
+  gap: 16px;
   height: 100%;
   align-items: center;
 }
@@ -58,9 +58,10 @@
   color: var(--text-secondary);
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 8px 12px;
+  padding: 8px 10px;
   transition: var(--transition-smooth);
   font-family: var(--font-arabic-headers);
+  white-space: nowrap;
 }
 
 .nav-link:hover {
