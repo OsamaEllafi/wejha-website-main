@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Award, BarChart2, BookOpen, Compass, Image, Cpu, Play, Sparkles, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Award, BarChart2, BookOpen, Compass, Image, Cpu, Play, Sparkles, HelpCircle, ChevronDown, ChevronUp, Mail, Send, CheckCircle2 } from 'lucide-react';
 import Counter from '../components/Counter';
 import '../styles/Home.css';
 
@@ -13,6 +13,60 @@ export default function Home() {
   // State to track cursor position for parallax effect in Hero
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeFaq, setActiveFaq] = useState(null);
+
+  const [contactData, setContactData] = useState({
+    name: '',
+    email: '',
+    inquiryType: 'general',
+    subject: '',
+    message: ''
+  });
+  const [contactErrors, setContactErrors] = useState({});
+  const [isHomeSending, setIsHomeSending] = useState(false);
+  const [showHomeSuccess, setShowHomeSuccess] = useState(false);
+
+  const handleHomeChange = (e) => {
+    const { name, value } = e.target;
+    setContactData((prev) => ({ ...prev, [name]: value }));
+    if (contactErrors[name]) {
+      setContactErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const validateHomeForm = () => {
+    const tempErrors = {};
+    if (!contactData.name.trim()) tempErrors.name = isRtl ? 'الرجاء إدخال الاسم بالكامل' : 'Name is required';
+    if (!contactData.email.trim()) {
+      tempErrors.email = isRtl ? 'الرجاء إدخال البريد الإلكتروني' : 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(contactData.email)) {
+      tempErrors.email = isRtl ? 'البريد الإلكتروني غير صحيح' : 'Invalid email';
+    }
+    if (!contactData.subject.trim()) tempErrors.subject = isRtl ? 'الرجاء إدخال الموضوع' : 'Subject is required';
+    if (!contactData.message.trim()) tempErrors.message = isRtl ? 'الرجاء كتابة رسالتك' : 'Message is required';
+    setContactErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+  const handleHomeSubmit = (e) => {
+    e.preventDefault();
+    if (!validateHomeForm()) return;
+    setIsHomeSending(true);
+    setTimeout(() => {
+      setIsHomeSending(false);
+      setShowHomeSuccess(true);
+      console.log('Home Contact Form Submission:', contactData);
+      const submissions = JSON.parse(localStorage.getItem('wejha_contact_submissions') || '[]');
+      submissions.push({ ...contactData, date: new Date().toISOString() });
+      localStorage.setItem('wejha_contact_submissions', JSON.stringify(submissions));
+      setContactData({
+        name: '',
+        email: '',
+        inquiryType: 'general',
+        subject: '',
+        message: ''
+      });
+    }, 1500);
+  };
 
   // Slideshow state for the seasonal background
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -503,6 +557,166 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
+
+        {/* Contact Us Landing Page Section */}
+        <section className="home-section contact-teaser-section" id="contact-section">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+            className="section-container"
+          >
+            <div className="section-header">
+              <h2 className="section-title">{t('contact.title')}</h2>
+              <p className="section-subtitle">{t('contact.subtitle')}</p>
+            </div>
+
+            <div className="contact-teaser-grid">
+              {/* Left Column: Quick Info & Link to Dedicated page */}
+              <motion.div variants={itemVariants} className="glass-panel info-teaser-card">
+                <div className="info-teaser-header">
+                  <Mail className="teaser-mail-icon" size={32} />
+                  <h3>{isRtl ? "تواصل مباشر مع فريق وجهة" : "Direct Support"}</h3>
+                </div>
+                <p>
+                  {isRtl 
+                    ? "هل لديك أسئلة حول مساراتنا التدريبية أو تريد تقديم دعم ومساهمة للمشروع؟ نحن متواجدون دائمًا لمساعدتك وإرشادك."
+                    : "Have questions about our training tracks or looking to support the project? We are always here to help and guide you."}
+                </p>
+                <div className="teaser-contact-links">
+                  <div className="teaser-link-item">
+                    <strong>{t('contact.address_label')}:</strong> {t('contact.address_val')}
+                  </div>
+                  <div className="teaser-link-item">
+                    <strong>{t('contact.phone_label')}:</strong> <span dir="ltr">{t('contact.phone_val')}</span>
+                  </div>
+                </div>
+                <Link to="/contact" className="btn-primary select-btn" style={{ marginTop: 'auto' }}>
+                  <span>{isRtl ? "الانتقال لصفحة الاتصال الكاملة" : "Go to Contact Page"}</span>
+                  {isRtl ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+                </Link>
+              </motion.div>
+
+              {/* Right Column: Embedded Compact Form */}
+              <motion.div variants={itemVariants} className="glass-panel form-teaser-card">
+                <form onSubmit={handleHomeSubmit} className="teaser-contact-form">
+                  <div className="form-teaser-row">
+                    <div className="teaser-form-group">
+                      <input 
+                        type="text" 
+                        name="name" 
+                        value={contactData.name}
+                        onChange={handleHomeChange}
+                        placeholder={t('contact.name_label')} 
+                        className={contactErrors.name ? 'input-error' : ''}
+                      />
+                      {contactErrors.name && <span className="teaser-error">{contactErrors.name}</span>}
+                    </div>
+                    <div className="teaser-form-group">
+                      <input 
+                        type="email" 
+                        name="email" 
+                        value={contactData.email}
+                        onChange={handleHomeChange}
+                        placeholder={t('contact.email_label')} 
+                        className={contactErrors.email ? 'input-error' : ''}
+                      />
+                      {contactErrors.email && <span className="teaser-error">{contactErrors.email}</span>}
+                    </div>
+                  </div>
+
+                  <div className="form-teaser-row">
+                    <div className="teaser-form-group">
+                      <select 
+                        name="inquiryType" 
+                        value={contactData.inquiryType}
+                        onChange={handleHomeChange}
+                      >
+                        <option value="general">{t('contact.inquiry_general')}</option>
+                        <option value="student">{t('contact.inquiry_student')}</option>
+                        <option value="volunteer">{t('contact.inquiry_volunteer')}</option>
+                        <option value="sponsor">{t('contact.inquiry_sponsor')}</option>
+                      </select>
+                    </div>
+                    <div className="teaser-form-group">
+                      <input 
+                        type="text" 
+                        name="subject" 
+                        value={contactData.subject}
+                        onChange={handleHomeChange}
+                        placeholder={t('contact.subject_label')} 
+                        className={contactErrors.subject ? 'input-error' : ''}
+                      />
+                      {contactErrors.subject && <span className="teaser-error">{contactErrors.subject}</span>}
+                    </div>
+                  </div>
+
+                  <div className="teaser-form-group">
+                    <textarea 
+                      name="message" 
+                      value={contactData.message}
+                      onChange={handleHomeChange}
+                      placeholder={t('contact.message_label')} 
+                      rows={3}
+                      className={contactErrors.message ? 'input-error' : ''}
+                    ></textarea>
+                    {contactErrors.message && <span className="teaser-error">{contactErrors.message}</span>}
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    className={`submit-btn ${isHomeSending ? 'sending' : ''}`}
+                    disabled={isHomeSending}
+                  >
+                    {isHomeSending ? (
+                      <>
+                        <span className="spinner"></span>
+                        <span>{t('contact.sending_btn')}</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>{t('contact.send_btn')}</span>
+                        <Send size={18} className="send-icon" />
+                      </>
+                    )}
+                  </button>
+                </form>
+              </motion.div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Success Modal Overlay (Home) */}
+        <AnimatePresence>
+          {showHomeSuccess && (
+            <motion.div 
+              className="modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div 
+                className="glass-panel success-modal"
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+              >
+                <div className="success-icon-circle">
+                  <CheckCircle2 size={48} />
+                </div>
+                <h3>{t('contact.success_title')}</h3>
+                <p>{t('contact.success_desc')}</p>
+                <button 
+                  onClick={() => setShowHomeSuccess(false)}
+                  className="close-modal-btn"
+                >
+                  {t('contact.success_close')}
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div> {/* Close home-page */}
     </motion.div>
   );

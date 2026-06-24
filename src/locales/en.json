@@ -5,7 +5,8 @@
     "stats": "2026 Metrics",
     "quiz": "Majors Quiz",
     "media": "Gallery & Media",
-    "tracks": "Training Tracks"
+    "tracks": "Training Tracks",
+    "contact": "Contact Us"
   },
   "hero": {
     "title": "Wejha Project 2026",
@@ -86,5 +87,36 @@
     "a5": "Yes, every student who successfully completes their chosen training tracks will receive an official certificate of participation and completion accredited by the Libyan Red Crescent Benghazi Branch.",
     "q6": "What makes Wejha different from other guidance initiatives?",
     "a6": "Wejha is data-driven; it relies on actual field surveys of thousands of students to address real needs, and combines theoretical guidance with hands-on soft skills training, digital literacy, and direct site visits to universities."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are always happy to hear from you and answer your questions",
+    "form_title": "Send Us a Message",
+    "name_label": "Full Name",
+    "name_placeholder": "Enter your name here...",
+    "email_label": "Email Address",
+    "email_placeholder": "example@email.com",
+    "inquiry_label": "Inquiry Type",
+    "inquiry_general": "General Inquiry",
+    "inquiry_student": "High School Student",
+    "inquiry_volunteer": "Join as a Volunteer",
+    "inquiry_sponsor": "Sponsorship & Support",
+    "subject_label": "Subject",
+    "subject_placeholder": "What is the subject of your message?",
+    "message_label": "Message",
+    "message_placeholder": "Write your detailed message here...",
+    "send_btn": "Send Message",
+    "sending_btn": "Sending...",
+    "success_title": "Sent Successfully!",
+    "success_desc": "Thank you for contacting us. We will get back to you as soon as possible via email.",
+    "success_close": "Close",
+    "info_title": "Contact Information",
+    "info_desc": "You can also reach out to us directly through the official channels of the Libyan Red Crescent Benghazi Branch:",
+    "address_label": "Address",
+    "address_val": "Jamal Abdel Nasser Street, Benghazi, Libya",
+    "phone_label": "Phone",
+    "phone_val": "+218 61 909 3000",
+    "email_val": "info@wejha.edu.ly",
+    "social_title": "Follow Us on Social Media"
   }
 }

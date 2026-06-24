@@ -8,6 +8,7 @@ import StatisticsPage from './pages/StatisticsPage';
 import MediaPage from './pages/MediaPage';
 import TracksPage from './pages/TracksPage';
 import QuizPage from './pages/QuizPage';
+import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 
 // Scroll reset component on route change
@@ -40,6 +41,7 @@ function App() {
           <Route path="/media" element={<MediaPage />} />
           <Route path="/tracks" element={<TracksPage />} />
           <Route path="/quiz" element={<QuizPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
 

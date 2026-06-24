@@ -31,7 +31,8 @@ export default function Navbar() {
     { name: t('nav.stats'), path: '/statistics' },
     { name: t('nav.quiz'), path: '/quiz' },
     { name: t('nav.media'), path: '/media' },
-    { name: t('nav.tracks'), path: '/tracks' }
+    { name: t('nav.tracks'), path: '/tracks' },
+    { name: t('nav.contact'), path: '/contact' }
   ];
 
   return (
