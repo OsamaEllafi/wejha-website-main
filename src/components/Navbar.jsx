@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { useTranslation } from 'react-i18next';
-import { Sun, Moon, Globe, Menu, X } from 'lucide-react';
+import { Sun, Moon, Globe, Menu, X, Hammer, QrCode, UserCheck, Bell, ClipboardList } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
@@ -10,6 +10,7 @@ export default function Navbar() {
   const location = useLocation();
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [isOpen, setIsOpen] = useState(false);
+  const [showDevModal, setShowDevModal] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -70,6 +71,14 @@ export default function Navbar() {
               </Link>
             );
           })}
+          
+          {/* Highlighted Portal Button */}
+          <button 
+            onClick={() => setShowDevModal(true)} 
+            className="navbar-portal-btn"
+          >
+            <span>{t('nav.portal')}</span>
+          </button>
         </div>
 
         {/* Action Controls (Theme, Language, Mobile Menu Button) */}
@@ -115,6 +124,88 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            
+            {/* Highlighted Mobile Portal Button */}
+            <button 
+              onClick={() => {
+                setIsOpen(false);
+                setShowDevModal(true);
+              }} 
+              className="mobile-navbar-portal-btn"
+            >
+              <span>{t('nav.portal')}</span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Portal Development Warning Modal */}
+      <AnimatePresence>
+        {showDevModal && (
+          <motion.div 
+            className="navbar-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowDevModal(false)}
+          >
+            <motion.div 
+              className="glass-panel portal-dev-modal"
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="close-modal-x" onClick={() => setShowDevModal(false)}>
+                <X size={20} />
+              </button>
+              
+              <div className="modal-icon-circle-dev">
+                <Hammer size={36} className="modal-hammer-icon" />
+              </div>
+              
+              <h3>{t('contact.dev_title')}</h3>
+              <p className="modal-dev-subtitle">{t('contact.dev_subtitle')}</p>
+              
+              <div className="upcoming-features-list">
+                <h4>{t('contact.features_title')}</h4>
+                
+                <div className="feature-item-row">
+                  <div className="feat-icon-badge">
+                    <UserCheck size={18} />
+                  </div>
+                  <span>{t('contact.feat_auth')}</span>
+                </div>
+
+                <div className="feature-item-row">
+                  <div className="feat-icon-badge">
+                    <QrCode size={18} />
+                  </div>
+                  <span>{t('contact.feat_qr')}</span>
+                </div>
+
+                <div className="feature-item-row">
+                  <div className="feat-icon-badge">
+                    <ClipboardList size={18} />
+                  </div>
+                  <span>{t('contact.feat_survey')}</span>
+                </div>
+
+                <div className="feature-item-row">
+                  <div className="feat-icon-badge">
+                    <Bell size={18} />
+                  </div>
+                  <span>{t('contact.feat_notif')}</span>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => setShowDevModal(false)}
+                className="close-dev-modal-btn"
+              >
+                {t('contact.close_btn')}
+              </button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

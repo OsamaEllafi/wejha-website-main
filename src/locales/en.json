@@ -6,7 +6,8 @@
     "quiz": "Majors Quiz",
     "media": "Gallery & Media",
     "tracks": "Training Tracks",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "portal": "Student Portal"
   },
   "hero": {
     "title": "Wejha Project 2026",
@@ -117,6 +118,14 @@
     "phone_label": "Phone",
     "phone_val": "+218 61 909 3000",
     "email_val": "info@wejha.edu.ly",
-    "social_title": "Follow Us on Social Media"
+    "social_title": "Follow Us on Social Media",
+    "dev_title": "Wejha Digital Portal Coming Soon!",
+    "dev_subtitle": "We are currently developing the digital participant portal to simplify registration and attendance check-ins for Season 4 activities.",
+    "features_title": "Upcoming Portal Features:",
+    "feat_auth": "Create accounts and verify user academic profiles.",
+    "feat_qr": "Generate a unique personal QR code for quick check-in at event gates.",
+    "feat_survey": "Take dynamic pre-test and post-test training surveys digitally.",
+    "feat_notif": "Receive email alerts and check your notification history dynamically.",
+    "close_btn": "Got it, waiting for launch"
   }
 }
