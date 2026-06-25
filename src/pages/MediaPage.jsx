@@ -38,10 +38,10 @@ export default function MediaPage() {
     },
     {
       id: 'video-3',
-      titleAr: 'أ. مصطفى البرغثي',
-      titleEn: 'Mr. Mustafa Al-Barghathi',
-      roleAr: 'عن ريادة الأعمال والإدارة القيادية',
-      roleEn: 'Entrepreneurship & Leadership Management',
+      titleAr: 'م. مصطفى البرغثي',
+      titleEn: 'Eng. Mustafa Al-Barghathi',
+      roleAr: 'كلية الهندسة',
+      roleEn: 'College of Engineering',
       src: `${base}assets/personal interview videos/مصطفى البرغثي Final.mp4`,
     },
     {
