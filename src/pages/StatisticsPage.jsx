@@ -35,7 +35,7 @@ export default function StatisticsPage() {
 
   // 1. General Metrics
   const generalMetrics = [
-    { label: isRtl ? "إجمالي الطلبة المستهدفين" : "Total Reached Students", value: "1,928", desc: isRtl ? "طلبة ثانوية مشاركين في الاستبيان" : "High school respondents in Benghazi" },
+    { label: isRtl ? "إجمالي الطلبة المستهدفين" : "Total Reached Students", value: "2,184", desc: isRtl ? "طلبة ثانوية مشاركين في الاستبيان" : "High school respondents in Benghazi" },
     { label: isRtl ? "عدد المدارس المغطاة" : "Covered Schools", value: "27", desc: isRtl ? "مدارس ثانوية عامة وخاصة" : "Public & private secondary schools" },
     { label: isRtl ? "نسبة الإناث المشاركات" : "Female Representation", value: "72%", desc: isRtl ? "1,388 طالبة مشاركة" : "1,388 Female students" },
     { label: isRtl ? "نسبة الذكور المشاركين" : "Male Representation", value: "28%", desc: isRtl ? "540 طالباً مشاركاً" : "540 Male students" }

@@ -143,10 +143,9 @@ export default function Home() {
 
   // Static stats
   const statItems = [
-    { value: 1928, suffix: "", label: t('stats.total_students'), desc: isRtl ? "طالب وطالبة مستهدفين في بنغازي" : "High school respondents in Benghazi" },
+    { value: 2184, suffix: "", label: t('stats.total_students'), desc: isRtl ? "طالب وطالبة مستهدفين في بنغازي" : "High school respondents in Benghazi" },
     { value: 27, suffix: "", label: t('stats.schools'), desc: isRtl ? "مدرسة ثانوية مغطاة (عامة وخاصة)" : "Public & private secondary schools" },
-    { value: 1300, suffix: "", label: t('stats.graduates'), desc: isRtl ? "طالب وطالبة بالصف الثالث ثانوي" : "Graduating high school students" },
-    { value: 626, suffix: "", label: t('stats.english_learners'), desc: isRtl ? "طالب وطالبة طلبوا تطوير لغة إضافية" : "Students requesting additional language skills" }
+    { value: 1300, suffix: "", label: t('stats.graduates'), desc: isRtl ? "طالب وطالبة بالصف الثالث ثانوي" : "Graduating high school students" }
   ];
 
   // Wejha objectives
@@ -215,7 +214,7 @@ export default function Home() {
             </span>
 
             <h1 className="hero-slideshow-title">
-              {isRtl ? "وجهتك تبدأ بوعي" : "Your Journey Begins with Awareness"}
+              {isRtl ? "وجهتك تبدأ من هنا" : "Your Journey Begins Here"}
             </h1>
 
             {/* Slide-specific info with cross-fade */}

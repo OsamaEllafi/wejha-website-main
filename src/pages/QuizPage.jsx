@@ -8,19 +8,20 @@ export default function QuizPage() {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.language === 'ar';
 
-  const [answers, setAnswers] = useState(Array(12).fill(0));
+  const [answers, setAnswers] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
   const [results, setResults] = useState(null);
+  const [quizStarted, setQuizStarted] = useState(false);
 
-  // 12 Statements mapping to RIASEC
-  // 0, 1: R | 2, 3: I | 4, 5: A | 6, 7: S | 8, 9: E | 10, 11: C
+  // 30 Statements mapping to RIASEC (5 per dimension)
   const statements = [
+    // Realistic (R)
     {
       id: 0,
       dimension: 'R',
-      textAr: 'أحب العمل باستخدام الآلات أو الأدوات أو الأشياء المادية الملموسة.',
-      textEn: 'I like working with machinery, tools, or physical objects.'
+      textAr: 'أحب العمل باستخدام الآلات أو الأدوات أو الأجهزة التقنية الملموسة.',
+      textEn: 'I like working with machinery, tools, or physical devices.'
     },
     {
       id: 1,
@@ -30,65 +31,190 @@ export default function QuizPage() {
     },
     {
       id: 2,
-      dimension: 'I',
-      textAr: 'أستمتع بحل المسائل الرياضية أو العلمية المعقدة.',
-      textEn: 'I enjoy solving complex mathematical or scientific problems.'
+      dimension: 'R',
+      textAr: 'أستمتع بفك وتركيب الأجهزة الكهربائية أو الميكانيكية وإصلاحها.',
+      textEn: 'I enjoy assembling, disassembling, and repairing electrical or mechanical devices.'
     },
     {
       id: 3,
-      dimension: 'I',
-      textAr: 'أحب إجراء البحوث العلمية والتحليلات للعثور على إجابات للمشكلات.',
-      textEn: 'I like performing research and analyzing data to find answers.'
+      dimension: 'R',
+      textAr: 'يستهويني فهم كيفية عمل الآلات والمحركات وأنظمة التشغيل المختلفة.',
+      textEn: 'I am interested in understanding how machines, engines, and different operating systems work.'
     },
     {
       id: 4,
-      dimension: 'A',
-      textAr: 'أحب الرسم، الكتابة، أو تصميم المشاريع الفنية والإبداعية.',
-      textEn: 'I like drawing, writing, or designing creative/artistic projects.'
+      dimension: 'R',
+      textAr: 'أفضل الأنشطة العملية التي تنتج عنها نتائج ملموسة وواضحة.',
+      textEn: 'I prefer practical, hands-on activities that result in tangible and clear products.'
     },
+
+    // Investigative (I)
     {
       id: 5,
-      dimension: 'A',
-      textAr: 'أستمتع بالتعبير عن نفسي وأفكاري من خلال الفن، التصميم، أو الموسيقى.',
-      textEn: 'I enjoy expressing myself and my ideas through art, design, or music.'
+      dimension: 'I',
+      textAr: 'أستمتع بحل المسائل الرياضية أو البرمجية أو المشكلات العلمية المعقدة.',
+      textEn: 'I enjoy solving complex mathematical, programming, or scientific problems.'
     },
     {
       id: 6,
-      dimension: 'S',
-      textAr: 'أحب تعليم الآخرين، تدريبهم، أو تقديم المساعدة لهم لحل مشكلاتهم.',
-      textEn: 'I like teaching others, training them, or helping them solve their problems.'
+      dimension: 'I',
+      textAr: 'أحب إجراء البحوث العلمية والتحليلات للعثور على إجابات دقيقة للمشكلات.',
+      textEn: 'I like performing research and analyzing data to find precise answers.'
     },
     {
       id: 7,
-      dimension: 'S',
-      textAr: 'أفضل العمل في فرق والأنشطة التطوعية للمساهمة في خدمة المجتمع.',
-      textEn: 'I prefer team-oriented environments and volunteer services to help the community.'
+      dimension: 'I',
+      textAr: 'يثير اهتمامي قراءة المقالات العلمية واستكشاف النظريات والاكتشافات الحديثة.',
+      textEn: 'I am interested in reading scientific articles and exploring modern theories and discoveries.'
     },
     {
       id: 8,
-      dimension: 'E',
-      textAr: 'أستمتع بقيادة المجموعات، أو تنظيم الفعاليات، أو إدارة المشاريع.',
-      textEn: 'I enjoy leading groups, organizing events, or managing projects.'
+      dimension: 'I',
+      textAr: 'أحب تحليل البيانات وفك الشفرات والبحث عن الأسباب الخفية وراء الظواهر المختلفة.',
+      textEn: 'I like analyzing data, decoding, and searching for hidden causes behind different phenomena.'
     },
     {
       id: 9,
-      dimension: 'E',
-      textAr: 'أحب إقناع الآخرين بآرائي أو مشاريعي، وأهتم بعالم الأعمال والريادة.',
-      textEn: 'I like persuading others of my ideas/projects, and have interest in business.'
+      dimension: 'I',
+      textAr: 'أستمتع بإجراء التجارب المختبرية أو دراسة الظواهر الطبيعية والطبية وكتابة التقارير عنها.',
+      textEn: 'I enjoy conducting laboratory experiments or studying natural and medical phenomena and writing reports on them.'
     },
+
+    // Artistic (A)
     {
       id: 10,
-      dimension: 'C',
-      textAr: 'أحب تنظيم البيانات، أو الاحتفاظ بالسجلات، وتصميم جداول البيانات المنظمة.',
-      textEn: 'I like organizing data, keeping records, or creating structured spreadsheets.'
+      dimension: 'A',
+      textAr: 'أحب الرسم، الكتابة الأدبية، أو تصميم المشاريع الفنية والإبداعية.',
+      textEn: 'I like drawing, creative writing, or designing artistic and creative projects.'
     },
     {
       id: 11,
+      dimension: 'A',
+      textAr: 'أستمتع بالتعبير عن نفسي وأفكاري بحرية من خلال الفن، التصميم، أو التمثيل.',
+      textEn: 'I enjoy expressing myself and my ideas freely through art, design, or performance.'
+    },
+    {
+      id: 12,
+      dimension: 'A',
+      textAr: 'أفضل العمل في بيئات مرنة تسمح لي بالابتكار والتجديد دون الالتزام بقواعد صارمة.',
+      textEn: 'I prefer working in flexible environments that allow me to innovate without strict rules.'
+    },
+    {
+      id: 13,
+      dimension: 'A',
+      textAr: 'أهتم بالفنون البصرية، الديكور، الهندسة المعمارية التعبيرية، أو التصميم الرقمي.',
+      textEn: 'I am interested in visual arts, interior design, expressive architecture, or digital design.'
+    },
+    {
+      id: 14,
+      dimension: 'A',
+      textAr: 'أحب كتابة القصص أو المدونات أو إعداد المحتوى الإبداعي والتأليف الموسيقي.',
+      textEn: 'I like writing stories, blogs, or creating creative content and composing music.'
+    },
+
+    // Social (S)
+    {
+      id: 15,
+      dimension: 'S',
+      textAr: 'أحب تعليم الآخرين، تدريبهم، أو تقديم المساعدة لهم لحل مشكلاتهم الشخصية أو التعليمية.',
+      textEn: 'I like teaching others, training them, or helping them solve their personal or educational problems.'
+    },
+    {
+      id: 16,
+      dimension: 'S',
+      textAr: 'أفضل العمل في فرق والأنشطة التطوعية للمساهمة في خدمة وتطوير المجتمع.',
+      textEn: 'I prefer team-oriented environments and volunteer activities to contribute to community development.'
+    },
+    {
+      id: 17,
+      dimension: 'S',
+      textAr: 'أستمتع بالاستماع لمشاكل الناس ومحاولة تقديم الدعم النفسي والإرشاد المناسب لهم.',
+      textEn: 'I enjoy listening to people\'s problems and trying to provide emotional support and guidance.'
+    },
+    {
+      id: 18,
+      dimension: 'S',
+      textAr: 'أهتم بمناقشة القضايا الاجتماعية والإنسانية والمساهمة في نشر الوعي العام.',
+      textEn: 'I am interested in discussing social and human issues and contributing to raising public awareness.'
+    },
+    {
+      id: 19,
+      dimension: 'S',
+      textAr: 'أجد شغفي في رعاية المرضى أو العمل في المهن الطبية والتعليمية والخدمية.',
+      textEn: 'I find my passion in patient care or working in medical, educational, and service occupations.'
+    },
+
+    // Enterprising (E)
+    {
+      id: 20,
+      dimension: 'E',
+      textAr: 'أستمتع بقيادة المجموعات، أو تنظيم الفعاليات الكبرى، أو إدارة المشاريع والفرق.',
+      textEn: 'I enjoy leading groups, organizing major events, or managing projects and teams.'
+    },
+    {
+      id: 21,
+      dimension: 'E',
+      textAr: 'أحب إقناع الآخرين بآرائي أو خططي، وأهتم بعالم ريادة الأعمال والاستثمار.',
+      textEn: 'I like persuading others of my ideas or plans, and have interest in entrepreneurship and investment.'
+    },
+    {
+      id: 22,
+      dimension: 'E',
+      textAr: 'لدي طموح كبير لبدء مشروعي الخاص وتحمل المخاطر المالية والتجارية المدروسة.',
+      textEn: 'I have a strong ambition to start my own business and take calculated financial and commercial risks.'
+    },
+    {
+      id: 23,
+      dimension: 'E',
+      textAr: 'أستمتع بالتفاوض والإقناع والبيع والشراء والتنافس لتحقيق الأهداف المالية أو المهنية.',
+      textEn: 'I enjoy negotiating, persuading, buying, selling, and competing to achieve financial or career goals.'
+    },
+    {
+      id: 24,
+      dimension: 'E',
+      textAr: 'أفضل الأدوار القيادية التي تتطلب اتخاذ قرارات سريعة ومسؤولة تحت الضغط.',
+      textEn: 'I prefer leadership roles that require fast and responsible decision-making under pressure.'
+    },
+
+    // Conventional (C)
+    {
+      id: 25,
       dimension: 'C',
-      textAr: 'أفضل المهام ذات التوجيهات الواضحة والتفاصيل الدقيقة والمنظمة جداً.',
-      textEn: 'I prefer tasks with clear instructions, high structure, and precise details.'
+      textAr: 'أحب تنظيم البيانات، أو الاحتفاظ بالسجلات، وتصميم الجداول وقواعد البيانات المنظمة.',
+      textEn: 'I like organizing data, keeping records, and designing structured spreadsheets and databases.'
+    },
+    {
+      id: 26,
+      dimension: 'C',
+      textAr: 'أفضل المهام ذات التوجيهات المحددة والتعليمات الواضحة والخطوات المتتالية.',
+      textEn: 'I prefer tasks with specific guidelines, clear instructions, and sequential steps.'
+    },
+    {
+      id: 27,
+      dimension: 'C',
+      textAr: 'أهتم جداً بالتفاصيل الدقيقة وأستمتع بتدقيق الأوراق المالية أو المستندات الإدارية.',
+      textEn: 'I pay great attention to precise details and enjoy auditing financial papers or administrative documents.'
+    },
+    {
+      id: 28,
+      dimension: 'C',
+      textAr: 'أحب العمل في بيئة مكتبية منظمة ومستقرة وذات نظام عمل واضح وثابت.',
+      textEn: 'I like working in an organized, stable office environment with a clear and consistent workflow.'
+    },
+    {
+      id: 29,
+      dimension: 'C',
+      textAr: 'أستمتع بتصنيف المعلومات وفهرستها وكتابة التقارير الدورية المنظمة بدقة.',
+      textEn: 'I enjoy classifying and indexing information and writing precise, well-organized periodic reports.'
     }
   ];
+
+  // Initialize answers state with correct length when component mounts or statements exist
+  React.useEffect(() => {
+    if (answers.length !== statements.length) {
+      setAnswers(Array(statements.length).fill(0));
+    }
+  }, [statements.length]);
 
   // Agreement levels
   const options = [
@@ -104,7 +230,7 @@ export default function QuizPage() {
     updated[currentIdx] = val;
     setAnswers(updated);
 
-    if (currentIdx < 11) {
+    if (currentIdx < statements.length - 1) {
       setCurrentIdx(currentIdx + 1);
     } else {
       calculateResults(updated);
@@ -119,32 +245,94 @@ export default function QuizPage() {
 
   const calculateResults = (finalAnswers) => {
     // Score dimensions: R, I, A, S, E, C
-    const scores = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };
+    // Keep track of score total and count of individual responses (5, 4, 3, 2)
+    const scores = {
+      R: { total: 0, 5: 0, 4: 0, 3: 0, 2: 0 },
+      I: { total: 0, 5: 0, 4: 0, 3: 0, 2: 0 },
+      A: { total: 0, 5: 0, 4: 0, 3: 0, 2: 0 },
+      S: { total: 0, 5: 0, 4: 0, 3: 0, 2: 0 },
+      E: { total: 0, 5: 0, 4: 0, 3: 0, 2: 0 },
+      C: { total: 0, 5: 0, 4: 0, 3: 0, 2: 0 }
+    };
     
     statements.forEach((st, idx) => {
-      scores[st.dimension] += finalAnswers[idx];
+      const val = finalAnswers[idx];
+      scores[st.dimension].total += val;
+      if (val === 5) scores[st.dimension][5]++;
+      if (val === 4) scores[st.dimension][4]++;
+      if (val === 3) scores[st.dimension][3]++;
+      if (val === 2) scores[st.dimension][2]++;
     });
 
-    // Max score for a dimension is 10 (2 statements * 5). Convert to pct out of 10.
+    // Max score for a dimension is 25 (5 statements * 5). Convert to pct out of 25.
     const dimensions = Object.keys(scores).map(dim => ({
       dim,
       labelAr: getDimensionLabel(dim, 'ar'),
       labelEn: getDimensionLabel(dim, 'en'),
-      score: scores[dim],
-      pct: (scores[dim] / 10) * 100
+      score: scores[dim].total,
+      pct: (scores[dim].total / 25) * 100,
+      count5: scores[dim][5],
+      count4: scores[dim][4],
+      count3: scores[dim][3],
+      count2: scores[dim][2]
     }));
 
-    // Sort to find the highest dimension
-    const sorted = [...dimensions].sort((a, b) => b.score - a.score);
-    const topDim = sorted[0].dim;
-    const secondDim = sorted[1].dim;
+    // Sort to find the highest dimension with tie-breaking rules
+    const sorted = [...dimensions].sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      if (b.count5 !== a.count5) return b.count5 - a.count5;
+      if (b.count4 !== a.count4) return b.count4 - a.count4;
+      if (b.count3 !== a.count3) return b.count3 - a.count3;
+      if (b.count2 !== a.count2) return b.count2 - a.count2;
+      return 0;
+    });
 
-    const major = getRecommendedMajor(topDim, secondDim);
+    // A helper to verify if two dimensions are completely equivalent in scores/profile
+    const isEquivalent = (a, b) => {
+      return a.score === b.score &&
+             a.count5 === b.count5 &&
+             a.count4 === b.count4 &&
+             a.count3 === b.count3 &&
+             a.count2 === b.count2;
+    };
+
+    const topDim = sorted[0];
+    const topTied = sorted.filter(d => isEquivalent(d, topDim));
+
+    let recommendedMajors = [];
+
+    if (topTied.length > 1) {
+      // Tie for first place: recommend paths between all tied top dimensions
+      for (let i = 0; i < topTied.length; i++) {
+        for (let j = i + 1; j < topTied.length; j++) {
+          const major = getRecommendedMajor(topTied[i].dim, topTied[j].dim);
+          if (major && !recommendedMajors.some(m => m.titleAr === major.titleAr)) {
+            recommendedMajors.push(major);
+          }
+        }
+      }
+    } else {
+      // Unique first place: pair with all second-place tied dimensions
+      const secondDim = sorted[1];
+      const secondTied = sorted.filter(d => isEquivalent(d, secondDim));
+      
+      secondTied.forEach(sec => {
+        const major = getRecommendedMajor(topDim.dim, sec.dim);
+        if (major && !recommendedMajors.some(m => m.titleAr === major.titleAr)) {
+          recommendedMajors.push(major);
+        }
+      });
+    }
+
+    // Fallback if no combinations matched
+    if (recommendedMajors.length === 0) {
+      recommendedMajors.push(getRecommendedMajor(topDim.dim, sorted[1].dim));
+    }
 
     setResults({
       scoresList: dimensions,
-      topDimension: sorted[0],
-      recommendedMajor: major
+      topDimension: topDim,
+      recommendedMajors: recommendedMajors
     });
     setQuizFinished(true);
   };
@@ -242,10 +430,11 @@ export default function QuizPage() {
   };
 
   const handleRestart = () => {
-    setAnswers(Array(12).fill(0));
+    setAnswers(Array(statements.length).fill(0));
     setCurrentIdx(0);
     setQuizFinished(false);
     setResults(null);
+    setQuizStarted(false);
   };
 
   return (
@@ -258,7 +447,57 @@ export default function QuizPage() {
 
       <div className="quiz-container-inner">
         <AnimatePresence mode="wait">
-          {!quizFinished ? (
+          {!quizStarted ? (
+            <motion.div
+              key="intro"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className="glass-panel quiz-intro-card"
+            >
+              <div className="intro-icon-wrapper">
+                <Compass className="compass-intro-icon animate-spin-slow" size={48} />
+              </div>
+              <h2 className="intro-title">
+                {isRtl ? "مرحباً بك في اختبار التوجيه الأكاديمي" : "Welcome to the Academic Orientation Quiz"}
+              </h2>
+              <p className="intro-subtitle">
+                {isRtl
+                  ? "يهدف هذا الاختبار إلى مساعدتك في اكتشاف مسارك الأكاديمي والمهني الأنسب بناءً على مقياس هولاند (RIASEC) العالمي للشخصية المهنية."
+                  : "This quiz helps you discover your ideal academic and career path based on the global Holland Occupational Themes (RIASEC) model."}
+              </p>
+              
+              <div className="intro-details-grid">
+                <div className="intro-detail-item">
+                  <span className="detail-number">30</span>
+                  <span className="detail-label">{isRtl ? "عبارة تقييمية" : "Assessment Statements"}</span>
+                </div>
+                <div className="intro-detail-item">
+                  <span className="detail-number">~5</span>
+                  <span className="detail-label">{isRtl ? "دقائق للحل" : "Minutes to Complete"}</span>
+                </div>
+                <div className="intro-detail-item">
+                  <span className="detail-number">6</span>
+                  <span className="detail-label">{isRtl ? "جوانب شخصية يقاس عليها" : "Measured Dimensions"}</span>
+                </div>
+              </div>
+
+              <div className="intro-guidelines">
+                <h3>{isRtl ? "إرشادات هامة قبل البدء:" : "Important Guidelines Before You Start:"}</h3>
+                <ul>
+                  <li>{isRtl ? "لا توجد إجابات صحيحة أو خاطئة في هذا الاختبار." : "There are no right or wrong answers in this quiz."}</li>
+                  <li>{isRtl ? "أجب بناءً على ما تحبه وتستمتع به فعلاً، وليس ما تراه مناسباً اجتماعياً." : "Answer based on what you actually like and enjoy, not what is socially expected."}</li>
+                  <li>{isRtl ? "احرص على الإجابة بصدق وبدون تفكير مطول في العبارة." : "Be honest and avoid overthinking each statement."}</li>
+                </ul>
+              </div>
+
+              <button onClick={() => setQuizStarted(true)} className="btn-accent start-exam-btn">
+                <span>{isRtl ? "ابدأ الاختبار الآن" : "Start the Exam Now"}</span>
+                <Compass size={18} className="animate-spin-slow" />
+              </button>
+            </motion.div>
+          ) : !quizFinished ? (
             <motion.div 
               key={currentIdx}
               initial={{ x: isRtl ? -50 : 50, opacity: 0 }}
@@ -270,11 +509,11 @@ export default function QuizPage() {
               {/* Progress Bar */}
               <div className="quiz-progress-wrapper">
                 <div className="progress-header">
-                  <span>{isRtl ? `العبارة ${currentIdx + 1} من 12` : `Statement ${currentIdx + 1} of 12`}</span>
-                  <span>{Math.round(((currentIdx) / 12) * 100)}%</span>
+                  <span>{isRtl ? `العبارة ${currentIdx + 1} من ${statements.length}` : `Statement ${currentIdx + 1} of ${statements.length}`}</span>
+                  <span>{Math.round(((currentIdx) / statements.length) * 100)}%</span>
                 </div>
                 <div className="progress-bar-track">
-                  <div className="progress-bar-fill" style={{ width: `${((currentIdx + 1) / 12) * 100}%` }}></div>
+                  <div className="progress-bar-fill" style={{ width: `${((currentIdx + 1) / statements.length) * 100}%` }}></div>
                 </div>
               </div>
 
@@ -321,17 +560,25 @@ export default function QuizPage() {
                 className="quiz-results-container"
               >
                 {/* Result recommendation */}
-                <div className="glass-panel recommendation-panel">
-                  <div className="rec-header">
-                    <CheckCircle2 size={36} className="text-success-icon" />
-                    <div>
-                      <h2>{isRtl ? "الكلية المقترحة لك:" : "Your Recommended College Path:"}</h2>
-                      <h1 className="rec-title">{isRtl ? results.recommendedMajor.titleAr : results.recommendedMajor.titleEn}</h1>
+                <div className="recommendations-container">
+                  {results.recommendedMajors.map((major, mIdx) => (
+                    <div key={mIdx} className="glass-panel recommendation-panel" style={{ marginBottom: '20px' }}>
+                      <div className="rec-header">
+                        <CheckCircle2 size={36} className="text-success-icon" />
+                        <div>
+                          <h2>
+                            {results.recommendedMajors.length > 1
+                              ? (isRtl ? `الكلية المقترحة ${mIdx + 1}:` : `Recommended College Path ${mIdx + 1}:`)
+                              : (isRtl ? "الكلية المقترحة لك:" : "Your Recommended College Path:")}
+                          </h2>
+                          <h1 className="rec-title">{isRtl ? major.titleAr : major.titleEn}</h1>
+                        </div>
+                      </div>
+                      <p className="rec-description">
+                        {isRtl ? major.descAr : major.descEn}
+                      </p>
                     </div>
-                  </div>
-                  <p className="rec-description">
-                    {isRtl ? results.recommendedMajor.descAr : results.recommendedMajor.descEn}
-                  </p>
+                  ))}
                 </div>
 
                 <div className="results-breakdown-grid">
@@ -346,7 +593,7 @@ export default function QuizPage() {
                         <div key={idx} className="riasec-bar-row">
                           <div className="riasec-bar-label">
                             <strong>{isRtl ? item.labelAr : item.labelEn}</strong>
-                            <span>{item.score} / 10</span>
+                            <span>{item.score} / 25</span>
                           </div>
                           <div className="riasec-bar-track">
                             <motion.div 

@@ -57,8 +57,8 @@ export default function MediaPage() {
   // 2. Seasons Photo Albums
   const seasonsData = {
     Season1: {
-      titleAr: "الموسم الأول (2024)",
-      titleEn: "Season 1 (2024)",
+      titleAr: "الموسم الأول (2023)",
+      titleEn: "Season 1 (2023)",
       images: [
         `${base}assets/images/Wejha_Seasons/Season1/3.JPG`,
         `${base}assets/images/Wejha_Seasons/Season1/5.JPG`,

@@ -370,3 +370,227 @@
     border-radius: 10px;
   }
 }
+
+/* 3. Introduction Card Styles */
+.quiz-intro-card {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+}
+
+.intro-icon-wrapper {
+  background: linear-gradient(135deg, rgba(255, 73, 0, 0.1) 0%, rgba(255, 51, 36, 0.1) 100%);
+  border: 1px solid rgba(255, 73, 0, 0.2);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-orange);
+  margin-bottom: 10px;
+  box-shadow: 0 8px 24px rgba(255, 73, 0, 0.1);
+}
+
+.compass-intro-icon {
+  filter: drop-shadow(0 2px 8px rgba(255, 73, 0, 0.2));
+}
+
+.intro-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-navy);
+  font-family: var(--font-arabic-headers);
+}
+
+[data-theme="dark"] .intro-title {
+  color: var(--text-primary);
+}
+
+.intro-subtitle {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 650px;
+}
+
+.intro-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 15px 0;
+}
+
+.intro-detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 15px;
+  background: rgba(0, 31, 143, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: var(--transition-smooth);
+}
+
+[data-theme="dark"] .intro-detail-item {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.intro-detail-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-orange);
+  box-shadow: 0 8px 20px rgba(0, 31, 143, 0.05);
+}
+
+.detail-number {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--color-orange);
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.intro-guidelines {
+  text-align: right;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(0, 31, 143, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.intro-guidelines h3 {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--color-navy);
+  margin-bottom: 15px;
+}
+
+[data-theme="dark"] .intro-guidelines h3 {
+  color: var(--text-primary);
+}
+
+.intro-guidelines ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.intro-guidelines li {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  position: relative;
+  padding-right: 20px;
+  line-height: 1.6;
+}
+
+.intro-guidelines li::before {
+  content: "•";
+  color: var(--color-orange);
+  font-weight: bold;
+  font-size: 1.3rem;
+  position: absolute;
+  right: 0;
+  top: -2px;
+}
+
+.start-exam-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(255, 73, 0, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.start-exam-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 73, 0, 0.3);
+}
+
+/* RTL adjustment for guidelines list */
+[dir="rtl"] .intro-guidelines {
+  text-align: right;
+}
+[dir="rtl"] .intro-guidelines li {
+  padding-right: 20px;
+  padding-left: 0;
+}
+[dir="rtl"] .intro-guidelines li::before {
+  right: 0;
+  left: auto;
+}
+
+[dir="ltr"] .intro-guidelines {
+  text-align: left;
+}
+[dir="ltr"] .intro-guidelines li {
+  padding-left: 20px;
+  padding-right: 0;
+}
+[dir="ltr"] .intro-guidelines li::before {
+  left: 0;
+  right: auto;
+}
+
+@media (max-width: 600px) {
+  .quiz-intro-card {
+    padding: 30px 15px;
+    gap: 20px;
+  }
+  
+  .intro-title {
+    font-size: 1.5rem;
+  }
+  
+  .intro-subtitle {
+    font-size: 1rem;
+  }
+  
+  .intro-details-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .intro-detail-item {
+    padding: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .detail-number {
+    font-size: 1.5rem;
+  }
+  
+  .detail-label {
+    margin-top: 0;
+  }
+  
+  .intro-guidelines {
+    padding: 15px;
+  }
+  
+  .start-exam-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
