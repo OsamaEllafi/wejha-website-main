@@ -10,6 +10,7 @@ import '../styles/AboutPage.css';
 export default function AboutPage() {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.language === 'ar';
+  const base = import.meta.env.BASE_URL;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -158,7 +159,7 @@ export default function AboutPage() {
                 </div>
                 <div className="why-wejha-image-wrap">
                   <img 
-                    src="/assets/images/logo png/wejha_logo_vertical_multi_gradient_on_blue_card.png" 
+                    src={`${base}assets/images/logo png/wejha_logo_vertical_multi_gradient_on_blue_card.png`} 
                     alt={isRtl ? 'لوغو مشروع وجهة' : 'Wejha Project Logo'} 
                     className="why-wejha-img" 
                   />
