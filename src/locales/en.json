@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About Us",
-    "stats": "2026 Metrics",
+    "stats": "Wejha 2026",
     "quiz": "Majors Quiz",
     "media": "Gallery & Media",
     "tracks": "Training Tracks",
@@ -19,8 +19,26 @@
   },
   "about": {
     "title": "About Us",
-    "subtitle": "Executive Summary of the Project",
-    "description": "Wejha Project 2026 is a strategic youth guidance and developmental project operating under the auspices of the Libyan Red Crescent — Benghazi Branch. Wejha aims to empower Libyan high school students to make informed academic and career choices, bridge the gap between secondary education and university life, and cultivate critical vocational and personal skills.",
+    "subtitle": "The Wejha Story",
+    "story_title": "The Wejha Story",
+    "description": "Wejha is not just a training program — it is a genuine response to the question that has been on the minds of countless high school students: what do I study after graduation? Through field surveys covering 1,928 students across 27 secondary schools in Benghazi, the Wejha team mapped the real thoughts and concerns of an entire generation. Operating under the Libyan Red Crescent — Benghazi Branch, Wejha builds a real bridge between students and their academic futures.",
+    "timeline_title": "Our Journey",
+    "timeline_subtitle": "From idea to impact — Wejha's story across the seasons",
+    "s1_title": "Season 1",
+    "s1_year": "2023",
+    "s1_desc": "Wejha launched for the first time — laying the first bricks in understanding the needs of Benghazi's students and establishing the project's foundation.",
+    "s2_title": "Season 2",
+    "s2_year": "2024",
+    "s2_desc": "Coverage expanded to more schools. Wejha delivered its first training workshops and capacity-building sessions.",
+    "s3_title": "Season 3",
+    "s3_year": "2025",
+    "s3_desc": "Full digital transformation — 1,928 students surveyed across 27 schools, mapping the mindset and concerns of an entire generation.",
+    "s4_title": "Season 4",
+    "s4_year": "2026",
+    "s4_desc": "University Expo, specialized training tracks, and a fully integrated digital platform. The biggest and most complete season yet.",
+    "s4_badge": "Coming",
+    "volunteers_title": "Our Team",
+    "volunteers_desc": "Behind every number and every survey, a team of Libyan Red Crescent volunteers worked quietly and faithfully to verify, enter, and archive 1,928 paper forms. This project would not have been possible without their dedication.",
     "objectives_title": "Strategic Objectives",
     "obj_academic_title": "Academic Guidance",
     "obj_academic_desc": "Assisting high school students in identifying their career inclinations and choosing suitable university majors.",
@@ -31,10 +49,11 @@
     "obj_digital_title": "Digital Transformation",
     "obj_digital_desc": "Building a comprehensive digital platform to manage events, register participants, track attendance, and provide interactive guidance."
   },
+
   "stats": {
     "title": "2026 Student Survey",
     "subtitle": "Key Analytical Field Indicators",
-    "intro": "During May 2026, the Wejha team conducted a comprehensive field survey targeting high school students in Benghazi. The data from 2,184 students across 27 schools was compiled and archived.",
+    "intro": "During May 2026, the Wejha team conducted a comprehensive field survey targeting high school students in Benghazi. The data from 1,928 students across 27 schools was compiled and archived.",
     "total_students": "Total Reached Students",
     "schools": "Covered Schools",
     "graduates": "3rd Year Students",
@@ -71,7 +90,7 @@
     "contact_us": "Contact Us"
   },
   "volunteers": {
-    "appreciation": "Special appreciation goes to the dedicated Red Crescent volunteers who meticulously archived and verified all 2,184 paper survey forms:"
+    "appreciation": "Special appreciation goes to the dedicated Red Crescent volunteers who meticulously archived and verified all 1,928 paper survey forms:"
   },
   "faq": {
     "title": "Frequently Asked Questions",

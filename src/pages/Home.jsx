@@ -10,6 +10,33 @@ export default function Home() {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.language === 'ar';
 
+  // Target date: August 22, 2026
+  const calculateTimeLeft = () => {
+    const difference = +new Date("2026-08-22T00:00:00") - +new Date();
+    let timeLeft = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
+      };
+    } else {
+      timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   // State to track cursor position for parallax effect in Hero
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeFaq, setActiveFaq] = useState(null);
@@ -73,28 +100,28 @@ export default function Home() {
   const base = import.meta.env.BASE_URL;
   const slides = [
     {
-      image: `${base}assets/images/Wejha_Seasons/Season1/20240720_125035.jpg`,
+      image: `${base}assets/images/Wejha_Seasons/Season1/1.jpg`,
       titleAr: 'الموسم الأول لوجهة',
       titleEn: 'Wejha Season 1',
       descAr: 'خطوتنا الأولى نحو إرشاد الطلبة واكتشاف شغفهم الأكاديمي والمهني.',
       descEn: 'Our first step towards guiding students and discovering their academic and professional passion.',
     },
     {
-      image: `${base}assets/images/Wejha_Seasons/Season2/IMG-20240723-WA0012.jpg`,
+      image: `${base}assets/images/Wejha_Seasons/Season2/2.jpg`,
       titleAr: 'الموسم الثاني لوجهة',
       titleEn: 'Wejha Season 2',
       descAr: 'توسيع التغطية لتشمل المزيد من المدارس وتقديم ورش عمل تدريبية وبناء القدرات.',
       descEn: 'Expanding coverage to include more schools, delivering training workshops, and capacity building.',
     },
     {
-      image: `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-13.jpg`,
+      image: `${base}assets/images/Wejha_Seasons/Season3/3.jpg`,
       titleAr: 'الموسم الثالث لوجهة',
       titleEn: 'Wejha Season 3',
       descAr: 'التحول الرقمي الكامل ورصد خارطة التفكير والمخاوف لدى طلبة الثانوية.',
-      descEn: 'Complete digital transformation and mapping high school students\' thoughts and concerns.',
+      descEn: "Complete digital transformation and mapping high school students' thoughts and concerns.",
     },
     {
-      image: `${base}assets/images/Wejha_Seasons/Season4 preparation/photo_2026-06-20_21-45-07.jpg`,
+      image: `${base}assets/images/Wejha_Seasons/Season4 preparation/4.jpg`,
       titleAr: 'التحضير للموسم الرابع',
       titleEn: 'Season 4 Preparations',
       descAr: 'تطوير مستمر لتقديم تجربة إرشادية وتنموية استثنائية لجيل 2026.',
@@ -143,7 +170,7 @@ export default function Home() {
 
   // Static stats
   const statItems = [
-    { value: 2184, suffix: "", label: t('stats.total_students'), desc: isRtl ? "طالب وطالبة مستهدفين في بنغازي" : "High school respondents in Benghazi" },
+    { value: 1928, suffix: "", label: t('stats.total_students'), desc: isRtl ? "طالب وطالبة مستهدفين في بنغازي" : "High school respondents in Benghazi" },
     { value: 27, suffix: "", label: t('stats.schools'), desc: isRtl ? "مدرسة ثانوية مغطاة (عامة وخاصة)" : "Public & private secondary schools" },
     { value: 1300, suffix: "", label: t('stats.graduates'), desc: isRtl ? "طالب وطالبة بالصف الثالث ثانوي" : "Graduating high school students" }
   ];
@@ -379,6 +406,102 @@ export default function Home() {
             </div>
           </div>
         </section>
+      </div> {/* Close home-page before countdown so it goes full-width */}
+
+      {/* Wejha 4 Countdown Section - Full Width */}
+      <section className="countdown-section-fullwidth">
+        {/* Animated Background Elements */}
+        <div className="countdown-bg-orb countdown-orb-1" />
+        <div className="countdown-bg-orb countdown-orb-2" />
+        <div className="countdown-bg-orb countdown-orb-3" />
+        <div className="countdown-particles">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div key={i} className="countdown-particle" style={{
+              left: `${(i * 47 + 13) % 100}%`,
+              top: `${(i * 31 + 7) % 100}%`,
+              animationDelay: `${(i * 0.4) % 5}s`,
+              width: `${(i % 3) + 2}px`,
+              height: `${(i % 3) + 2}px`,
+            }} />
+          ))}
+        </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="countdown-fullwidth-inner"
+        >
+          {/* Badge */}
+          <motion.div variants={itemVariants} className="countdown-event-badge">
+            <Sparkles size={16} />
+            <span>{isRtl ? "قريباً جداً" : "Coming Soon"}</span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.div variants={itemVariants} className="countdown-headline-block">
+            <h2 className="countdown-main-title">
+              {isRtl ? "وجهة" : "Wejha"}
+              <span className="countdown-season-num">4</span>
+            </h2>
+            <p className="countdown-sub-headline">
+              {isRtl
+                ? "رحلة إرشادية استثنائية تنطلق في أغسطس 2026"
+                : "An exceptional guidance journey launching August 2026"}
+            </p>
+          </motion.div>
+
+          {/* Timer — always LTR internally so Days is first in DOM; CSS order reverses for RTL */}
+          <motion.div variants={itemVariants} className={`countdown-timer-row ${isRtl ? 'rtl-timer' : ''}`}>
+            <div className="cdt-box" data-unit="days">
+              <div className="cdt-flip">
+                <span className="cdt-num">{String(timeLeft.days || 0).padStart(2, '0')}</span>
+              </div>
+              <span className="cdt-label">{isRtl ? "يوم" : "Days"}</span>
+            </div>
+            <div className="cdt-separator">:</div>
+            <div className="cdt-box" data-unit="hours">
+              <div className="cdt-flip">
+                <span className="cdt-num">{String(timeLeft.hours || 0).padStart(2, '0')}</span>
+              </div>
+              <span className="cdt-label">{isRtl ? "ساعة" : "Hours"}</span>
+            </div>
+            <div className="cdt-separator">:</div>
+            <div className="cdt-box" data-unit="minutes">
+              <div className="cdt-flip">
+                <span className="cdt-num">{String(timeLeft.minutes || 0).padStart(2, '0')}</span>
+              </div>
+              <span className="cdt-label">{isRtl ? "دقيقة" : "Minutes"}</span>
+            </div>
+            <div className="cdt-separator">:</div>
+            <div className="cdt-box" data-unit="seconds">
+              <div className="cdt-flip">
+                <span className="cdt-num">{String(timeLeft.seconds || 0).padStart(2, '0')}</span>
+              </div>
+              <span className="cdt-label">{isRtl ? "ثانية" : "Seconds"}</span>
+            </div>
+          </motion.div>
+
+          {/* Teaser tagline */}
+          <motion.p variants={itemVariants} className="countdown-mystery-text">
+            {isRtl
+              ? "✦ شيء كبير يُحضَّر لك... ابق على اطلاع ✦"
+              : "✦ Something big is being prepared for you... Stay tuned ✦"}
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div variants={itemVariants}>
+            <Link to="/statistics" className="countdown-cta-btn">
+              <BarChart2 size={20} />
+              <span>{isRtl ? "اكتشف وجهة 2026" : "Explore Wejha 2026"}</span>
+              {isRtl ? <ArrowLeft size={18} /> : <ArrowRight size={18} />}
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      <div className="home-page home-page-continued">
 
         {/* 3. Statistics Section */}
         <section className="home-section stats-section">
@@ -716,7 +839,7 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
-      </div> {/* Close home-page */}
+      </div> {/* Close home-page-continued */}
     </motion.div>
   );
 }
