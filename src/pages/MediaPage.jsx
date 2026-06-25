@@ -46,8 +46,8 @@ export default function MediaPage() {
     },
     {
       id: 'video-4',
-      titleAr: 'العربي نجيب الورفلي',
-      titleEn: 'Al-Arabi Najeeb Al-Warfali',
+      titleAr: 'أ. العربي نجيب الورفلي',
+      titleEn: 'Mr. Al-Arabi Najeeb Al-Warfali',
       roleAr: 'كلية الإعلام',
       roleEn: 'College of Media',
       src: `${base}assets/personal interview videos/IMG_3292.MP4`,
