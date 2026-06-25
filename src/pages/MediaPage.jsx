@@ -22,18 +22,18 @@ export default function MediaPage() {
   const videos = [
     {
       id: 'video-1',
-      titleAr: 'د. آلاء هاني',
+      titleAr: 'د. الاء هاني',
       titleEn: 'Dr. Alaa Hani',
-      roleAr: 'طب بشري — إلهام طبي وإنساني',
-      roleEn: 'Human Medicine — Medical & Humanitarian Inspiration',
+      roleAr: 'كلية الاسنان',
+      roleEn: 'College of Dentistry',
       src: `${base}assets/personal interview videos/د. الاء هاني.mp4`,
     },
     {
       id: 'video-2',
-      titleAr: 'د. هنيدة نجيب عبيدة',
-      titleEn: 'Dr. Hunaida Najeeb Obaida',
-      roleAr: 'أكاديمية وتوجيه علمي متكامل',
-      roleEn: 'Academic & Integrated Scientific Guidance',
+      titleAr: 'أ. هنيدة عبيدة',
+      titleEn: 'Ms. Hunaida Obaida',
+      roleAr: 'كلية آداب علم نفس',
+      roleEn: 'College of Arts - Psychology',
       src: `${base}assets/personal interview videos/د. هنيدة نجيب عبيدة.mp4`,
     },
     {
