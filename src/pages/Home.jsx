@@ -107,11 +107,11 @@ export default function Home() {
       descEn: 'Our first step towards guiding students and discovering their academic and professional passion.',
     },
     {
-      image: `${base}assets/images/Wejha_Seasons/Season2/2.jpg`,
+      image: `${base}assets/images/Wejha_Seasons/Season2/IMG_4514.jpg`,
       titleAr: 'الموسم الثاني لوجهة',
       titleEn: 'Wejha Season 2',
-      descAr: 'توسيع التغطية لتشمل المزيد من المدارس وتقديم ورش عمل تدريبية وبناء القدرات.',
-      descEn: 'Expanding coverage to include more schools, delivering training workshops, and capacity building.',
+      descAr: 'توسيع التغطية لتشمل المزيد من الطلاب وتقديم ورش عمل تدريبية وبناء القدرات.',
+      descEn: 'Expanding coverage to include more students, delivering training workshops, and capacity building.',
     },
     {
       image: `${base}assets/images/Wejha_Seasons/Season3/3.jpg`,

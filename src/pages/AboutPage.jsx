@@ -111,32 +111,64 @@ export default function AboutPage() {
       {/* ── Story + Objectives ── */}
       <section className="about-main-section">
         <div className="about-story-grid">
-          {/* Story Card */}
-          <motion.div variants={cardVariants} className="glass-panel main-story-card">
-            <div className="story-header">
-              <div className="story-icon-wrap">
-                <BookOpen size={24} />
+          <div className="about-story-left-col">
+            {/* Story Card */}
+            <motion.div variants={cardVariants} className="glass-panel main-story-card">
+              <div className="story-header">
+                <div className="story-icon-wrap">
+                  <BookOpen size={24} />
+                </div>
+                <h2>{t('about.story_title')}</h2>
               </div>
-              <h2>{t('about.story_title')}</h2>
-            </div>
-            <p className="story-text">{t('about.description')}</p>
-            <div className="story-badges-row">
-              <div className="story-badge-item">
-                <span className="badge-val">1,928</span>
-                <span className="badge-lbl">{isRtl ? 'طالب وطالبة' : 'Students'}</span>
+              <p className="story-text">{t('about.description')}</p>
+            </motion.div>
+
+            {/* Why Wejha Card */}
+            <motion.div variants={cardVariants} className="glass-panel why-wejha-card">
+              <div className="why-wejha-container">
+                <div className="why-wejha-content">
+                  <div className="story-header">
+                    <div className="story-icon-wrap why-icon-wrap">
+                      <HelpCircle size={24} />
+                    </div>
+                    <h2>{t('about.why_title')}</h2>
+                  </div>
+                  <ul className="why-wejha-list">
+                    <li>
+                      <span className="why-list-dot red" />
+                      <span className="why-list-text">{t('about.why_item1')}</span>
+                    </li>
+                    <li>
+                      <span className="why-list-dot orange" />
+                      <span className="why-list-text">{t('about.why_item2')}</span>
+                    </li>
+                    <li>
+                      <span className="why-list-dot purple" />
+                      <span className="why-list-text">{t('about.why_item3')}</span>
+                    </li>
+                    <li>
+                      <span className="why-list-dot blue" />
+                      <span className="why-list-text">{t('about.why_item4')}</span>
+                    </li>
+                    <li>
+                      <span className="why-list-dot teal" />
+                      <span className="why-list-text">{t('about.why_item5')}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="why-wejha-image-wrap">
+                  <img 
+                    src="/assets/images/logo png/wejha_logo_vertical_multi_gradient_on_blue_card.png" 
+                    alt={isRtl ? 'لوغو مشروع وجهة' : 'Wejha Project Logo'} 
+                    className="why-wejha-img" 
+                  />
+                  <div className="why-wejha-badge">
+                    <span>{isRtl ? 'لماذا وجهة؟' : 'Why Wejha?'}</span>
+                  </div>
+                </div>
               </div>
-              <div className="story-badge-divider" />
-              <div className="story-badge-item">
-                <span className="badge-val">27</span>
-                <span className="badge-lbl">{isRtl ? 'مدرسة ثانوية' : 'Schools'}</span>
-              </div>
-              <div className="story-badge-divider" />
-              <div className="story-badge-item">
-                <span className="badge-val">4</span>
-                <span className="badge-lbl">{isRtl ? 'مواسم' : 'Seasons'}</span>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* Objectives Card */}
           <motion.div variants={cardVariants} className="glass-panel objectives-card">

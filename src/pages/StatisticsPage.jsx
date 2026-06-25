@@ -55,10 +55,10 @@ export default function StatisticsPage() {
       dateAr: '25 - 27 أغسطس',
       dateEn: 'August 25 - 27',
       icon: <School size={24} />,
-      titleAr: 'المعرض التعليمي الشامل',
-      titleEn: 'Comprehensive Educational Expo',
-      descAr: 'يُقام معرض مفتوح يجمع الجامعات العامة والخاصة والمراكز التدريبية والمؤسسات التعليمية في مكان واحد يتيح للطلبة التعرف المباشر على التخصصات، آليات القبول، والبرامج المتاحة بعد الثانوية.',
-      descEn: 'An open exhibition bringing together public and private universities, training centers, and educational institutions in one place, allowing students to learn firsthand about majors, admission processes, and post-secondary opportunities.'
+      titleAr: 'ملتقى الجامعات',
+      titleEn: 'University Forum',
+      descAr: 'يُقام ملتقى مفتوح يجمع الجامعات العامة والخاصة والمراكز التدريبية والمؤسسات التعليمية في مكان واحد يتيح للطلبة التعرف المباشر على التخصصات، آليات القبول، والبرامج المتاحة بعد الثانوية.',
+      descEn: 'An open forum bringing together public and private universities, training centers, and educational institutions in one place, allowing students to learn firsthand about majors, admission processes, and post-secondary opportunities.'
     },
     {
       id: 'phase3',
@@ -77,7 +77,7 @@ export default function StatisticsPage() {
       {/* Page Header */}
       <header className="page-header">
         <h1 className="page-title">{isRtl ? "وجهة 2026" : "Wejha 2026"}</h1>
-        <p className="page-subtitle">{isRtl ? "ملتقى الجامعات والمؤشرات الميدانية لعام 2026" : "University Forum & Field Indicators for 2026"}</p>
+        <p className="page-subtitle">{isRtl ? "برنامج وجهة 2026 والمؤشرات الميدانية" : "Wejha 2026 Program & Field Indicators"}</p>
       </header>
 
       <motion.div 
@@ -89,7 +89,7 @@ export default function StatisticsPage() {
         {/* 1. University Forum Section */}
         <section className="forum-timeline-section">
           <div className="section-title-wrapper">
-            <h2 className="sub-section-title">{isRtl ? "ملتقى الجامعات في وجهة 2026" : "University Forum in Wejha 2026"}</h2>
+            <h2 className="sub-section-title">{isRtl ? "برنامج وجهة 2026" : "Wejha 2026 Program"}</h2>
             <p className="sub-section-subtitle">
               {isRtl 
                 ? "الجدول الزمني ومراحل الفعاليات التعليمية والمهنية المصاحبة للمشروع" 

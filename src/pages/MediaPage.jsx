@@ -65,10 +65,13 @@ export default function MediaPage() {
         `${base}assets/images/Wejha_Seasons/Season1/9.JPG`,
         `${base}assets/images/Wejha_Seasons/Season1/11.JPG`,
         `${base}assets/images/Wejha_Seasons/Season1/13.JPG`,
-        `${base}assets/images/Wejha_Seasons/Season1/20240720_122902.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season1/1.jpg`,
         `${base}assets/images/Wejha_Seasons/Season1/20240720_125035.jpg`,
         `${base}assets/images/Wejha_Seasons/Season1/IMG_2591.JPG`,
-        `${base}assets/images/Wejha_Seasons/Season1/IMG_2593.JPG`
+        `${base}assets/images/Wejha_Seasons/Season1/IMG_2593.JPG`,
+        `${base}assets/images/Wejha_Seasons/Season1/IMG_2720.JPG`,
+        `${base}assets/images/Wejha_Seasons/Season1/IMG_5225.JPG`,
+        `${base}assets/images/Wejha_Seasons/Season1/photo_2026-03-26_15-17-59.jpg`
       ]
     },
     Season2: {
@@ -82,7 +85,11 @@ export default function MediaPage() {
         `${base}assets/images/Wejha_Seasons/Season2/IMG_4529.jpg`,
         `${base}assets/images/Wejha_Seasons/Season2/IMG_4536.jpg`,
         `${base}assets/images/Wejha_Seasons/Season2/IMG_4553.jpg`,
-        `${base}assets/images/Wejha_Seasons/Season2/IMG_4555.jpg`
+        `${base}assets/images/Wejha_Seasons/Season2/IMG_4555.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season2/2.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season2/IMG_4557.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season2/IMG_4561.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season2/IMG_4564.jpg`
       ]
     },
     Season3: {
@@ -96,14 +103,18 @@ export default function MediaPage() {
         `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-00.jpg`,
         `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-13.jpg`,
         `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-29.jpg`,
-        `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-34.jpg`
+        `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-34.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season3/3.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-38.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_20-59-51.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season3/photo_2025-09-13_21-00-35.jpg`
       ]
     },
     Season4: {
       titleAr: "تجهيزات الموسم الرابع (2026)",
       titleEn: "Season 4 Preparations (2026)",
       images: [
-        `${base}assets/images/Wejha_Seasons/Season4 preparation/photo_2026-06-20_21-45-07.jpg`,
+        `${base}assets/images/Wejha_Seasons/Season4 preparation/4.jpg`,
         `${base}assets/images/Wejha_Seasons/Season4 preparation/photo_2026-06-20_21-45-07 (2).jpg`,
         `${base}assets/images/Wejha_Seasons/Season4 preparation/photo_2026-06-20_21-45-07 (3).jpg`,
         `${base}assets/images/Wejha_Seasons/Season4 preparation/photo_2026-06-20_21-45-07 (4).jpg`,

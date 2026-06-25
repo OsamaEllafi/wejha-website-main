@@ -157,11 +157,14 @@ export default function ContactPage() {
           <div className="contact-social-section">
             <h4>{t('contact.social_title')}</h4>
             <div className="social-links-grid">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-card facebook">
+              <a href="https://www.facebook.com/share/17jYdNTeBv/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="social-card facebook">
                 <span>Facebook</span>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-card instagram">
+              <a href="https://www.instagram.com/wejha_wejha?igsh=dWs3eGx6cjN1cWt1" target="_blank" rel="noopener noreferrer" className="social-card instagram">
                 <span>Instagram</span>
+              </a>
+              <a href="https://www.tiktok.com/@wejha_wejha?_r=1&_t=ZS-97VpTmN1mPU" target="_blank" rel="noopener noreferrer" className="social-card tiktok">
+                <span>TikTok</span>
               </a>
             </div>
           </div>
@@ -221,6 +224,7 @@ export default function ContactPage() {
                   <option value="student">{t('contact.inquiry_student')}</option>
                   <option value="volunteer">{t('contact.inquiry_volunteer')}</option>
                   <option value="sponsor">{t('contact.inquiry_sponsor')}</option>
+                  <option value="institution">{t('contact.inquiry_institution')}</option>
                 </select>
               </div>
 

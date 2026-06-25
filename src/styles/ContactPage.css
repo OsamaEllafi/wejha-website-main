@@ -145,8 +145,8 @@
 
 .social-links-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
 }
 
 .social-card {
@@ -175,6 +175,11 @@
 .social-card.instagram {
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
+
+.social-card.tiktok {
+  background: #010101;
+}
+
 
 /* Form Styles */
 .contact-form {
