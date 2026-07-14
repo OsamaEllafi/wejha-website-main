@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { BookOpen, School, Cpu, Calendar } from 'lucide-react';
+import { BookOpen, School, Cpu } from 'lucide-react';
 import '../styles/StatisticsPage.css';
 
 export default function StatisticsPage() {
@@ -106,10 +106,6 @@ export default function StatisticsPage() {
                 whileHover={{ y: -8 }}
               >
                 <div className="phase-card-header">
-                  <span className="phase-date-badge">
-                    <Calendar size={14} />
-                    <span>{isRtl ? phase.dateAr : phase.dateEn}</span>
-                  </span>
                   <div className="phase-icon-wrapper">
                     {phase.icon}
                   </div>
