@@ -27,3 +27,10 @@ dist-ssr
 # د. الاء هاني.mp4 = 101MB, د. هنيدة نجيب عبيدة.mp4 = 537MB
 public/assets/personal interview videos/د. الاء هاني.mp4
 public/assets/personal interview videos/د. هنيدة نجيب عبيدة.mp4
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
