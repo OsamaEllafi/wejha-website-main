@@ -2,34 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { useTranslation } from 'react-i18next';
-import { Sun, Moon, Globe, Menu, X, Hammer, QrCode, UserCheck, Bell, ClipboardList, Home, BookOpen, BarChart2, Compass, Image as ImageIcon, Cpu, Mail } from 'lucide-react';
+import { Sun, Moon, Globe, Menu, X, Home, BookOpen, BarChart2, Compass, Image as ImageIcon, Cpu, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-const listVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.2
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { type: "spring", stiffness: 120, damping: 14 } 
-  }
-};
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [isOpen, setIsOpen] = useState(false);
-  const [showDevModal, setShowDevModal] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -56,9 +36,8 @@ export default function Navbar() {
   ];
 
   return (
-    <>
-      <nav className="glass-panel navbar-container">
-        <div className="navbar-content">
+    <nav className="glass-panel navbar-container">
+      <div className="navbar-content">
         {/* Brand Logo & Name */}
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
           <img 
@@ -96,12 +75,14 @@ export default function Navbar() {
         {/* Action Controls (Theme, Language, Mobile Menu Button) */}
         <div className="navbar-controls">
           {/* Highlighted Portal Button */}
-          <button 
-            onClick={() => setShowDevModal(true)} 
+          <a 
+            href="https://portal.wejha.org.ly" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="navbar-portal-btn"
           >
             <span>{t('nav.portal')}</span>
-          </button>
+          </a>
 
           {/* Theme Toggle */}
           <button onClick={toggleTheme} className="control-btn" aria-label="Toggle Theme">
@@ -147,115 +128,19 @@ export default function Navbar() {
             })}
             
             {/* Highlighted Mobile Portal Button */}
-            <button 
-              onClick={() => {
-                setIsOpen(false);
-                setShowDevModal(true);
-              }} 
+            <a 
+              href="https://portal.wejha.org.ly" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
               className="mobile-navbar-portal-btn"
             >
               <span>{t('nav.portal')}</span>
-            </button>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
-
-      {/* Portal Development Warning Modal */}
-      <AnimatePresence>
-        {showDevModal && (
-          <motion.div 
-            className="navbar-modal-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setShowDevModal(false)}
-          >
-            <motion.div 
-              className="glass-panel portal-dev-modal"
-              initial={{ scale: 0.9, y: 30, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 30, opacity: 0 }}
-              transition={{ type: "spring", duration: 0.5, bounce: 0.25 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Backlight Ambient Glow */}
-              <div className="modal-glow-backlight"></div>
-
-              {/* Top Close Button */}
-              <button className="close-modal-x" onClick={() => setShowDevModal(false)}>
-                <X size={20} />
-              </button>
-              
-              {/* Active Development Status Badge */}
-              <span className="dev-status-tag">
-                <span className="pulse-dot"></span>
-                {t('contact.dev_badge')}
-              </span>
-              
-              {/* Premium Futuristic Animated Illustration */}
-              <div className="portal-dev-illustration">
-                <div className="illustration-ring ring-1"></div>
-                <div className="illustration-ring ring-2"></div>
-                <div className="illustration-center">
-                  <Hammer size={24} className="modal-hammer-icon" />
-                </div>
-              </div>
-              
-              <h3>{t('contact.dev_title')}</h3>
-              <p className="modal-dev-subtitle">{t('contact.dev_subtitle')}</p>
-              
-              {/* Features List using Staggered Cascade Cards */}
-              <div className="upcoming-features-wrapper">
-                <h4>{t('contact.features_title')}</h4>
-                
-                <motion.div 
-                  className="upcoming-features-list"
-                  variants={listVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <motion.div variants={itemVariants} className="feature-item-card">
-                    <div className="feat-icon-badge">
-                      <UserCheck size={18} />
-                    </div>
-                    <span>{t('contact.feat_auth')}</span>
-                  </motion.div>
-  
-                  <motion.div variants={itemVariants} className="feature-item-card">
-                    <div className="feat-icon-badge">
-                      <QrCode size={18} />
-                    </div>
-                    <span>{t('contact.feat_qr')}</span>
-                  </motion.div>
-  
-                  <motion.div variants={itemVariants} className="feature-item-card">
-                    <div className="feat-icon-badge">
-                      <ClipboardList size={18} />
-                    </div>
-                    <span>{t('contact.feat_survey')}</span>
-                  </motion.div>
-  
-                  <motion.div variants={itemVariants} className="feature-item-card">
-                    <div className="feat-icon-badge">
-                      <Bell size={18} />
-                    </div>
-                    <span>{t('contact.feat_notif')}</span>
-                  </motion.div>
-                </motion.div>
-              </div>
-              
-              {/* Action Button */}
-              <button 
-                onClick={() => setShowDevModal(false)}
-                className="close-dev-modal-btn"
-              >
-                {t('contact.close_btn')}
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
   );
 }
+

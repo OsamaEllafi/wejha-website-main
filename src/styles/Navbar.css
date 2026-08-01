@@ -266,6 +266,7 @@
   display: inline-block;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .navbar-portal-btn::before {
@@ -318,6 +319,8 @@
   transition: all 0.3s ease;
   font-family: var(--font-arabic-headers);
   margin-top: 15px;
+  display: block;
+  text-decoration: none;
 }
 
 .mobile-navbar-portal-btn:hover {
