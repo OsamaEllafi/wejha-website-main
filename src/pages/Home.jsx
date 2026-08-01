@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Award, BarChart2, BookOpen, Compass, Image, Cpu, Play, Sparkles, HelpCircle, ChevronDown, ChevronUp, Mail, Send, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Award, BarChart2, BookOpen, Compass, Image, Cpu, Play, Sparkles, HelpCircle, ChevronDown, ChevronUp, Mail, Send, CheckCircle2, ExternalLink } from 'lucide-react';
 import Counter from '../components/Counter';
 import '../styles/Home.css';
 
@@ -270,10 +270,15 @@ export default function Home() {
               </span>
             </div>
 
-            <button onClick={scrollToContent} className="btn-accent hero-scroll-btn">
-              <span>{isRtl ? "استكشف التفاعلات والمؤشرات" : "Explore Dashboard & Indicators"}</span>
-              <ArrowRight size={18} className="rotate-down" style={{ transform: 'rotate(90deg)' }} />
-            </button>
+            <a 
+              href="https://portal.wejha.org.ly" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-accent hero-scroll-btn"
+            >
+              <span>{isRtl ? "منصة الطلاب - سجل الآن" : "Students Portal - Register Now"}</span>
+              <ExternalLink size={18} />
+            </a>
           </motion.div>
         </div>
 
