@@ -10,6 +10,9 @@ export default function Home() {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.language === 'ar';
 
+  // Toggle to show/hide the Wejha 4 countdown timer (set to true to make visible again)
+  const showCountdownTimer = false;
+
   // Target date: August 22, 2026
   const calculateTimeLeft = () => {
     const difference = +new Date("2026-08-22T00:00:00") - +new Date();
@@ -457,36 +460,38 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Timer — always LTR internally so Days is first in DOM; CSS order reverses for RTL */}
-          <motion.div variants={itemVariants} className={`countdown-timer-row ${isRtl ? 'rtl-timer' : ''}`}>
-            <div className="cdt-box" data-unit="days">
-              <div className="cdt-flip">
-                <span className="cdt-num">{String(timeLeft.days || 0).padStart(2, '0')}</span>
+          {/* Timer — set showCountdownTimer to true to display again */}
+          {showCountdownTimer && (
+            <motion.div variants={itemVariants} className={`countdown-timer-row ${isRtl ? 'rtl-timer' : ''}`}>
+              <div className="cdt-box" data-unit="days">
+                <div className="cdt-flip">
+                  <span className="cdt-num">{String(timeLeft.days || 0).padStart(2, '0')}</span>
+                </div>
+                <span className="cdt-label">{isRtl ? "يوم" : "Days"}</span>
               </div>
-              <span className="cdt-label">{isRtl ? "يوم" : "Days"}</span>
-            </div>
-            <div className="cdt-separator">:</div>
-            <div className="cdt-box" data-unit="hours">
-              <div className="cdt-flip">
-                <span className="cdt-num">{String(timeLeft.hours || 0).padStart(2, '0')}</span>
+              <div className="cdt-separator">:</div>
+              <div className="cdt-box" data-unit="hours">
+                <div className="cdt-flip">
+                  <span className="cdt-num">{String(timeLeft.hours || 0).padStart(2, '0')}</span>
+                </div>
+                <span className="cdt-label">{isRtl ? "ساعة" : "Hours"}</span>
               </div>
-              <span className="cdt-label">{isRtl ? "ساعة" : "Hours"}</span>
-            </div>
-            <div className="cdt-separator">:</div>
-            <div className="cdt-box" data-unit="minutes">
-              <div className="cdt-flip">
-                <span className="cdt-num">{String(timeLeft.minutes || 0).padStart(2, '0')}</span>
+              <div className="cdt-separator">:</div>
+              <div className="cdt-box" data-unit="minutes">
+                <div className="cdt-flip">
+                  <span className="cdt-num">{String(timeLeft.minutes || 0).padStart(2, '0')}</span>
+                </div>
+                <span className="cdt-label">{isRtl ? "دقيقة" : "Minutes"}</span>
               </div>
-              <span className="cdt-label">{isRtl ? "دقيقة" : "Minutes"}</span>
-            </div>
-            <div className="cdt-separator">:</div>
-            <div className="cdt-box" data-unit="seconds">
-              <div className="cdt-flip">
-                <span className="cdt-num">{String(timeLeft.seconds || 0).padStart(2, '0')}</span>
+              <div className="cdt-separator">:</div>
+              <div className="cdt-box" data-unit="seconds">
+                <div className="cdt-flip">
+                  <span className="cdt-num">{String(timeLeft.seconds || 0).padStart(2, '0')}</span>
+                </div>
+                <span className="cdt-label">{isRtl ? "ثانية" : "Seconds"}</span>
               </div>
-              <span className="cdt-label">{isRtl ? "ثانية" : "Seconds"}</span>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
 
           {/* Teaser tagline */}
           <motion.p variants={itemVariants} className="countdown-mystery-text">
