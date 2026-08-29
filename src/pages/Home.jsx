@@ -13,9 +13,9 @@ export default function Home() {
   // Toggle to show/hide the Wejha 4 countdown timer (set to true to make visible again)
   const showCountdownTimer = false;
 
-  // Target date: August 22, 2026
+  // Target date: September 2026
   const calculateTimeLeft = () => {
-    const difference = +new Date("2026-08-22T00:00:00") - +new Date();
+    const difference = +new Date("2026-09-01T00:00:00") - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -455,8 +455,8 @@ export default function Home() {
             </h2>
             <p className="countdown-sub-headline">
               {isRtl
-                ? "رحلة إرشادية استثنائية تنطلق في أغسطس 2026"
-                : "An exceptional guidance journey launching August 2026"}
+                ? "رحلة إرشادية استثنائية تنطلق في سبتمبر 2026"
+                : "An exceptional guidance journey launching September 2026"}
             </p>
           </motion.div>
 
